@@ -1,0 +1,198 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Button  from './button';
+import dark,{lightwrapper} from '../../stories/decorators.stories'
+import SwichButtonType,{FastSwitchBttonType} from './button-example'
+
+<Meta title='Button-按钮组件' component={Button} />
+
+<br/>
+
+# Button/按钮组件
+<br/>
+
+
+<br/>
+
+## 按钮类型/btnType
+<br/>
+
+<Preview>
+  <Story name='default' >
+    <Button btnType='default' >default</Button>
+  </Story>
+  <Story name='primary' >
+    <Button btnType='primary'>primary</Button>
+  </Story>
+  <Story name='danger'>
+    <Button btnType='danger'>danger</Button>
+  </Story>
+   <Story name='link'>
+    <Button btnType='link'>link</Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='neu-white1'>
+    <Button btnType='neu-w-up' >neu-w-up</Button>
+  </Story>
+  <Story name='neu-white2'>
+    <Button btnType='neu-w-down'>neu-w-down</Button>
+  </Story>
+    <Story name='neu-white3'>
+    <Button btnType='neu-w-co'>neu-w-co</Button>
+  </Story>
+    <Story name='neu-white4'>
+    <Button btnType='neu-w-fl'>neu-w-fl</Button>
+  </Story>
+</Preview>
+
+  
+
+<br/>
+
+## 按钮大小/size
+<br/>
+
+#### 大号/lg
+
+<Preview>
+  <Story name='default-lg' >
+    <Button btnType='default' size='lg' >default</Button>
+  </Story>
+  <Story name='primary-lg' >
+    <Button btnType='primary' size='lg'>primary</Button>
+  </Story>
+  <Story name='danger-lg'>
+    <Button btnType='danger' size='lg'>danger</Button>
+  </Story>
+   <Story name='link-lg'>
+    <Button btnType='link' size='lg'>link</Button>
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name='neu-w-up-lg' >
+    <Button btnType='neu-w-up' size='lg' >neu-w-up</Button>
+  </Story>
+  <Story name='neu-w-down-lg' >
+    <Button btnType='neu-w-down' size='lg'>neu-w-down</Button>
+  </Story>
+  <Story name='neu-w-co-lg'>
+    <Button btnType='neu-w-co' size='lg'>neu-w-co</Button>
+  </Story>
+   <Story name='neu-w-fl-lg'>
+    <Button btnType='neu-w-fl' size='lg'>neu-w-fl</Button>
+  </Story>
+</Preview>
+
+#### 小号/sm
+
+<Preview>
+  <Story name='default-sm' >
+    <Button btnType='default' size='sm' >default</Button>
+  </Story>
+  <Story name='primary-sm' >
+    <Button btnType='primary' size='sm'>primary</Button>
+  </Story>
+  <Story name='danger-sm'>
+    <Button btnType='danger' size='sm'>danger</Button>
+  </Story>
+   <Story name='link-sm'>
+    <Button btnType='link' size='sm'>link</Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='neu-w-up-sm' >
+    <Button btnType='neu-w-up' size='sm' >neu-w-up</Button>
+  </Story>
+  <Story name='neu-w-down-sm' >
+    <Button btnType='neu-w-down' size='sm'>neu-w-down</Button>
+  </Story>
+  <Story name='neu-w-co-sm'>
+    <Button btnType='neu-w-co' size='sm'>neu-w-co</Button>
+  </Story>
+   <Story name='neu-w-fl-sm'>
+    <Button btnType='neu-w-fl' size='sm'>neu-w-fl</Button>
+  </Story>
+</Preview>
+
+<br/>
+
+## 类型结合示例/example
+<br/>
+
+### 点击切换按钮类型
+
+<Story name='button-example' >
+  <SwichButtonType />
+</Story>
+
+```tsx
+function SwichButtonType(){
+    const [state,setState] = useState(false)
+    return (
+       <Button btnType={state?'neu-w-down':'neu-w-up'} onClick={()=>setState(!state)}>SwichButtonType</Button>
+    )
+}
+export  default SwichButtonType
+```
+
+### 按下切换按钮类型
+
+<Story name='button-example2' >
+  <FastSwitchBttonType />
+</Story>
+
+```tsx
+export function FastSwitchBttonType(){
+    const [state,setState] = useState(false)
+    const downReplace=()=>(setState(true))
+    const upReplace =()=>(setState(false))
+    useEffect(()=>{
+        let ref=document.querySelector('.fastswitch')
+        if(ref){
+            ref.addEventListener('mousedown',downReplace)
+            ref.addEventListener('mouseup',upReplace)
+        }
+        return()=>{
+            ref?.removeEventListener('mouseup',upReplace);
+            ref?.removeEventListener('mousedown',downReplace)
+        }
+    },[])
+    return (
+        <Button btnType={state?'neu-w-down':'neu-w-fl'} 
+         className={'fastswitch'}>FastSwitchBttonType</Button>
+     )
+}
+```
+
+### 环状嵌套按钮
+
+- 环状嵌套主要是利用一个凹下去的div嵌套凸起的div。
+
+<Preview>
+<Story name='button-example3' >
+  <div className="btn-type-neu-w-down" style={{padding:'10px',display:'inline-block',borderRadius:'5px'}}>
+    <Button btnType='neu-w-fl'>RingButton</Button>
+  </div>
+</Story>
+</Preview>
+
+
+<br/>
+
+## 属性详情/Props
+
+<Props of={Button} />
+
+## FAQ
+- Q：没有圆形按钮？
+- A：只要设置下border-radius就可以变成圆形了，暂时未做成配置项，功能仍在开发中。
+- Q: 嵌套环状不做成完整的样子？
+- A: 暂时使用上面形式进行嵌套，有特别需要可以自行封装。
+- Q:button取不到ref？
+- A:此组件是函数组件封装的，无ref，且未在函数组件里传入第二个参数。
+个人觉得如果使用forwardRef会增大体积和复杂度。这样还不如去用antd。
+如果想拿到ref最简单的方法就是使用上面按下切换按钮类型里的通过选择器的方式获取。

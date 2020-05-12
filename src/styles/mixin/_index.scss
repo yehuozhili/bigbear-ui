@@ -1,0 +1,70 @@
+@import "./clearfix.scss";
+@import "./size.scss";
+
+
+
+//button
+@mixin button-size($btn-padding-x,$btn-padding-y,$font-size-base,$border-radius) {
+    padding: $btn-padding-y $btn-padding-x  $btn-padding-y $btn-padding-x;
+    font-size: $font-size-base;
+    border-radius: $border-radius;
+}
+
+@mixin button-style(
+    $background-color,$border-color,$color,
+    $hover-background-color:lighten($background-color,7.5%),
+    $hover-border-color:lighten($border-color,10%),
+    $hover-color:$color) {
+    color:$color;
+    background-color: $background-color;
+    border-color: $border-color;
+    &:hover{
+        color: $hover-color;
+        background-color: $hover-background-color;
+        border-color: $hover-border-color;
+        outline-color:lighten($hover-border-color,10%);
+    }
+    &:focus{
+        color: $hover-color;
+        background-color: $hover-background-color;
+        border-color: $hover-border-color;
+        outline-color:lighten($hover-border-color,10%);
+    }
+    &[disabled]{
+        color: $color;
+        background-color: $background-color;
+        border-color: $border-color;
+    }
+}
+
+@mixin neu-white ($btn-neu-normal){
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
+    -($btn-neu-normal) -($btn-neu-normal) $btn-neu-normal*2 #ffffff;
+}
+@mixin neu-white-down ($btn-neu-normal){
+    background:white;
+    box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
+    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
+}
+@mixin neu-white-co($btn-neu-normal){
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
+     (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
+}
+@mixin neu-white-fl($btn-neu-normal){
+    background: white;
+    box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
+     (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
+}
+@mixin neu-white-ringafter($btn-neu-normal,$btn-border-radius) {
+   position: absolute;
+   content: '';
+   left: -10%;
+   width: 120%;
+   height: 120%;
+   top:-10%;
+    opacity: 80%;
+    z-index: 1;
+   @include neu-white-fl($btn-neu-normal)
+}
