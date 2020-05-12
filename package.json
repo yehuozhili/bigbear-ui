@@ -11,43 +11,49 @@
     "bigbear",
     "bigbear-ui"
   ],
+  "homepage": "https://github.com/yehuozhili/yehuozhili.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yehuozhili/bigbear-ui"
+  },
+  "files": [
+    "dist"
+  ],
   "author": "yehuozhili",
   "license": "MIT",
   "private": false,
-  "main": "build/index.js",
-  "module": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
-    "@storybook/addon-docs": "^5.3.18",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/classnames": "^2.2.10",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.38",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.7",
-    "classnames": "^2.2.6",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.7.5"
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "clean": "rimraf ./build",
+    "clean": "rimraf ./dist",
+    "lint": "eslint --ext js,ts,tsx src",
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-script test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --docs",
     "build-storybook": "build-storybook -s public --docs",
     "build-ts": "tsc -p tsconfig.build.json",
-    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "prepublish": "npm run lint & npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hook": {
+      "pre-commit": "npm run lint"
+    }
   },
   "browserslist": {
     "production": [
@@ -62,6 +68,20 @@
     ]
   },
   "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "node-sass": "^4.14.1",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5",
+    "@storybook/addon-docs": "^5.3.18",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.38",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
