@@ -8,10 +8,10 @@ env:
   - CI=true
   script:
     - npm run build-storybook  #不加默认运行npmtest
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-#   loacal_dir:storybook-static
-#   on:
-#     branch: test2 #s
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $githubtoken  # Set in the settings page of your repository, as a secure variable
+  loacal_dir:storybook-static
+  on:
+    branch: test2 #s
