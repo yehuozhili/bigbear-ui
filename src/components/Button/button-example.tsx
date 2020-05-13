@@ -8,7 +8,7 @@ function SwichButtonType(){
        <Button btnType={state?'neu-w-down':'neu-w-up'} onClick={()=>setState(!state)}>SwichButtonType</Button>
     )
 }
-export  default SwichButtonType
+export  default SwichButtonType ;
 
 
 
