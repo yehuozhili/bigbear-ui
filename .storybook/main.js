@@ -1,4 +1,4 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
   addons: [
@@ -45,7 +45,7 @@ module.exports = {
       },
       runtimeChunk: true
     }
-    config.plugins.push(new BundleAnalyzerPlugin())
+    //config.plugins.push(new BundleAnalyzerPlugin())
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   },
