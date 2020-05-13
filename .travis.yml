@@ -14,5 +14,5 @@ deploy:
   github_token: $githubtoken
   local_dir: storybook-static
   on:
-    branch: develop
+    branch: master
   
