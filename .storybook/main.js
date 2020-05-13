@@ -1,3 +1,4 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
   addons: [
@@ -29,6 +30,22 @@ module.exports = {
         }
       ]
     });
+    let tser = config.optimization.minimizer
+    let maxAssetSize = 1024 * 1024
+    config.performance = {
+      maxAssetSize: maxAssetSize
+    }
+    config.optimization = {
+      minimizer: tser,
+      minimize: true,
+      splitChunks: {//分割代码块
+        chunks: 'all',
+        minSize: 30 * 1024,
+        maxSize: maxAssetSize,
+      },
+      runtimeChunk: true
+    }
+    config.plugins.push(new BundleAnalyzerPlugin())
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   },

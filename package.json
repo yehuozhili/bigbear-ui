@@ -11,7 +11,7 @@
     "bigbear",
     "bigbear-ui"
   ],
-  "homepage": "https://github.com/yehuozhili/yehuozhili.github.io",
+  "homepage": "https://yehuozhili.github.io/bigbear-ui/",
   "repository": {
     "type": "git",
     "url": "https://github.com/yehuozhili/bigbear-ui"
@@ -41,7 +41,7 @@
     "test:nowatch": "cross-env CI=true react-script test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --docs",
-    "build-storybook": "build-storybook -s public --docs",
+    "build-storybook": "build-storybook -s public --quiet  --docs",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -68,12 +68,12 @@
     ]
   },
   "devDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "node-sass": "^4.14.1",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.7.5",
+    "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/react": "^5.3.18",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -82,14 +82,15 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.18",
     "cz-conventional-changelog": "^3.2.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
-    "rimraf": "^3.0.2"
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.7.5",
+    "webpack-bundle-analyzer": "^3.7.0"
   },
   "config": {
     "commitizen": {
