@@ -6,12 +6,13 @@ cache:
   - node_modules
 env:
   - CI=true
-  script:
-    - npm run build-storybook  #不加默认运行npmtest
+script:
+  - npm run build-storybook
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $githubtoken  # Set in the settings page of your repository, as a secure variable
-  loacal_dir:storybook-static
+  github_token: $githubtoken
+  local_dir: storybook-static
   on:
-    branch: test2 #s
+    branch: develop
+  
