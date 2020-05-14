@@ -37,15 +37,17 @@ module.exports = {
         options: { name: '[name].[ext]' }
       }
     });
-   // config.devtool='none';
-    //let tser = config.optimization.minimizer
-    let maxAssetSize = 1024 *1024
+    const isprod = config.mode === 'production'
+    isprod ? config.devtool = 'none' : null;
+
+    let tser = isprod ? config.optimization.minimizer : []
+    let maxAssetSize = 1024 * 1024
     config.performance = {
       maxAssetSize: maxAssetSize
     }
     config.optimization = {
-     // minimizer: tser,
-     // minimize: true,
+      minimizer: tser,
+      minimize: isprod ? true : false,
       splitChunks: {//分割代码块
         chunks: 'all',
         maxSize: maxAssetSize,
