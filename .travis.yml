@@ -7,6 +7,7 @@ cache:
 env:
   - CI=true
 script:
+  - npm run coverall
   - npm run build-storybook
 deploy:
   provider: pages

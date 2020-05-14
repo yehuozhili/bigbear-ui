@@ -1,5 +1,4 @@
-import React ,{FC}from 'react'
-import classNames from 'classnames'
+import React from 'react'
 
 
 const Alert = function(){

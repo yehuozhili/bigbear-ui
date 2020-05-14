@@ -1,6 +1,6 @@
 {
   "name": "bigbear-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Neumorphism component library for React",
   "keywords": [
     "component",
@@ -39,6 +39,7 @@
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
+    "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --docs",
@@ -83,6 +84,7 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
+    "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
