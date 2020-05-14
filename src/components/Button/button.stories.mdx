@@ -1,18 +1,18 @@
 import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Button  from './button';
-import SwichButtonType,{FastSwitchBttonType} from './button-example'
+import SwichButtonType,{FastSwitchBttonType} from './button.example'
 
-<Meta title='Button-按钮组件' component={Button} />
-
-<br/>
-
-# Button/按钮组件
-<br/>
-
+<Meta title='Component|Button-按钮组件' component={Button} />
 
 <br/>
 
-## 按钮类型/btnType
+# Button 按钮
+<br/>
+
+
+<br/>
+
+## 按钮类型 btnType
 <br/>
 
 <Preview>
@@ -49,10 +49,10 @@ import SwichButtonType,{FastSwitchBttonType} from './button-example'
 
 <br/>
 
-## 按钮大小/size
+## 按钮大小 size
 <br/>
 
-#### 大号/lg
+#### 大号 lg
 
 <Preview>
   <Story name='default-lg' >
@@ -85,7 +85,7 @@ import SwichButtonType,{FastSwitchBttonType} from './button-example'
   </Story>
 </Preview>
 
-#### 小号/sm
+#### 小号 sm
 
 <Preview>
   <Story name='default-sm' >
@@ -119,10 +119,46 @@ import SwichButtonType,{FastSwitchBttonType} from './button-example'
 
 <br/>
 
-## 类型结合示例/example
+
+### 禁用样式 disabled
+
+
+<Preview>
+  <Story name='defaultd' >
+    <Button btnType='default' disabled >default</Button>
+  </Story>
+  <Story name='primaryd' >
+    <Button btnType='primary' disabled>primary</Button>
+  </Story>
+  <Story name='dangerd'>
+    <Button btnType='danger' disabled>danger</Button>
+  </Story>
+   <Story name='linkd'>
+    <Button btnType='link' disabled>link</Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='neu-white1d'>
+    <Button btnType='neu-w-up' disabled >neu-w-up</Button>
+  </Story>
+  <Story name='neu-white2d'>
+    <Button btnType='neu-w-down' disabled>neu-w-down</Button>
+  </Story>
+    <Story name='neu-white3d'>
+    <Button btnType='neu-w-co' disabled>neu-w-co</Button>
+  </Story>
+    <Story name='neu-white4d'>
+    <Button btnType='neu-w-fl' disabled>neu-w-fl</Button>
+  </Story>
+</Preview>
+
+  
+
+## 类型结合示例 example
 <br/>
 
-### 点击切换按钮类型
+#### 点击切换按钮类型 click ⬇
 
 <Story name='button-example' >
   <SwichButtonType />
@@ -138,7 +174,7 @@ function SwichButtonType(){
 export  default SwichButtonType
 ```
 
-### 按下切换按钮类型
+#### 按下切换按钮类型 click ⬇
 
 <Story name='button-example2' >
   <FastSwitchBttonType />
@@ -182,7 +218,7 @@ export function FastSwitchBttonType(){
 
 <br/>
 
-## 属性详情/Props
+## 属性详情 Props
 
 <Props of={Button} />
 

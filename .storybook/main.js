@@ -28,19 +28,26 @@ module.exports = {
             }
           }
         }
-      ]
+      ],
+    })
+    config.module.rules.push({
+      test: /\.(gif|jpe?g|png|svg)$/,
+      use: {
+        loader: 'url-loader',
+        options: { name: '[name].[ext]' }
+      }
     });
-    let tser = config.optimization.minimizer
-    let maxAssetSize = 1024 * 1024
+   // config.devtool='none';
+    //let tser = config.optimization.minimizer
+    let maxAssetSize = 1024 *1024
     config.performance = {
       maxAssetSize: maxAssetSize
     }
     config.optimization = {
-      minimizer: tser,
-      minimize: true,
+     // minimizer: tser,
+     // minimize: true,
       splitChunks: {//分割代码块
         chunks: 'all',
-        minSize: 30 * 1024,
         maxSize: maxAssetSize,
       },
       runtimeChunk: true
@@ -50,3 +57,5 @@ module.exports = {
     return config;
   },
 };
+
+

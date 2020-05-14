@@ -17,7 +17,6 @@
     &[disabled]{
         cursor:not-allowed;
         opacity: $btn-disabled-opacity;
-        box-shadow:none;
         > *{
             pointer-events: none;
         }
@@ -73,6 +72,9 @@
     &:focus{
         outline: none;
     }
+    &.disabled{
+        pointer-events: none;
+    }
 }
 .btn-type-neu-w-down{
     font-weight: $font-weight-bold;
@@ -83,6 +85,9 @@
     }
     &:focus{
         outline: none;
+    }
+    &.disabled{
+        pointer-events: none;
     }
 }
 .btn-type-neu-w-co{
@@ -95,6 +100,9 @@
     &:focus{
         outline: none;
     }
+    &.disabled{
+        pointer-events: none;
+    }
 }
 .btn-type-neu-w-fl{
     font-weight: $font-weight-bold;
@@ -105,5 +113,8 @@
     }
     &:focus{
         outline: none;
+    }
+    &.disabled{
+        pointer-events: none;
     }
 }
