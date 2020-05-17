@@ -8,10 +8,10 @@ addParameters({
         page: DocsPage,
         PreviewSource: 'open',
     },
-    options:{
-        theme:create({
-            brandTitle:'BigBear-UI',
-            brandUrl:'https://github.com/yehuozhili/bigbear-ui'
+    options: {
+        theme: create({
+            brandTitle: 'BigBear-UI',
+            brandUrl: 'https://github.com/yehuozhili/bigbear-ui'
         })
     }
 });

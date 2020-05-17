@@ -1,20 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, FC, CSSProperties } from 'react'
 import {MenuContext} from './menu'
 import classNames from 'classnames'
 
 
 export interface MenuItemProps{
-    index:number;
+    index?:string;
     disabled?:boolean;
     className?:string;
-    style?:React.CSSProperties
+    style?:CSSProperties;
 }
 
 
 
 
 
-const MenuItem : React.FC<MenuItemProps> =(props)=>{
+export const MenuItem : FC<MenuItemProps> =(props)=>{
     const {index ,disabled,className,style,children}= props;
     const context =useContext(MenuContext)
     const classes = classNames('bigbear-menuitem',className,{
@@ -22,7 +22,7 @@ const MenuItem : React.FC<MenuItemProps> =(props)=>{
         'isactive':context.index===index
     })
     const handleClick=()=>{
-        if(context.onSelect&&!disabled){
+        if(context.onSelect&&!disabled&&typeof index ==="string"){
             context.onSelect(index)
         }
     }
@@ -32,4 +32,7 @@ const MenuItem : React.FC<MenuItemProps> =(props)=>{
         </li>
     )
 }
-export default MenuItem
+
+MenuItem.displayName='MenuItem';
+
+export default MenuItem;

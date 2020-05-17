@@ -1,4 +1,7 @@
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const TerserPlugin = require('terser-webpack-plugin');
+let maxAssetSize = 1024 * 1024
+let minSize = 30000
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
   addons: [
@@ -12,6 +15,46 @@ module.exports = {
       },
     }
   ],
+  managerWebpack: async (config) => {
+    config.optimization.splitChunks = { chunks: 'all', maxSize: maxAssetSize }
+    const isprod = config.mode === 'production'
+    let tser = isprod ? [new TerserPlugin({
+      terserOptions: {
+        parse: {
+          ecma: 8,
+        },
+        compress: {
+          ecma: 5,
+          warnings: false,
+          comparisons: false,
+          inline: 2,
+        },
+        mangle: {
+          safari10: true,
+        },
+        output: {
+          ecma: 5,
+          comments: false,
+          ascii_only: true,
+        }
+      }
+    })] : []
+    config.performance = {
+      maxAssetSize: maxAssetSize
+    }
+    config.optimization = {
+      minimizer: tser,
+      minimize: isprod ? true : false,
+      splitChunks: {
+        chunks: 'all',
+        maxSize: maxAssetSize,
+        minSize
+      },
+      runtimeChunk: true
+    }
+    //config.plugins.push(new BundleAnalyzerPlugin())
+    return config;
+  },
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -41,16 +84,17 @@ module.exports = {
     isprod ? config.devtool = 'none' : null;
 
     let tser = isprod ? config.optimization.minimizer : []
-    let maxAssetSize = 1024 * 1024
+
     config.performance = {
       maxAssetSize: maxAssetSize
     }
     config.optimization = {
       minimizer: tser,
       minimize: isprod ? true : false,
-      splitChunks: {//分割代码块
+      splitChunks: {
         chunks: 'all',
         maxSize: maxAssetSize,
+        minSize
       },
       runtimeChunk: true
     }
@@ -58,5 +102,6 @@ module.exports = {
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   },
+
 };
 

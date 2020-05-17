@@ -1,8 +1,8 @@
 import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Button  from './button';
-import SwichButtonType,{FastSwitchBttonType} from './button.example'
+import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
-<Meta title='Component|Button 按钮' component={Button} />
+<Meta title='Component|Button 按钮' component={Button} sort={1}/>
 
 <br/>
 
@@ -160,60 +160,81 @@ import SwichButtonType,{FastSwitchBttonType} from './button.example'
 
 #### 点击切换按钮类型 click ⬇
 
+<Preview>
 <Story name='button-example' >
-  <SwichButtonType />
+  <NeuWdown  callback={()=>console.log('123')}>按下切换状态</NeuWdown>
 </Story>
+</Preview>
+
+自行封装方法⬇
 
 ```tsx
-function SwichButtonType(){
+function NeuWdown(props:PropsWithChildren<{callback:()=>void,style?:CSSProperties}>){
     const [state,setState] = useState(false)
     return (
-       <Button btnType={state?'neu-w-down':'neu-w-up'} onClick={()=>setState(!state)}>SwichButtonType</Button>
+       <Button btnType={state?'neu-w-down':'neu-w-up'} onClick={()=>{
+           setState(!state)
+           props.callback()
+        }} style={props.style}>{props.children}</Button>
     )
 }
-export  default SwichButtonType
 ```
 
 #### 按下切换按钮类型 click ⬇
 
+<Preview>
 <Story name='button-example2' >
-  <FastSwitchBttonType />
+  <NeuWclick callback={()=>console.log('123')}>按下切换按钮类型</NeuWclick>
 </Story>
+</Preview>
+
+自行封装方法⬇
 
 ```tsx
-export function FastSwitchBttonType(){
+export function NeuWclick(props:PropsWithChildren<{callback:()=>void,style?:CSSProperties}>){
     const [state,setState] = useState(false)
     const downReplace=()=>(setState(true))
     const upReplace =()=>(setState(false))
-    useEffect(()=>{
-        let ref=document.querySelector('.fastswitch')
+    const btnRef = (ref:any)=>{
         if(ref){
-            ref.addEventListener('mousedown',downReplace)
-            ref.addEventListener('mouseup',upReplace)
+            ref.current.addEventListener('mousedown',downReplace)
+            ref.current.addEventListener('mouseup',upReplace)
         }
         return()=>{
-            ref?.removeEventListener('mouseup',upReplace);
-            ref?.removeEventListener('mousedown',downReplace)
+            ref.current?.removeEventListener('mouseup',upReplace);
+            ref.current?.removeEventListener('mousedown',downReplace)
         }
-    },[])
+    }
     return (
         <Button btnType={state?'neu-w-down':'neu-w-fl'} 
-         className={'fastswitch'}>FastSwitchBttonType</Button>
+            style={props.style}
+            onClick={props.callback}
+            refcallback={btnRef}>{props.children}</Button>
      )
 }
 ```
 
-### 环状嵌套按钮
+#### 环状嵌套按钮
 
 - 环状嵌套主要是利用一个凹下去的div嵌套凸起的div。
 
 <Preview>
 <Story name='button-example3' >
-  <div className="btn-type-neu-w-down" style={{padding:'10px',display:'inline-block',borderRadius:'5px'}}>
-    <Button btnType='neu-w-fl'>RingButton</Button>
-  </div>
+  <Ringclick callback={()=>console.log('123')}>环形按钮</Ringclick>
 </Story>
 </Preview>
+
+自行封装方法⬇
+
+```tsx
+export function Ringclick(props:PropsWithChildren<{callback:()=>void,style?:CSSProperties}>){
+    return (
+    <div className="btn-type-neu-w-down" style={{padding:'10px',display:'inline-block',borderRadius:'5px',...props.style}}>
+        <NeuWclick callback={props.callback}>{props.children}</NeuWclick>
+    </div>
+    )
+}
+```
 
 
 <br/>
@@ -223,11 +244,4 @@ export function FastSwitchBttonType(){
 <Props of={Button} />
 
 ## FAQ
-- Q：没有圆形按钮？
-- A：只要设置下border-radius就可以变成圆形了，暂时未做成配置项，功能仍在开发中。
-- Q: 嵌套环状不做成完整的样子？
-- A: 暂时使用上面形式进行嵌套，有特别需要可以自行封装。
-- Q:button取不到ref？
-- A:此组件是函数组件封装的，无ref，且未在函数组件里传入第二个参数。
-个人觉得如果使用forwardRef会增大体积和复杂度。这样还不如去用antd。
-如果想拿到ref最简单的方法就是使用上面按下切换按钮类型里的通过选择器的方式获取。
+- 正在开发中。。。
