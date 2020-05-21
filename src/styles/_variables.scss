@@ -36,17 +36,24 @@ $danger:        $red      !default;
 $light:         $gray-1   !default;
 $dark:          $gray-8   !default;
 
+
+$neu-whiteshadow1:#d9d9d9;
+$neu-whiteshadow2:#ffffff;
 $theme-colors: 
-(
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+(//type         //背景色    //文字色  //neushadow1 2
+  "default":    ($white,$gray-7, #d9d9d9,#ffffff),
+  "primary":    ($primary,$white,#3690d9,#4ac2ff),
+  "secondary":  ($secondary,$white,#777777,#a1a1a1),
+  "success":    ($success,$white,#62b234,#84f046),
+  "info":       ($info,$white,#2eb0ab,#3eeee7),
+  "warning":    ($warning,$gray-7,#d9c934,#ffff46),
+  "danger":     ($danger,$white,#d94143,#ff595b),
+  "light":      ($light,$gray-7,#d5d5d5, #ffffff),
+  "dark":       ($dark,$white,#393939,#4d4d4d)
 );
+
+
+
 
 $theme: light !default;
 $bear-fix: bear;
@@ -190,7 +197,7 @@ $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
 // 按钮
 // 按钮基本属性
-$btn-font-weight:             400;
+$btn-font-weight:             500;
 $btn-padding-y:               4px !default;
 $btn-padding-x:               8px !default;
 $btn-font-family:             $font-family-base !default;
@@ -234,7 +241,7 @@ $btn-transition:              color .15s ease-in-out, background-color .15s ease
 $menu-border-width:            $border-width !default;
 $menu-border-color:            $border-color !default;
 $menu-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-$menu-transition:              color .15s ease-in-out, border-color .15s ease-in-out !default;
+$menu-transition:              color .3s ease-in-out, border-color .35s ease-in-out !default;
 
 // menu-item
 $menu-item-padding-y:          8px !default;
@@ -243,9 +250,12 @@ $menu-item-active-color:       $primary !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color:     $gray-6 !default;
 
-//sub-menu
-//submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+
+//message
+$message-padding:         5px !default;
+
+
 
 //input
 $input-padding-y:                       $btn-padding-y !default;

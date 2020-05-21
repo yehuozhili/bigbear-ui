@@ -23,10 +23,12 @@ export function NeuWclick(props:PropsWithChildren<{callback:()=>void,style?:CSSP
         if(ref){
             ref.current.addEventListener('mousedown',downReplace)
             ref.current.addEventListener('mouseup',upReplace)
+            ref.current.addEventListener('mouseleave',upReplace)
         }
         return()=>{
             ref.current?.removeEventListener('mouseup',upReplace);
             ref.current?.removeEventListener('mousedown',downReplace)
+            ref.current?.removeEventListener('mouseleave',downReplace)
         }
     }
     return (

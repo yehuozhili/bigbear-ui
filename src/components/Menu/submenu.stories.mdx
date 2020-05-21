@@ -24,28 +24,26 @@ callback={linkTo('Component|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWcl
 <Story name='default2' >
     <div style={{minHeight:'200px'}}>
   <Menu  onSelect={(index)=>{console.log(index)}} >
-           <SubMenu title="ddd" >
-                <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>     
-                  <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>         
+           <SubMenu title="下拉菜单1" >
+                <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>      
             </SubMenu>
        
-            <SubMenu title="dsasadsrraase" >
-                <MenuItem>54fsadgfgfd</MenuItem>        
-                <MenuItem>DSAdsfDAX</MenuItem>     
-                <MenuItem>DSSfAD</MenuItem>        
-                <MenuItem>DSAsasadsadsadDAX</MenuItem>         
+            <SubMenu title="下拉菜单2" >
+                <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>     
+                <MenuItem>item3</MenuItem>        
+                <MenuItem>item4</MenuItem>         
             </SubMenu>
      
-             <SubMenu title="dsasadsaase" >
-                <MenuItem>54fgfgfd</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>     
-                  <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>         
+             <SubMenu title="下拉菜单3" >
+                 <MenuItem>item11111</MenuItem>        
+                <MenuItem>item2222</MenuItem>     
+                <MenuItem>item333333</MenuItem>        
+                <MenuItem>item444444444</MenuItem>     
             </SubMenu>
-            <MenuItem disabled>item3</MenuItem>
-              <MenuItem >33421</MenuItem>
+            <MenuItem disabled>disabled item</MenuItem>
+              <MenuItem >item2</MenuItem>
       </Menu>
     </div>
      
@@ -58,27 +56,23 @@ callback={linkTo('Component|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWcl
 <Story name='default3' >
     <div  >
   <Menu  onSelect={(index)=>{console.log(index)}} mode={'vertical'} defaultIndex={'2'}>
-           <SubMenu title="ddd" >
-                <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>     
-                  <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>         
+           <SubMenu title="下拉菜单1" >
+                <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>     
+                  <MenuItem>item3</MenuItem>        
             </SubMenu>
        
-            <SubMenu title="dsasadsrraase" >
-                <MenuItem>54fsadgfgfd</MenuItem>        
-                <MenuItem>DSAdsfDAX</MenuItem>     
-                <MenuItem>DSSfAD</MenuItem>        
-                <MenuItem>DSAsasadsadsadDAX</MenuItem>         
+            <SubMenu title="下拉菜单2" >
+               <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>     
+                  <MenuItem>item3</MenuItem>
+                <MenuItem>item4</MenuItem>         
             </SubMenu>
      
-             <SubMenu title="dsasadsaase" >
-                <MenuItem>54fgfgfd</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>     
-                  <MenuItem>DSSAD</MenuItem>        
-                <MenuItem>DSADAX</MenuItem>         
+             <SubMenu title="下拉菜单3" >
+                 <MenuItem>item1</MenuItem>                 
             </SubMenu>
-            <MenuItem >item3</MenuItem>
+            <MenuItem >item</MenuItem>
       </Menu>
     </div>
      

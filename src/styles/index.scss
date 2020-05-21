@@ -1,6 +1,8 @@
 @import './mixin/index';
 @import "variables";
 @import "reboot";
+@import "./animation.scss" ;
+
 
 //button
 @import "../components/Button/style";
@@ -8,3 +10,17 @@
 
 //menu
 @import "../components/Menu/style";
+
+
+//icon
+@import "../components/Icon/style";
+
+
+
+//alert
+@import "../components/Alert/style";
+
+
+//message
+
+@import "../components/Message/style"

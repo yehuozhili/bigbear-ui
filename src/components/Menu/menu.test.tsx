@@ -11,7 +11,6 @@ const testProps:MenuProps={
 }
 const testVerProps:MenuProps={
     defaultIndex:'0',
-   
     mode:'vertical'
 }
 const testMenu = (props:MenuProps)=>{
@@ -26,27 +25,12 @@ const testMenu = (props:MenuProps)=>{
         </Menu>
     )
 }
-const createStyle=()=>{
-    const cssFile:string=`
-    .bigbear-submenu{
-        display:none;
-    }
-    .bigbear-submenu.bigbear-menuopen{
-        display:block;
-    }
-    `
-    const style = document.createElement('style')
-    style.type='text/css';
-    style.innerHTML=cssFile;
-    return style
-}
 
 
 let wrapper:RenderResult ,menuElement:HTMLElement , activeElement:HTMLElement,disabledElement:HTMLElement
 describe('test Menu and MenuItem component',()=>{
     beforeEach(()=>{
            wrapper=render(testMenu(testProps)) 
-           wrapper.container.append(createStyle())
            menuElement = wrapper.getByTestId('test-menu')
            activeElement = wrapper.getByText('active')
            disabledElement=wrapper.getByText('disabled')
@@ -75,17 +59,15 @@ describe('test Menu and MenuItem component',()=>{
         expect(menuElement).toHaveClass('menu-vertical')
     })
     it('should show dropdown item when hover on submenu', async () => {
-        expect(wrapper.queryByText('s22')).not.toBeVisible()
+        expect(wrapper.queryByText('s22')).toEqual(null)
         const dropdownEle= wrapper.getByText('dss')
         fireEvent.mouseEnter(dropdownEle)
         await(()=>{
-            expect(wrapper.queryByText('s22')).toBeVisible()
+            expect(wrapper.queryByText('dss')?.parentElement).toHaveClass('bigbear-menuopen')
         })
-        fireEvent.click(wrapper.getByText('s22'))
-        expect(testProps.onSelect).toHaveBeenCalledWith('3-0')
         fireEvent.mouseLeave(dropdownEle)
         await wait(()=>{
-            expect(wrapper.queryByText('s22')).not.toBeVisible()
+            expect(wrapper.queryByText('dss')?.parentElement).not.toHaveClass('bigbear-menuopen')
         })
     });
 })

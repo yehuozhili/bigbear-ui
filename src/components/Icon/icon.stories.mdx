@@ -1,0 +1,55 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Icon  from './icon';
+
+<Meta title='Component|Icon 图标' component={Icon} />
+
+<br/>
+
+# Icon 图标
+<br/>
+
+图标可用样例参考
+https://fontawesome.com/icons?d=gallery&s=solid&m=free
+
+<br/>
+
+## 主题颜色 theme
+<br/>
+
+<Preview>
+  <Story name='default' >
+        <Icon icon='coffee' theme='danger' size='5x' ></Icon>
+  </Story>
+  <Story name='default2' >
+        <Icon icon='ad' theme='primary' size='5x' ></Icon>
+  </Story>
+  <Story name='default3' >
+        <Icon icon='address-book' theme='success' size='5x' ></Icon>
+  </Story>
+   <Story name='default4' >
+        <Icon icon='anchor' theme='info' size='5x' ></Icon>
+  </Story>
+   <Story name='default5' >
+        <Icon icon='arrow-left' theme='warning' size='5x' ></Icon>
+  </Story>
+</Preview>
+
+
+```tsx
+import { library } from '@fortawesome/fontawesome-svg-core' 
+import { fab } from '@fortawesome/free-brands-svg-icons' //brand
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'//solid的单独图标
+import { faStroopwafel as fasFaStroopwafel } from '@fortawesome/pro-solid-svg-icons'
+import { faStroopwafel as farFaStroopwafel } from '@fortawesome/pro-regular-svg-icons'
+
+library.add(...some icons)
+
+```
+
+## tree shaking
+https://fontawesome.com/how-to-use/javascript-api/other/tree-shaking
+
+
+## 属性详情 Props
+
+<Props of={Icon} />

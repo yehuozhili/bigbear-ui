@@ -26,7 +26,11 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "classnames": "^2.2.6"
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -43,11 +47,12 @@
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --docs",
+    "storybook-nodoc": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook --no-dll --quiet --docs",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build"
+    "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -84,6 +89,7 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
+    "@types/react-transition-group": "^4.2.4",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",

@@ -1,0 +1,47 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Message,{message} from './message'
+import Button from '../Button'
+import Icon from '../Icon'
+
+<Meta title='Reaction|Message 全局提示' component={Message} />
+
+<br/>
+
+# Message 全局提示
+<br/>
+
+## directions 方位
+
+<Preview>
+  <Story name='alert'>
+      <div>
+        <Message  title='上方消息'/>
+        <Message title='左上方消息' directions='lt' />
+        <Message title='左下方消息'  directions='lb' />
+        <Message title= '右上方消息'  directions='rt' />
+          <Message title= '右下方消息'  directions='rb' />
+      </div>
+  </Story>
+</Preview>
+
+## message 函数调用
+
+<Preview>
+  <Story name='message3'>
+      <div>
+        <Button onClick={()=>message.success('成功的消息')}> success</Button>
+        <Button onClick={()=>message.warning('警告的消息')}> warning</Button>
+        <Button onClick={()=>message.danger('危险的消息')}> danger</Button>
+        <Button onClick={()=>message.info('普通通知')}> info</Button>
+        <Button onClick={()=>message.default('普通消息')}> default</Button>
+        <Button onClick={()=>message.primary('主题通知',undefined,'rb')}> primary</Button>
+        <Button onClick={()=>message.secondary('副标题通知',undefined,'lt')}> secondary</Button>
+        <Button onClick={()=>message.light('浅色通知',<Icon icon='microphone' theme='dark'></Icon>)}> light</Button>
+        <Button onClick={()=>message.dark('深色通知')}> dark</Button>
+      </div>
+  </Story>
+</Preview>
+
+
+
+<Props of={Message} />

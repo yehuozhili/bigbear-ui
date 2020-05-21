@@ -1,0 +1,21 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Transition  from './transition';
+
+<Meta title='Animate | Transition 过渡动画' component={Transition} />
+
+<br/>
+
+# Transition 过渡动画
+
+
+```jsx
+ <Transition 
+ in={state} //开启关闭状态
+ animation={`zoom-in-top`}
+timeout={300} //动画持续时间
+wrapper={wrapper} > 
+{...your code}
+</Transition>
+```
+
+<Props of={Transition}   />

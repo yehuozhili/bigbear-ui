@@ -5,6 +5,7 @@
     list-style: none;
     border-bottom:$menu-border-width solid $menu-border-color;
     box-shadow: $menu-box-shadow;
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
     .bigbear-menuitem{
         padding:$menu-item-padding-y $menu-item-padding-x;
         cursor: pointer;
@@ -23,17 +24,14 @@
             border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
         }
     }
- 
+   
 }
-
-
 
 
 
 .menu-realative{
     position: relative;
     .bibear-submenu{
-        display: none;
         position: absolute;
         list-style: none;
         white-space: nowrap;
@@ -41,7 +39,8 @@
         z-index: 100;
         top:calc(100% + #{$menu-item-padding-y});
         white-space: nowrap;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         background: $white;
         border: $menu-item-active-border-width solid transparent;
         box-shadow: $submenu-box-shadow;
@@ -55,6 +54,8 @@
                 border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
             }
         }
+     
+
     }
     .bigbear-menuopen{
         display: block;
@@ -66,6 +67,7 @@
     border-bottom: 0px;
     .bigbear-menuitem{
         border:none;
+      
         border-left: $menu-item-active-border-width solid transparent;
         &.isactive,&:hover{
             border-bottom: none;
@@ -74,10 +76,11 @@
     }
    
     .bibear-submenu{
-        display: none;
         position: static;
         border:none;
         box-shadow: none;
+        left: 0;
+        transform: none;
         .bigbear-menuitem{
             &.isactive,&:hover{
                 border-bottom: none;
@@ -86,5 +89,42 @@
     }
     .bigbear-menuopen{
         display: block;
+    }
+}
+.isvertical{
+    .bigbear-submenu-icon{
+        transition: .25s ease-in-out;
+        margin-left: 5px;
+    }
+}
+
+.bigbear-submenu{
+    .bigbear-submenu-title{
+        display: flex;
+        align-items: center;
+        .bigbear-submenu-icon{
+            transition: .25s ease-in-out;
+            margin-left: 5px;
+        }
+    }
+    &:hover{
+        .bigbear-submenu-icon{
+            transform: rotate(180deg);
+        }
+    }
+}
+
+
+
+.isvertical.bigbear-submenu:hover{
+    .bigbear-submenu-icon{
+        transform: rotate(0deg);
+    }
+}
+.isvertical.bigbear-menuopen{
+    .bigbear-submenu-title{
+        .bigbear-submenu-icon{
+            transform: rotate(180deg);
+        }
     }
 }

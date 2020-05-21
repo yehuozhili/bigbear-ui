@@ -1,7 +1,6 @@
 @import "./clearfix.scss";
 @import "./size.scss";
-
-
+@import "./animatemixin.scss";
 
 //button
 @mixin button-size($btn-padding-x,$btn-padding-y,$font-size-base,$border-radius) {
@@ -11,24 +10,20 @@
 }
 
 @mixin button-style(
-    $background-color,$border-color,$color,
+    $background-color,$color,$border-color:lighten($color,10%),
     $hover-background-color:lighten($background-color,7.5%),
     $hover-border-color:lighten($border-color,10%),
     $hover-color:$color) {
     color:$color;
     background-color: $background-color;
-    border-color: $border-color;
     &:hover{
         color: $hover-color;
         background-color: $hover-background-color;
-        border-color: $hover-border-color;
-        outline-color:lighten($hover-border-color,10%);
     }
     &:focus{
         color: $hover-color;
         background-color: $hover-background-color;
-        border-color: $hover-border-color;
-        outline-color:lighten($hover-border-color,10%);
+      
     }
     &[disabled]{
         color: $color;
@@ -37,22 +32,48 @@
     }
 }
 
+@mixin neufactory($background,$shadow1,$shadow2) {
+    background: $background;
+    box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1;
+    border:none;
+    text-shadow: 1px 1px 4px $shadow1, -1px -1px 4px $shadow2;
+    &:active{
+        background:$background;
+        border:none;
+        box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
+        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2,
+        
+    }
+}
+
+@mixin neufactory-noactive($background,$shadow1,$shadow2) {
+    background: $background;
+    box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1;
+    border:none;
+    text-shadow: 1px 1px 4px $shadow1, -1px -1px 4px $shadow2;
+}
+
+
 @mixin neu-white ($btn-neu-normal){
+    text-shadow: 1px 1px 4px #ffffff, -1px -1px 4px #d9d9d9;
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     box-shadow: $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
     -($btn-neu-normal) -($btn-neu-normal) $btn-neu-normal*2 #ffffff;
 }
 @mixin neu-white-down ($btn-neu-normal){
+    text-shadow: 1px 1px 4px #ffffff, -1px -1px 4px #d9d9d9;
     background:white;
     box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
     inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
 }
 @mixin neu-white-co($btn-neu-normal){
+    text-shadow: 1px 1px 4px #ffffff, -1px -1px 4px #d9d9d9;
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
     box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
      (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
 }
 @mixin neu-white-fl($btn-neu-normal){
+    text-shadow: 1px 1px 4px #ffffff, -1px -1px 4px #d9d9d9;
     background: white;
     box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 #d6d6d6, 
      (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 #ffffff;
@@ -68,3 +89,8 @@
     z-index: 1;
    @include neu-white-fl($btn-neu-normal)
 }
+
+
+
+
+

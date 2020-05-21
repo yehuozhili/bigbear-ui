@@ -4,7 +4,8 @@ import classNames from 'classnames'
 
 
 export type ButtonSize = 'lg' | 'sm' |'default'
-export type ButtonType = 'primary' | 'default' | 'danger' | 'link'| 'neu-w-up'|'neu-w-down'|'neu-w-co'|'neu-w-fl'
+export type ButtonType = 'primary' | 'default' | 'danger'|
+'secondary'|'success'|'info'|'light'|'warning'|'dark' | 'link'| 'neu-w-up'|'neu-w-down'|'neu-w-co'|'neu-w-fl'
 
 
 

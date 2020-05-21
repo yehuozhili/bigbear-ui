@@ -2,7 +2,7 @@ import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Button  from './button';
 import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
-<Meta title='Component|Button 按钮' component={Button} sort={1}/>
+<Meta title='Component|Button 按钮' component={Button} />
 
 <br/>
 
@@ -15,16 +15,35 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 ## 按钮类型 btnType
 <br/>
 
-<Preview>
+<Preview >
   <Story name='default' >
     <Button btnType='default' >default</Button>
   </Story>
-  <Story name='primary' >
+  <Story name='primary'  >
     <Button btnType='primary'>primary</Button>
   </Story>
   <Story name='danger'>
     <Button btnType='danger'>danger</Button>
   </Story>
+   <Story name='warning'>
+    <Button btnType='warning'>warning</Button>
+  </Story>
+   <Story name='info'>
+    <Button btnType='info'>info</Button>
+  </Story>
+   <Story name='secondary'>
+    <Button btnType='secondary'>secondary</Button>
+  </Story>
+  <Story name='success'>
+    <Button btnType='success'>success</Button>
+  </Story>
+  <Story name='light'>
+    <Button btnType='light'>light</Button>
+  </Story>
+  <Story name='dark'>
+    <Button btnType='dark'>dark</Button>
+  </Story>
+ 
    <Story name='link'>
     <Button btnType='link'>link</Button>
   </Story>
@@ -158,6 +177,8 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 ## 类型结合示例 example
 <br/>
 
+有些时候，可能只需要类名进行状态切换，或者做一些特别效果，需要自行封装，下面是一些效果封装方法。
+
 #### 点击切换按钮类型 click ⬇
 
 <Preview>
@@ -199,10 +220,12 @@ export function NeuWclick(props:PropsWithChildren<{callback:()=>void,style?:CSSP
         if(ref){
             ref.current.addEventListener('mousedown',downReplace)
             ref.current.addEventListener('mouseup',upReplace)
+            ref.current.addEventListener('mouseleave',upReplace)
         }
         return()=>{
             ref.current?.removeEventListener('mouseup',upReplace);
             ref.current?.removeEventListener('mousedown',downReplace)
+            ref.current?.removeEventListener('mouseleave',downReplace)
         }
     }
     return (

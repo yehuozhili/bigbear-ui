@@ -1,0 +1,36 @@
+.bigbear-message-top{
+    position: fixed;
+    top:20px;
+    left:50%;
+    transform: translate3D(-50%,0,0);
+}
+.bigbear-message-lt{
+    position: fixed;
+    left: 20px;
+    top:20px;
+}
+
+.bigbear-message-rt{
+    position: fixed;
+    right:  20px;
+    top:20px;
+}
+.bigbear-message-lb{
+    position: fixed;
+    bottom:  20px;
+    left:20px;
+}
+.bigbear-message-rb{
+    position: fixed;
+    bottom:  20px;
+    right: 20px;
+}
+
+.bigbear-message{
+    padding:$message-padding;
+    z-index: 500;
+    > span:nth-child(1){
+        font-size: $font-size-sm;
+    }
+    
+}

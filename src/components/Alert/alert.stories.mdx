@@ -1,0 +1,74 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Alert from './alert';
+import Icon from '../Icon'
+
+<Meta title='Component|Alert 提示框' component={Alert} />
+
+<br/>
+
+# Alert 提示框
+<br/>
+
+## 基本用法
+
+<Preview>
+  <Story name='alert'>
+      <Alert  title='我是标题'/>
+  </Story>
+</Preview>
+
+## close 与 type
+
+<Preview>
+  <Story name='alert2'>
+      <Alert  title='我是标题' close={true} type='light'/>
+  </Story>
+   <Story name='alert3'>
+      <Alert  title='我是标题' close={true} type="danger" />
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='alert6'>
+      <Alert  title='我是标题' close={true} type='info'/>
+  </Story>
+   <Story name='alert5'>
+      <Alert  title='我是标题' close={true} type="warning" className='extra class' />
+  </Story>
+</Preview>
+
+## 带图标使用
+
+<Preview>
+  <Story name='alert7'>
+      <Alert  title='我是标题' close={true} type='dark' icon={<Icon icon='info-circle' theme='light'></Icon>}/>
+  </Story>
+   <Story name='alert8'>
+      <Alert  title='我是标题' close type="secondary" className='extra class' icon={<Icon icon='question-circle' theme='light'></Icon>} />
+  </Story>
+</Preview>
+
+## description 描述
+
+<Preview>
+  <Story name='alert4'>
+      <Alert  title='我是标题' close={true} type='light'
+      description ='我是长文字我是长文字我是长文字
+      我是长文字我是长文字我是长文字我是长文字我是
+      长文字我是长文字我是长文字我是长文字我是
+      长文字我是长文字我是长文
+      字我是长文字我是长文字我是长文字我是长
+      文字我是长文字我是长文字我是长文字
+      我是长文字我是长文字我是长文字我是长文字我是
+      长文字我是长文字我是长文字我是长文字我是
+      长文字我是长文字我是长文
+      字我是长文字我是长文字我是长文字我是长
+      文字我是长文字我是长文字我是长文字
+      '
+      
+      
+      />
+  </Story>
+</Preview>
+
+<Props of={Alert} />

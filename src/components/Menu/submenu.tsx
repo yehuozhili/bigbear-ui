@@ -2,7 +2,8 @@ import React, { useContext, FC, FunctionComponentElement, CSSProperties, useStat
 import {MenuContext} from './menu'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuitem';
-
+import Icon from '../Icon/icon';
+import  Transition from '../Transition/transition'
 
 
 export interface SubMenuProps{
@@ -27,9 +28,16 @@ const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|u
       }
     })
     return (
+        <Transition
+            in={menuopen}
+            timeout={300}
+            animation='zoom-in-top'
+        >
         <ul className={classes} >
             {childrenComponent}
         </ul>
+        </Transition>
+     
     )
     
 }
@@ -38,12 +46,11 @@ export const SubMenu:FC<SubMenuProps>=(props)=>{
     const context =useContext(MenuContext)
     const [menuopen,setMenuopen]=useState((context.index===index&&context.mode==='vertical')?true:false)
     const classes =classNames('bigbear-menuitem bigbear-submenu menu-realative',className,{
-        'isactive':context.index===index,
-        'bigbear-menuopen':menuopen
+        'bigbear-menuopen':menuopen,
+        'isvertical':context.mode==='vertical'
     })
     const handleClick=(e:React.MouseEvent)=>{
         e.preventDefault()
-        
     }
     let timer :any
     const handleHover = (e:React.MouseEvent,toggle:boolean)=>{
@@ -59,9 +66,10 @@ export const SubMenu:FC<SubMenuProps>=(props)=>{
     }:{}
 
     return (
-        <li key={index} className={classes} style={style} data-testid="test-submenu" onClick={handleClick} {...hoverEvents}>
-            <div onClick={()=>context.mode==='vertical'?setMenuopen(!menuopen):null}>
+        <li key={index} className={classes} style={style}  onClick={handleClick} {...hoverEvents}>
+            <div onClick={()=>context.mode==='vertical'?setMenuopen(!menuopen):null} className='bigbear-submenu-title'>
                 {title?title:null}
+                <Icon icon="angle-down" className='bigbear-submenu-icon'></Icon>
             </div>
             {renderChildren(children,menuopen,index)}
         </li>

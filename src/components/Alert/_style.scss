@@ -1,0 +1,27 @@
+.bigbear-alert{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding:10px;
+    >span{
+        &:nth-child(1){
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+        }
+        svg{
+            margin-right: 10px;
+        }
+    }
+    >button{
+        position:absolute;
+        right:0;
+        top:0
+    }
+}
+@each $key,$val in $theme-colors{
+    .bigbear-alert-#{$key}{
+        color:#{nth($val,2)};
+        @include neufactory-noactive(nth($val,1),nth($val,3),nth($val,4));
+    }
+}

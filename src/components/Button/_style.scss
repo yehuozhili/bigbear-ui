@@ -10,7 +10,7 @@
     vertical-align: middle;
     background-image: none;
     border:$btn-border-width solid transparent;
-    box-shadow: $btn-box-shadow;
+
     cursor: pointer;
     transition: $btn-transition;
     @include button-size($btn-padding-x,$btn-padding-y,$btn-font-size,$border-radius);
@@ -23,6 +23,7 @@
     }
 }
 //size
+
 .btn-size-lg{
     @include button-size($btn-padding-x-lg,$btn-padding-y-lg,$btn-font-size-lg,$border-radius-lg)
 }
@@ -33,35 +34,33 @@
     @include button-size($btn-padding-x,$btn-padding-y,$btn-font-size,$border-radius)
 }
 //type
-.btn-type-primary{
-    @include button-style($primary,$primary,$white)
+@each $key,$val in $theme-colors{
+    .btn-type-#{$key}{
+        @include button-style(nth($val, 1),nth($val,2));
+        @include neufactory(nth($val, 1),nth($val,3),nth($val,4))
+    }
 }
-.btn-type-danger{
-    @include button-style($danger,$danger,$white)
-}
-.btn-type-default{
-    @include button-style($white,$gray-4,$gray-7,$white,$primary,$primary)
-}
+
 .btn-type-link{
     font-weight: $font-weight-base;
     color: $btn-link-color;
     text-decoration: $link-decoration;
     box-shadow: none;
     border:1px dashed lighten($btn-link-color,10%);
+    @include neufactory($white, $neu-whiteshadow1,$neu-whiteshadow2);
     &:hover{
         color: $btn-link-hover-color;
         text-decoration: $link-hover-decoration;
-        border:1px dashed lighten( $btn-link-hover-color,10%);
     }
     &:focus{
         text-decoration: $link-hover-decoration;
-        border:1px dashed lighten( $btn-link-hover-color,10%);
     }
     &.disabled{
         color:$btn-link-disabled-color;
         pointer-events: none;
     }
 }
+
 .btn-type-neu-w-up{
     font-weight: $font-weight-bold;
     color: $gray-9;
