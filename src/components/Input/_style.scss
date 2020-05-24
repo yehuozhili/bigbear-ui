@@ -1,0 +1,40 @@
+.bigbear-input-wrapper{
+    display: flex;
+    align-items: center;
+    margin:20px;
+    box-shadow: $input-box-shadow;
+    overflow: hidden;
+    position: relative;
+    input{
+        background: transparent;
+        height: $input-height;
+        font-size: $input-fontsize;
+        border:none;
+        outline: none;
+        flex:1;
+        padding:0px 10px;
+        color:$gray-7;
+    }
+    input:disabled{
+        background-color: $gray-2;
+    }
+    input::placeholder{
+        color:$gray-5;
+    }
+    .bigbear-input-group-prepend{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        padding:0 10px;
+        height: $input-height;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .bigbear-input-group-append{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        padding:0 10px;
+        height: $input-height;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

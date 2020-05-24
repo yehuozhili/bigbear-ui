@@ -23,6 +23,7 @@ const loaderFn = () => {
     return [
         require('../src/stories/Welcome.stories.mdx'),
         require('../src/components/Button/button.stories.mdx'),
+        require('../src/components/Input/input.stories.mdx'),
         require('../src/components/Alert/alert.stories.mdx'),
         require('../src/components/Menu/menu.stories.mdx'),
         require('../src/components/Menu/menuitem.stories.mdx'),
@@ -33,3 +34,4 @@ const loaderFn = () => {
     ]
 }
 configure(loaderFn, module);
+

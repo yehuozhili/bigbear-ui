@@ -30,6 +30,11 @@ $ npm install bigbear-ui --save
 ```
 import 'bigbear-ui/dist/index.css';
 ```
+## 导入组件
+
+```
+import {componentName} from 'bigbear-ui';
+```
 
 ## 在线文档
 
