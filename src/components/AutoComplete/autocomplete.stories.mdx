@@ -1,0 +1,95 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Icon  from '../Icon';
+import AutoComplete from './autocomplete';
+import AutocompleteExample,{ToUseTemplete,AsyncTest} from './autocomplete.example';
+
+
+<Meta title='Component|AutoComplete 自动补全' component={AutoComplete} />
+
+<br/>
+
+# AutoComplete 自动补全
+<br/>
+
+## 基本用法
+需要自行提供数据，以及对数据做出筛选的函数，当用户输入时，回调筛选函数进行提示。
+
+此组件是在Input组件上做了层封装。
+
+
+输入`i`字母试试自动补全功能 ↓
+
+```jsx
+const data=['yehuozhili','bigbear','nike','hello kitty','shop','eat','pikaqiu','gobigger','dell'];
+const myfilter=(query:string)=>{
+    return data.filter(name=>name.includes(query)).map(v=>({value:v}))
+}
+const AutocompleteExample =()=>{
+    return <AutoComplete 
+        renderFilter={myfilter} 
+        prepend='autocomplete'  
+        selectCallback={(item)=>console.log(item)}
+    ></AutoComplete>
+}
+export default AutocompleteExample;
+```
+
+
+<Preview>
+<Story name='AutoComplete'> 
+    <div style={{height:'300px'}}>
+       <AutocompleteExample/>
+    </div>
+</Story>
+</Preview>
+
+
+
+## 自定义模板
+
+
+```jsx
+const ToUseTemplete=()=>{
+    return (
+    <AutoComplete renderOption={(item)=>(<h1>{item.value}</h1>)} renderFilter={myfilter}></AutoComplete>
+    )
+}
+```
+
+
+<Preview>
+<Story name='AutoComplete2'> 
+    <div style={{height:'300px'}}>
+       <ToUseTemplete/>
+    </div>
+</Story>
+</Preview>
+
+## 支持异步，支持键盘上下回车esc选择
+
+```jsx
+const asyncfilter:(query: string) => Promise<DataSourceType[]>=(query:string)=>{
+    return new Promise((res)=>{
+        setTimeout(() => {
+            res(data.filter(name=>name.includes(query)).map(v=>({value:v})))
+        }, 1000);
+    })
+}
+export const AsyncTest=()=>{
+    return (
+        <AutoComplete renderFilter={asyncfilter} ></AutoComplete>
+    )
+}
+```
+
+
+<Preview>
+<Story name='AutoComplete async'> 
+    <div style={{height:'300px'}}>
+       <AsyncTest/>
+    </div>
+</Story>
+</Preview>
+
+
+<Props of={AutoComplete} />

@@ -44,12 +44,18 @@ export const Menu:FC<MenuProps>=(props)=>{
             {
                 React.Children.map(children,(child,index)=>{
                 const childElement  = child as React.FunctionComponentElement<MenuItemProps>
-                const {displayName}=childElement.type
-                if(displayName==='MenuItem' || displayName==='SubMenu'){
-                    return React.cloneElement(childElement,{index:index+''})
+                if(childElement&&childElement.type&&childElement.type.displayName){
+                    const displayName=childElement.type.displayName
+                    if(displayName==='MenuItem' || displayName==='SubMenu'){
+                        return React.cloneElement(childElement,{index:index+''})
+                    }else{
+                        console.error('menu children must be menuitem child or submenu child')
+                    }
                 }else{
-                    console.error('menu children must be menuitem child or submenu child')
-                }})
+                    console.error('menu child have not props names "type" and "displayName"',childElement)
+                }
+                })
+                
             }
             </MenuContext.Provider>
         </ul>

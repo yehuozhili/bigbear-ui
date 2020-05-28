@@ -1,0 +1,26 @@
+
+.bigbear-autocomplete{
+    .bigbear-autocomplete-ul{
+        list-style: none;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        padding:$input-padding-y;
+        position: absolute;
+        width: 100%;
+        .bigbear-autocomplete-item{
+            padding: 5px;
+            margin:5px;
+            cursor: pointer;
+            @include neufactory($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        }
+        .autocomplete-item-highlight{
+            @include neufactory($primary,$neu-blueshadow1,$neu-blueshadow2);
+            color:white;
+        }
+    }
+    .bigbear-autocomplete-spin{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+   
+}

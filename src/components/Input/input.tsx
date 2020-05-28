@@ -14,6 +14,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLElement>{
     refcallback?:(e:any)=>void;
     /**默认值 */
     defaultValue?:string;
+    /**父组件接管受控组件,父组件传value属性做state */
+    setValueCallback?:React.Dispatch<React.SetStateAction<string>>;
 }
 
 
@@ -27,6 +29,8 @@ export const Input:FC<InputProps> = (props:InputProps)=>{
         callback,
         defaultValue,
         refcallback,
+        setValueCallback,
+        value,
         ...restProps
     } = props
     const cnames = classNames('bigbear-input-wrapper', {
@@ -34,11 +38,11 @@ export const Input:FC<InputProps> = (props:InputProps)=>{
         'input-group-append': !!append,
         'input-group-prepend': !!prepend
     })
-    const [value,setValue]=useState(defaultValue||'')
+    const [inputvalue,setValue]=useState(defaultValue||'')
     let ref = useRef(null)
     useEffect(()=>{
         if(refcallback)refcallback(ref)
-    },[refcallback])
+    },[refcallback,setValueCallback])
     return (
         <div className={cnames} style={style}>
       {prepend && <div className="bigbear-input-group-prepend">{prepend}</div>}
@@ -46,8 +50,11 @@ export const Input:FC<InputProps> = (props:InputProps)=>{
         ref={ref}
         className="bigbear-input-inner"
         disabled={disabled}
-        value={value}
-        onChange={(e)=>{setValue((e.target.value));if(callback)callback(e)}}
+        value={setValueCallback?value:inputvalue}
+        onChange={(e)=>{
+            setValueCallback?setValueCallback(e.target.value):setValue((e.target.value));
+            if(callback)callback(e)
+        }}
         {...restProps}
       />
       {append && <div className="bigbear-input-group-append">{append}</div>}

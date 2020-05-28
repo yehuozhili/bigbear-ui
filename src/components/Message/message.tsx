@@ -21,7 +21,9 @@ export interface MessageProps{
     /** 自动关闭延迟 */
     autoclosedelay?:number,
      /** 图标 */
-    icon?:ReactNode
+    icon?:ReactNode,
+
+    className?:string
 }
 
 
@@ -39,7 +41,7 @@ function directionSelect(directions:DirectionType){
 
 
 export const  Message:FC<MessageProps>=function(props:MessageProps){
-    let {title,container,directions,autoclosedelay,icon,type}=props;
+    let {title,container,directions,autoclosedelay,icon,type,className,...restProps}=props;
     if(!container){
         container=document.createElement('div')
         container.className='bigbear-message-factory'
@@ -48,12 +50,13 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
     let select:AlertProps['directions'] = directionSelect(directions as DirectionType)
     return(
      createPortal(<Alert title={title} 
-        className={`bigbear-message-${directions} bigbear-message`}
+        className={`bigbear-message-${directions} bigbear-message ${className}`}
         autoclosedelay={autoclosedelay}
         icon={icon}
         type={type}
         initAnimate={true}
         directions={select}
+        {...restProps}
         ></Alert>,container as Element)
     )
 }
