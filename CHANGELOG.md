@@ -1,4 +1,4 @@
-## 0.1.3 (2020-05-24)
+## 0.1.4 (2020-05-28)
 
 
 ### Bug Fixes
@@ -8,6 +8,7 @@
 
 ### Features
 
+* **autocomplete:** complete autocomplete component ([5eb3650](https://github.com/yehuozhili/bigbear-ui/commit/5eb36500c4bed975dc73fba0c144675afaa0328a))
 * **button:** complete button component ([616d66e](https://github.com/yehuozhili/bigbear-ui/commit/616d66e66751d0a5a403f5ec93a377cee63fb8b2))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))

@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactElement, useEffect, KeyboardEvent, useRef, ChangeEvent } from 'react';
+import React, { FC, useState, ReactElement, useEffect, KeyboardEvent, useRef } from 'react';
 import Input, { InputProps } from '../Input/input';
 import Icon from '../Icon';
 import useDebounce from '../../hooks/useDebounce';
