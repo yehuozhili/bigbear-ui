@@ -41,10 +41,27 @@
         background:$background;
         border:none;
         box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
-        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2,
+        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
         
     }
 }
+@mixin neufactory-hover($background,$shadow1,$shadow2) {
+    &:hover{
+        background: $background;
+        box-shadow:  $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1;
+        border:none;
+        text-shadow: 1px 1px 4px $shadow1, -1px -1px 4px $shadow2;
+    }
+    &:active{
+        background:$background;
+        border:none;
+        box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
+        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
+    }
+
+}
+
+
 
 @mixin neufactory-noactive($background,$shadow1,$shadow2) {
     background: $background;
@@ -89,7 +106,11 @@
     z-index: 1;
    @include neu-white-fl($btn-neu-normal)
 }
-
+@mixin  ringwrapper ($bgcolor,$shadow1,$shadow2) {
+    background:$bgcolor;
+    box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
+    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
+}
 
 
 

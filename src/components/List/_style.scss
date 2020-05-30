@@ -1,0 +1,22 @@
+.bigbear-list{
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    list-style-type: none;
+    padding: $list-padding;
+    .bigbear-list-item{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        margin:$list-item-margin;
+        padding: $list-item-padding;
+
+    }
+}
+.list-horizontal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-withoveractive{
+    &:hover,&:active{
+        color:white;
+    }
+    @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2)
+}

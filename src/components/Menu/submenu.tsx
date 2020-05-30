@@ -1,4 +1,4 @@
-import React, { useContext, FC, FunctionComponentElement, CSSProperties, useState } from 'react'
+import React, { useContext, FC, FunctionComponentElement, CSSProperties, useState, useEffect } from 'react'
 import {MenuContext} from './menu'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuitem';
@@ -7,14 +7,20 @@ import  Transition from '../Transition/transition'
 
 
 export interface SubMenuProps{
+    /** 是否默认开启*/
+    isopen?:boolean;
+    /** 传给item的索引*/
     index?:string;
+     /** submenu的标题*/
     title?:string;
+     /** 新增的类名*/
     className?:string;
+    /** 样式*/
     style?:CSSProperties
 }
 
 const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|undefined) => {
-    const classes =classNames('bibear-submenu',{
+    const classes =classNames('bigbear-submenu-children',{
         'bigbear-menuopen':menuopen
     })
     const childrenComponent = React.Children.map(children, (child, i) => {
@@ -42,13 +48,15 @@ const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|u
     
 }
 export const SubMenu:FC<SubMenuProps>=(props)=>{
-    const {index ,className,style,children,title }= props;
+    const {index ,className,style,children,title,isopen }= props;
     const context =useContext(MenuContext)
     const [menuopen,setMenuopen]=useState((context.index===index&&context.mode==='vertical')?true:false)
     const classes =classNames('bigbear-menuitem bigbear-submenu menu-realative',className,{
         'bigbear-menuopen':menuopen,
-        'isvertical':context.mode==='vertical'
+        'isvertical':context.mode==='vertical',
+        'issubactive':context.index.split('-')[0]===index
     })
+    
     const handleClick=(e:React.MouseEvent)=>{
         e.preventDefault()
     }
@@ -64,7 +72,11 @@ export const SubMenu:FC<SubMenuProps>=(props)=>{
         onMouseEnter:(e:React.MouseEvent)=>{handleHover(e,true)},
         onMouseLeave:(e:React.MouseEvent)=>{handleHover(e,false)}
     }:{}
-
+    useEffect(()=>{
+        if(isopen){
+            setMenuopen(true)
+        }
+    },[isopen])
     return (
         <li key={index} className={classes} style={style}  onClick={handleClick} {...hoverEvents}>
             <div onClick={()=>context.mode==='vertical'?setMenuopen(!menuopen):null} className='bigbear-submenu-title'>
@@ -77,5 +89,9 @@ export const SubMenu:FC<SubMenuProps>=(props)=>{
 }
 
 SubMenu.displayName='SubMenu';
+
+SubMenu.defaultProps={
+    isopen:false
+}
 
 export default SubMenu;

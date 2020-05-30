@@ -1,0 +1,62 @@
+.bigbear-avatar{
+    overflow: hidden;
+    >img{
+        @include square(100%);
+        vertical-align: top;
+    }
+    >svg.bigbear-icon{
+        @include square(100%);
+        vertical-align: top;
+    }
+    
+    >div{
+        @include square(100%);
+        vertical-align: top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@each $key,$val in $theme-colors{
+    .bigbear-avatar-type-#{$key}{
+        color:#{nth($val,2)};
+        display: inline-block;
+        @include square(100%);
+        @include neufactory-noactive(nth($val,1),nth($val,3),nth($val,4));
+    }
+}
+
+@each $key,$val in $theme-colors{
+    .bigbear-avatar-wrapper-#{$key}{
+        display: inline-block;
+        @include ringwrapper(nth($val,1),nth($val,3),nth($val,4));
+    }
+}
+
+.bigbear-avatar-size-default{
+    display: inline-block;
+    @include square($avatar-size-default);
+    padding:$avatar-padding-default;
+    overflow: hidden;
+}
+.bigbear-avatar-size-lg{
+    padding:$avatar-padding-lg;
+    font-size: $avatar-fontsize-lg;
+    display: inline-block;
+    @include square($avatar-size-lg);
+    overflow: hidden;
+}
+.bigbear-avatar-size-sm{  
+    font-size:  $avatar-fontsize-sm;
+    padding:$avatar-padding-sm;
+    display: inline-block;
+    @include square($avatar-size-sm);
+    overflow: hidden;
+}
+.isround{
+    border-radius: 50%;
+    >.bigbear-avatar{
+        border-radius: 50%;
+    }
+}

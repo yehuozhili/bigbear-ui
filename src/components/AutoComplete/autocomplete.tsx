@@ -11,7 +11,7 @@ interface DataSourceObject{
 export type DataSourceType<T={}>=T&DataSourceObject
 
 
-interface AutoCompleteType extends InputProps{
+export interface AutoCompleteType extends InputProps{
     /**筛选函数  */
     renderFilter:(keyword:string)=>DataSourceType[]|Promise<DataSourceType[]>;
     /**下拉菜单选择后的回调 */

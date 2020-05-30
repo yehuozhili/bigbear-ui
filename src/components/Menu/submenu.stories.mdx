@@ -6,7 +6,7 @@ import {NeuWclick} from '../Button/button.example'
 import SubMenu from './submenu'
 
 
-<Meta title='Component|Menu 菜单/SubMenu' component={SubMenu}  />
+<Meta title='REACTION|Menu 菜单/SubMenu' component={SubMenu}  />
 
 <br/>
 
@@ -15,6 +15,7 @@ import SubMenu from './submenu'
 
 SubMenu是Menu的子项，包裹MenuItem。
 
+索引序号是从0开始数
 <Story name='default'>
 <NeuWclick 
 callback={linkTo('Component|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWclick>
@@ -54,22 +55,22 @@ callback={linkTo('Component|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWcl
 
 <Preview>
 <Story name='default3' >
-    <div  >
-  <Menu  onSelect={(index)=>{console.log(index)}} mode={'vertical'} defaultIndex={'2'}>
+    <div  style={{width:'200px'}}>
+  <Menu  onSelect={(index)=>{console.log(index)}} mode={'vertical'} defaultIndex={'1-3'}>
            <SubMenu title="下拉菜单1" >
                 <MenuItem>item1</MenuItem>        
                 <MenuItem>item2</MenuItem>     
                   <MenuItem>item3</MenuItem>        
             </SubMenu>
        
-            <SubMenu title="下拉菜单2" >
+            <SubMenu title="下拉菜单2" isopen={true}>
                <MenuItem>item1</MenuItem>        
                 <MenuItem>item2</MenuItem>     
                   <MenuItem>item3</MenuItem>
                 <MenuItem>item4</MenuItem>         
             </SubMenu>
      
-             <SubMenu title="下拉菜单3" >
+             <SubMenu title="下拉菜单3"  isopen={true}>
                  <MenuItem>item1</MenuItem>                 
             </SubMenu>
             <MenuItem >item</MenuItem>
@@ -81,6 +82,6 @@ callback={linkTo('Component|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWcl
 
 <br/>
 
-## Props 属性
+## 属性详情
 
 <Props of={SubMenu} />

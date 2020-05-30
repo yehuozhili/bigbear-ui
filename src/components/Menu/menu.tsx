@@ -8,7 +8,7 @@ type MenuMode='horizontal' | 'vertical'
 type SelectCallback =(selectedIndex:string)=>void;
 
 export interface MenuProps{
-    /**默认选中索引 */ 
+    /**默认激活索引  */ 
     defaultIndex?:string;
     /** 类名 */ 
     className?:string;
@@ -28,6 +28,7 @@ export const Menu:FC<MenuProps>=(props)=>{
         'menu-vertical':mode==='vertical',
         'menu-horizontal':mode==='horizontal'
     })
+    console.log(currentActive)
     const handleClick=(index:string)=>{
         setActive(index)
         if(onSelect)onSelect(index)
@@ -78,7 +79,7 @@ export const MenuContext = createContext<IMenuContext>({index:'0'})
 //const ForwardMenu = React.forwardRef<HTMLUListElement,MenuProps>(Menu as RefForwardingComponent<HTMLUListElement,MenuProps>)
 
 Menu.defaultProps={
-    defaultIndex:'0',
+    defaultIndex:'-1',
     mode:'horizontal'
 }
 

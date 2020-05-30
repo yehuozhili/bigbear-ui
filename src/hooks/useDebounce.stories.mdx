@@ -1,0 +1,16 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+
+
+<Meta title='HOOKS | useDebounce 组件防抖hook'  />
+
+# useDebounce 组件防抖hook
+
+<br/>
+
+## 使用方式
+
+组件内引入，第一个参数为组件内state,第二个参数为需要延迟时间。依赖项需改为返回值。
+
+```jsx
+const debouncedValue=useDebounce(state,delay)
+```

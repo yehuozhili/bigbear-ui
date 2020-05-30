@@ -41,6 +41,9 @@ $neu-whiteshadow1:#d9d9d9;
 $neu-whiteshadow2:#ffffff;
 $neu-blueshadow1:#3690d9;
 $neu-blueshadow2:#4ac2ff;
+$neu-infoshadow1:#2eb0ab;
+$neu-infoshadow2:#3eeee7;
+
 
 $theme-colors: 
 (//type         //背景色    //文字色  //neushadow1 2
@@ -270,5 +273,26 @@ $input-box-shadow: -4px -4px 10px rgba(255,255,255,1),
                   inset -4px -4px 10px rgba(255,255,255,1),
                   4px 4px 10px rgba(0,0,0,0.05) !default;
 $input-height: 35px !default;
+$input-margin:  $input-padding-y;
 
-  
+//autocomplete
+$autocomplete-padding: $input-margin !default;
+
+
+//list
+$list-padding: $input-padding-y !default;
+$list-item-padding:5px !default;
+$list-item-margin :5px !default;
+
+
+//avatar
+
+$avatar-size-default:50px !default;
+$avatar-size-lg:100px !default;
+$avatar-size-sm:35px !default;
+
+$avatar-padding-default:5px !default;
+$avatar-padding-lg:10px !default;
+$avatar-padding-sm:2px !default;
+$avatar-fontsize-lg:$font-size-base*2 !default;
+$avatar-fontsize-sm:$font-size-base*0.5 !default;

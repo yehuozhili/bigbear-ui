@@ -23,6 +23,9 @@
             color:$menu-item-active-color;
             border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
         }
+        &.issubactive{
+            color:$primary;
+        }
     }
    
 }
@@ -31,7 +34,7 @@
 
 .menu-realative{
     position: relative;
-    .bibear-submenu{
+    .bigbear-submenu-children{
         position: absolute;
         list-style: none;
         white-space: nowrap;
@@ -44,6 +47,7 @@
         background: $white;
         border: $menu-item-active-border-width solid transparent;
         box-shadow: $submenu-box-shadow;
+      
         >.bigbear-menuitem{
             padding:$menu-item-padding-y $menu-item-padding-x;
             cursor: pointer;
@@ -67,20 +71,25 @@
     border-bottom: 0px;
     .bigbear-menuitem{
         border:none;
-      
-        border-left: $menu-item-active-border-width solid transparent;
+        &.bigbear-submenu{
+            padding:$menu-item-padding-y 0 $menu-item-padding-y $menu-item-padding-x;
+        }
         &.isactive,&:hover{
             border-bottom: none;
-            border-left: $menu-item-active-border-width solid $menu-item-active-color;
+        }
+        &.isactive{
+            border-right:$menu-item-active-border-width solid $primary;
         }
     }
-   
-    .bibear-submenu{
+    
+
+
+    .bigbear-submenu-children{
         position: static;
         border:none;
         box-shadow: none;
         left: 0;
-        transform: none;
+        transform:translateX(0);
         .bigbear-menuitem{
             &.isactive,&:hover{
                 border-bottom: none;

@@ -22,16 +22,20 @@ addParameters({
 const loaderFn = () => {
     return [
         require('../src/stories/Welcome.stories.mdx'),
+        require('../src/components/Avatar/avatar.stories.mdx'),
         require('../src/components/Button/button.stories.mdx'),
         require('../src/components/Input/input.stories.mdx'),
         require('../src/components/AutoComplete/autocomplete.stories.mdx'),
         require('../src/components/Alert/alert.stories.mdx'),
+        require('../src/components/List/list.stories.mdx'),
         require('../src/components/Menu/menu.stories.mdx'),
         require('../src/components/Menu/menuitem.stories.mdx'),
         require('../src/components/Menu/submenu.stories.mdx'),
         require('../src/components/Icon/icon.stories.mdx'),
         require('../src/components/Transition/transition.stories.mdx'),
         require('../src/components/Message/message.stories.mdx'),
+        require('../src/hooks/useClickOutside.stories.mdx'),
+        require('../src/hooks/useDebounce.stories.mdx'),
     ]
 }
 configure(loaderFn, module);

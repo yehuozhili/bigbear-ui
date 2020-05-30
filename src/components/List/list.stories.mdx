@@ -1,0 +1,74 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  List  from './list';
+import {data } from './list.example'
+
+
+
+
+<Meta title='DISPLAY|List 列表' component={List} />
+
+<br/>
+
+# List 列表
+<br/>
+
+
+## 基本使用
+
+```jsx
+export const data = [
+    'Racing car sprays burning fuel into crowd.',
+    'Japanese princess to wed commoner.',
+    'Australian walks 100km after outback crash.',
+    'Man charged over missing wedding girl.',
+    'Los Angeles battles huge wildfires.',
+];
+```
+  
+
+<Preview>
+<Story name='List'> 
+    
+    <List>{data}</List>
+</Story>
+</Preview>
+
+
+## horizontal 横向
+
+
+<Preview>
+<Story name='horizontal'> 
+    <List mode={"horizontal"}>{data}</List>
+</Story>
+</Preview>
+
+
+
+## renderTemplate 使用自定义模板
+
+
+<Preview>
+<Story name='List2'> 
+    <List renderTemplate={(child,index)=>
+        (<div style={{textAlign:'center'}} onClick={(e)=>console.log(e.target)}>{index}<div >{child}</div></div>
+    )}>{data}</List>
+</Story>
+</Preview>
+
+
+## withHoverActive 可互动样式
+
+
+<Preview>
+<Story name='List3'> 
+    <List withHoverActive={true} onSelect={(e)=>console.log(e.target)} >{data}</List>
+</Story>
+</Preview>
+
+
+<br/>
+
+## 属性详情
+
+<Props of={List}/>

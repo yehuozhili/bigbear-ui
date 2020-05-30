@@ -1,0 +1,90 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Icon  from '../Icon';
+import Avatar from './avatar'
+
+<Meta title='DISPLAY|Avatar 头像' component={Avatar} />
+
+<br/>
+
+# Avatar 头像
+<br/>
+
+如果想使用文字，需要用div包裹一下。
+Icon如果使用别的地方的，可能需要稍微自行调一下样式。
+
+## 类型 type
+
+<Preview>
+<Story name='Avatar'> 
+    <div>
+ <Avatar><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+ <Avatar type='primary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar type='danger'><div>User</div></Avatar>
+    <Avatar type='info'><div>U</div></Avatar>
+   <Avatar type='success'><Icon icon="user" theme='warning'   /></Avatar>
+   <Avatar type='secondary'><Icon icon="coffee"  /></Avatar>
+    <Avatar type='light'><Icon icon="spinner" spin theme='danger' /></Avatar>
+    <Avatar type='warning'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+<Avatar type='dark'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+</div>
+</Story>
+</Preview>
+
+## 圆形 round
+
+<Preview>
+<Story name='Avatarround'> 
+    <div>
+ <Avatar round={true} ><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+ <Avatar round={true} type='primary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar round={true}  type='danger'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar round={true} type='info'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+   <Avatar  round={true} type='success'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+   <Avatar round={true} type='secondary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar round={true} type='light'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar round={true} type='warning'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+<Avatar round={true} type='dark'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+</div>
+</Story>
+</Preview>
+
+## 大小 size 
+
+
+<Preview>
+<Story name='Avatarsizelg'> 
+    <div>
+    <Avatar size='lg'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='primary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='danger'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='info'><div>U</div></Avatar>
+   <Avatar size='lg' type='success'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+   <Avatar size='lg' type='secondary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='light'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='warning'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='lg' type='dark'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+</div>
+</Story>
+</Preview>
+
+
+<Preview>
+<Story name='Avatarsizesm'> 
+    <div>
+    <Avatar size='sm'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='primary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='danger'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='info'><div>U</div></Avatar>
+   <Avatar size='sm' type='success'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+   <Avatar size='sm' type='secondary'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='light'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='warning'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+    <Avatar size='sm' type='dark'><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></Avatar>
+</div>
+</Story>
+</Preview>
+
+
+## 属性详情
+
+<Props of={Avatar}/>

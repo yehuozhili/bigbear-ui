@@ -37,11 +37,13 @@ export const Alert:FC<AlertProps> = function(props:AlertProps){
         if(initAnimate){
             setState(true)
         }
+        let handler:number;
         if(autoclosedelay){
-            setTimeout(() => {
+            handler=window.setTimeout(() => {
                 setState(false)
             }, autoclosedelay);
         }
+        return ()=>clearTimeout(handler)
     },[autoclosedelay,initAnimate])
     return(
         <Transition in={state} animation={`zoom-in-${directions}` as AnimationName}

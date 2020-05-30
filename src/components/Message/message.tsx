@@ -57,7 +57,7 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
         initAnimate={true}
         directions={select}
         {...restProps}
-        ></Alert>,container as Element)
+        ></Alert>,container)
     )
 }
 

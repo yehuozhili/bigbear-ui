@@ -11,16 +11,20 @@
             margin:5px;
             cursor: pointer;
             @include neufactory($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            @include neufactory-hover($info,$neu-infoshadow1,$neu-infoshadow2);
+            &:hover{
+                color:white;
+            }
         }
         .autocomplete-item-highlight{
             @include neufactory($primary,$neu-blueshadow1,$neu-blueshadow2);
+            @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
             color:white;
         }
     }
     .bigbear-autocomplete-spin{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+       @include absolut-middle();
+        z-index: 10;
     }
    
 }

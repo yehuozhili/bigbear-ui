@@ -1,7 +1,7 @@
 import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Icon  from './icon';
 
-<Meta title='Component|Icon 图标' component={Icon} />
+<Meta title='DISPLAY|Icon 图标' component={Icon} />
 
 <br/>
 
@@ -13,7 +13,16 @@ https://fontawesome.com/icons?d=gallery&s=solid&m=free
 
 <br/>
 
-## 主题颜色 theme
+## 基础使用
+
+<Preview>
+  <Story name='base' >
+        <Icon icon='search' ></Icon>
+  </Story>
+</Preview>
+
+
+## 主题颜色与大小
 <br/>
 
 <Preview>
@@ -50,6 +59,6 @@ library.add(...some icons)
 https://fontawesome.com/how-to-use/javascript-api/other/tree-shaking
 
 
-## 属性详情 Props
+## 属性详情
 
 <Props of={Icon} />

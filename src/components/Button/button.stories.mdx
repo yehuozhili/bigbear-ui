@@ -2,7 +2,7 @@ import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Button  from './button';
 import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
-<Meta title='Component|Button 按钮' component={Button} />
+<Meta title='DISPLAY |Button 按钮' component={Button} />
 
 <br/>
 
@@ -69,7 +69,6 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
 ## 按钮大小 size
 
-#### 大号 lg
 
 <Preview>
   <Story name='default-lg' >
@@ -102,7 +101,6 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
   </Story>
 </Preview>
 
-#### 小号 sm
 
 <Preview>
   <Story name='default-sm' >
@@ -260,7 +258,7 @@ export function Ringclick(props:PropsWithChildren<{callback:()=>void,style?:CSSP
 
 <br/>
 
-## 属性详情 Props
+## 属性详情 
 
 <Props of={Button} />
 

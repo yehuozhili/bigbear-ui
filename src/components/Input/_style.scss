@@ -1,7 +1,7 @@
 .bigbear-input-wrapper{
     display: flex;
     align-items: center;
-    margin:20px;
+    margin:$input-margin;
     box-shadow: $input-box-shadow;
     overflow: hidden;
     position: relative;

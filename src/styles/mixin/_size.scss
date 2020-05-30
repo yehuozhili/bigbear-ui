@@ -5,3 +5,8 @@
 @mixin square($size) {
    @include size($size,$size)
 }
+@mixin absolut-middle() {
+    position: absolute;
+    transform: translateY(-50%);
+    left: 50%;
+}
