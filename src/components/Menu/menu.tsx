@@ -28,7 +28,6 @@ export const Menu:FC<MenuProps>=(props)=>{
         'menu-vertical':mode==='vertical',
         'menu-horizontal':mode==='horizontal'
     })
-    console.log(currentActive)
     const handleClick=(index:string)=>{
         setActive(index)
         if(onSelect)onSelect(index)
