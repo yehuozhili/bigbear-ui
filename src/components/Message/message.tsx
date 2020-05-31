@@ -23,7 +23,8 @@ export interface MessageProps{
      /** 图标 */
     icon?:ReactNode,
 
-    className?:string
+    className?:string,
+    closeCallback?:()=>void;
 }
 
 
@@ -41,22 +42,26 @@ function directionSelect(directions:DirectionType){
 
 
 export const  Message:FC<MessageProps>=function(props:MessageProps){
-    let {title,container,directions,autoclosedelay,icon,type,className,...restProps}=props;
+    let {title,container,directions,autoclosedelay,icon,type,className,closeCallback,...restProps}=props;
     if(!container){
         container=document.createElement('div')
         container.className='bigbear-message-factory'
         container=document.body.appendChild(container)
     }
     let select:AlertProps['directions'] = directionSelect(directions as DirectionType)
+    const animateclass=directions==='top'?'zoom-in-topmesssage':undefined;
     return(
      createPortal(<Alert title={title} 
-        className={`bigbear-message-${directions} bigbear-message ${className}`}
+        className={`bigbear-message-${directions} bigbear-message ${className?className:''}`}
         autoclosedelay={autoclosedelay}
         icon={icon}
         type={type}
         initAnimate={true}
         directions={select}
+        closeCallback={closeCallback}
+        animateClassName={animateclass}
         {...restProps}
+        
         ></Alert>,container)
     )
 }
@@ -69,22 +74,20 @@ Message.defaultProps={
     autoclosedelay:3000
 }
 
+
+
+
 function messageRender(str:string,messageType:AlertProps['type'],icon?:ReactNode,directions?:DirectionType){
-    let container =document.querySelector('.bigbear-message-factory')
-    if(!container){
-        container=document.createElement('div')
-        container.className='bigbear-message-factory'
-        container=document.body.appendChild(container)
-    }
-    let dom =document.querySelector('.bigbear-message-factory-item')
-    if(dom){
-        container.removeChild(dom)
-    }
-    dom = document.createElement('div')
+    let container=document.createElement('div')
+    container.className='bigbear-message-factory'
+    container=document.body.appendChild(container)
+    const closeCallback=()=>container.parentElement!.removeChild(container)
+    let dom  = document.createElement('div')
     dom.className='bigbear-message-factory-item';
-    dom=container.appendChild(dom)
-    return ReactDOM.render(<Message title={str} type={messageType} icon={icon} directions={directions}></Message>,
-        dom)
+    container.appendChild(dom)
+    return ReactDOM.render(<Message title={str} type={messageType} icon={icon} directions={directions} 
+        closeCallback={closeCallback} container={container}></Message>,
+        container)
 }
 
 

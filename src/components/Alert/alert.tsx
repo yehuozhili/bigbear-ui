@@ -27,10 +27,16 @@ export interface AlertProps{
     initAnimate?:boolean,
     /**是否套一层div  */
     wrapper?:boolean;
+    /** 自动关闭后的回调函数  */
+    closeCallback?:()=>void;
+    /** 使用自定义动画的类名 */
+    animateClassName?:string;
+    /** 动画持续时间*/
+    timeout?:number;
 }
 
 export const Alert:FC<AlertProps> = function(props:AlertProps){
-    const {title,type,description,directions,autoclosedelay,className,initAnimate,wrapper}=props
+    const {title,type,timeout,description,animateClassName,directions,autoclosedelay,className,initAnimate,wrapper,closeCallback}=props
     const classes = classNames('bigbear-alert',`bigbear-alert-${type}`,className?className:'')
     const [state,setState]=useState(!initAnimate)
     useEffect(()=>{
@@ -41,13 +47,15 @@ export const Alert:FC<AlertProps> = function(props:AlertProps){
         if(autoclosedelay){
             handler=window.setTimeout(() => {
                 setState(false)
+                if(closeCallback)closeCallback()
             }, autoclosedelay);
         }
         return ()=>clearTimeout(handler)
-    },[autoclosedelay,initAnimate])
+    },[autoclosedelay, closeCallback, initAnimate])
     return(
         <Transition in={state} animation={`zoom-in-${directions}` as AnimationName}
-         timeout={300} wrapper={wrapper} > 
+        classNames={animateClassName?animateClassName:''}
+         timeout={timeout!} wrapper={wrapper} > 
         <div className={classes} >
            
            <span>
@@ -75,7 +83,8 @@ Alert.defaultProps={
     directions:'top',
     autoclosedelay:0,
     initAnimate:false,
-    wrapper:false
+    wrapper:false,
+    timeout:300
 }
 
 export default Alert;
