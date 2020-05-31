@@ -11,6 +11,7 @@ export {default as AutoComplete} from './components/AutoComplete';
 export {default as List} from './components/List';
 export {default as Avatar} from './components/Avatar';
 export {default as VirtualList} from './components/VirtualList';
+export {default as Badge} from './components/Badge';
 
 
 

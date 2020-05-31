@@ -40,13 +40,25 @@ function directionSelect(directions:DirectionType){
     }
 }
 
+function createContainer(){
+    let container=document.createElement('div')
+    container.className='bigbear-message-factory'
+    container=document.body.appendChild(container)
+    let closeCallback=()=>container.parentElement!.removeChild(container)
+    return {
+        container,
+        closeCallback
+    }
+}
+
+
 
 export const  Message:FC<MessageProps>=function(props:MessageProps){
     let {title,container,directions,autoclosedelay,icon,type,className,closeCallback,...restProps}=props;
     if(!container){
-        container=document.createElement('div')
-        container.className='bigbear-message-factory'
-        container=document.body.appendChild(container)
+       let createObj=createContainer()
+       container=createObj.container
+       closeCallback=createObj.closeCallback
     }
     let select:AlertProps['directions'] = directionSelect(directions as DirectionType)
     const animateclass=directions==='top'?'zoom-in-topmesssage':undefined;
@@ -68,7 +80,6 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
 
 Message.defaultProps={
     title:'',
-    container:document.querySelector('.bigbear-message-factory'),
     type:'default',
     directions:'top',
     autoclosedelay:3000
