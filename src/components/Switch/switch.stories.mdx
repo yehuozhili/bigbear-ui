@@ -1,0 +1,81 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Button from '../Button'
+import Switch from './switch'
+
+<Meta title='DISPLAY|Switch 开关' component={Switch} />
+
+<br/>
+
+# Switch 开关
+<br/>
+
+## 基本使用
+
+底座和按钮都可以根据喜好换颜色！
+
+<Preview>
+    <Story name='switch'>
+        <div>
+   <Switch></Switch>
+   <Switch bottomType='primary'  defaultState={true} ></Switch>
+   <Switch bottomType='danger'></Switch>
+    <Switch bottomType='warning' btnType='warning'></Switch>
+   <Switch bottomType='success' btnType='success'></Switch>
+   <Switch bottomType='info' btnType='info'></Switch>
+   <Switch bottomType='dark' btnType='danger'></Switch>
+        </div>
+    </Story>
+</Preview>
+
+## 大小 switchSize
+
+有大中小3种
+
+<Preview>
+    <Story name='switchsizelg'>
+        <div>
+     <Switch switchSize='lg' ></Switch>
+   <Switch switchSize='lg' bottomType='primary'></Switch>
+   <Switch switchSize='lg' bottomType='danger' defaultState={true} ></Switch>
+    <Switch switchSize='lg' bottomType='warning' btnType='warning'></Switch>
+   <Switch switchSize='lg' bottomType='success' btnType='secondary'></Switch>
+   <Switch switchSize='lg' bottomType='info' btnType='info'></Switch>
+   <Switch switchSize='lg' bottomType='dark' btnType='danger'></Switch>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='switchsizesm'>
+        <div>
+     <Switch switchSize='sm' ></Switch>
+   <Switch switchSize='sm' bottomType='primary'></Switch>
+   <Switch switchSize='sm' bottomType='danger'></Switch>
+    <Switch switchSize='sm' bottomType='warning' btnType='warning'></Switch>
+   <Switch switchSize='sm' bottomType='success' btnType='success'></Switch>
+   <Switch switchSize='sm' bottomType='info' btnType='info'></Switch>
+   <Switch switchSize='sm' bottomType='dark' btnType='danger'></Switch>
+        </div>
+    </Story>
+</Preview>
+
+## 禁用 disabled
+
+<Preview>
+    <Story name='switchdisable'>
+        <div>
+     <Switch disabled={true} ></Switch>
+   <Switch disabled={true} bottomType='primary'></Switch>
+   <Switch disabled={true} bottomType='danger'></Switch>
+    <Switch disabled={true} bottomType='warning' btnType='warning'></Switch>
+   <Switch disabled={true} bottomType='success' btnType='success'></Switch>
+   <Switch disabled={true} bottomType='info' btnType='info'></Switch>
+   <Switch disabled={true} bottomType='dark' btnType='danger'></Switch>
+        </div>
+    </Story>
+</Preview>
+
+## 属性详情
+
+
+<Props of={Switch} />

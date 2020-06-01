@@ -53,7 +53,7 @@ $theme-colors:
   "success":    ($success,$white,#62b234,#84f046),
   "info":       ($info,$white,#2eb0ab,#3eeee7),
   "warning":    ($warning,$gray-7,#d9c934,#ffff46),
-  "danger":     ($danger,$white,#d94143,#ff595b),
+  "danger":     ($danger,$white,#c33b3c,#ff595b),
   "light":      ($light,$gray-7,#d5d5d5, #ffffff),
   "dark":       ($dark,$white,#393939,#4d4d4d)
 );
@@ -302,3 +302,17 @@ $avatar-fontsize-sm:$font-size-base*0.5 !default;
 $badge-padding:2px 6px 2px 6px !default;
 $badge-font-size: $font-size-sm !default;
 $badge-border-radius:5px !default;
+
+
+//switch
+$switch-width-default: 40px;
+$switch-height-default: 15px;
+$switch-border-radius-default:40px;
+
+$switch-width-lg: $switch-width-default*1.5;
+$switch-height-lg: $switch-height-default*1.5;
+$switch-border-radius-lg:$switch-border-radius-default*1.5;
+
+$switch-width-sm: $switch-width-default*0.6;
+$switch-height-sm: $switch-height-default*0.6;
+$switch-border-radius-sm:$switch-border-radius-default*0.6;

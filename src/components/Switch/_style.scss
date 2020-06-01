@@ -1,0 +1,88 @@
+
+.bigbear-switch-label{
+    position: relative;
+    cursor: pointer;
+    input{
+        opacity: 0;
+    }
+}
+
+.bigbear-switch-label-disabled{
+    opacity: 60%;
+    cursor: not-allowed;
+}
+
+
+.bigbear-switch-label-size-default{
+    width: $switch-width-default;
+    height: $switch-height-default;
+    input:checked~ .bigbear-switch-btn-size-default{
+        left:calc(100% - #{$switch-height-default})
+    }
+}
+.bigbear-switch-check-size-default{
+    border-radius: $switch-border-radius-default;
+}
+.bigbear-switch-btn-size-default{
+    width: $switch-height-default;
+    height: $switch-height-default;
+}
+
+
+.bigbear-switch-label-size-lg{
+    width: $switch-width-lg;
+    height: $switch-height-lg;
+    input:checked~ .bigbear-switch-btn-size-lg{
+        left:calc(100% - #{$switch-height-lg})
+    }
+}
+.bigbear-switch-check-size-lg{
+    border-radius: $switch-border-radius-lg;
+}
+.bigbear-switch-btn-size-lg{
+    width: $switch-height-lg;
+    height: $switch-height-lg;
+}
+
+
+
+
+@each $key,$val in $theme-colors{
+    .bigbear-switch-check-#{$key}{
+       color:#{nth($val,2)};
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       padding: 1px;
+       @include switch-neu(nth($val, 1),nth($val,3),nth($val,4));
+    }
+}
+@each $key,$val in $theme-colors{
+    .bigbear-switch-btn-#{$key}{
+        @include neufactory-noactive(nth($val, 1),nth($val,3),nth($val,4));
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        left:0;
+        transition:all .36s cubic-bezier(.78,.14,.15,.86);
+    }
+    
+}
+
+.bigbear-switch-label-size-sm{
+    width: $switch-width-sm;
+    height: $switch-height-sm;
+    input:checked~ .bigbear-switch-btn-size-sm{
+        left:calc(100% - #{$switch-height-sm})
+    }
+}
+.bigbear-switch-check-size-sm{
+    border-radius: $switch-border-radius-sm;
+    padding: 0;
+}
+.bigbear-switch-btn-size-sm{
+    width: $switch-height-sm;
+    height: $switch-height-sm;
+}
