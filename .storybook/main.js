@@ -13,7 +13,8 @@ module.exports = {
       options: {
         configureJSX: true,
       },
-    }
+    },
+    '@storybook/addon-viewport/register'
   ],
   managerWebpack: async (config) => {
     config.optimization.splitChunks = { chunks: 'all', maxSize: maxAssetSize }

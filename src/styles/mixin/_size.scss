@@ -7,6 +7,6 @@
 }
 @mixin absolut-middle() {
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
     left: 50%;
 }

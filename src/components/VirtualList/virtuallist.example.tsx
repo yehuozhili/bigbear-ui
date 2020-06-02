@@ -32,9 +32,11 @@ function DoubleVirtual(){
     },[])
     return (
     <div  style={{overflow:'scroll',height:'500px'}} ref={cRef}>
-        <VirtualList itemHeight={39} insightNumber={22} scrollDom={state} scrollbar={34} columnNumber={2} style={{display:'flex',flexWrap:'wrap'}}>
+        <VirtualList itemHeight={44} insightNumber={22} scrollDom={state} scrollbar={14} columnNumber={2} style={{display:'flex',flexWrap:'wrap'}}>
         { new Array(100).fill(1).map((x,y)=>(
-            <div className={'bigbear-list-item'} key={y} style={{height:'34px',width:'48%'}} >{y}</div>
+            <div style={{width:'50%'}} key={y}>
+            <div className={'bigbear-list-item'}   >{y}</div>
+            </div>
         ))}
         </VirtualList>
     </div>

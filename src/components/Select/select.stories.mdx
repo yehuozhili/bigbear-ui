@@ -1,0 +1,49 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Select  from './select';
+
+
+
+
+
+<Meta title='DISPLAY| Select 选择框' component={Select} />
+
+<br/>
+
+ # Select 选择框
+
+<br/>
+
+## 基本使用
+
+如果长文字显示不全且想显示全的，可以自行设定select的宽或者调整字体大小。
+
+<Preview>
+<Story name='select'>
+    <div style={{height:'200px'}}>
+     <Select data={['options1','options2','options3','options4']} callback={(state)=>console.log(state)}></Select>
+     <Select data={['options1','options2','options3','options4']} icon={null} defaultValue='defaultValue'></Select>
+     <Select data={['options1longlonglonglong','选项2','选项3333','options4选项4']} icon={null} defaultValue='longlonglonglonglonglonglonglong'></Select>
+      <Select data={['options1longlonglonglong','选项2','选项3333','options4选项4']} icon={null} defaultValue='longlonglonglonglonglonglonglong' disabled ></Select>
+    </div>
+</Story>
+</Preview>
+
+## 使用模板
+
+css会将option下的div选中设置样式，如果不想用默认样式，可以不用div做第一级子标签。
+
+使用模板渲染，记得选中时使用setState设置值，之后使用setOpen关闭选框。
+
+<Preview>
+<Story name='selectrenderTemplate'>
+    <div style={{height:'200px'}}>
+     <Select data={['options1','options2','options3','options4']}  
+     renderTemplate={(item,index,setState,setOpen)=><div 
+     onClick={()=>{setState(`${index}:${item}`);setOpen(false)}} key={index}>{index}:{item}</div>}></Select>
+    </div>
+</Story>
+</Preview>
+
+
+
+<Props of={Select} ></Props>

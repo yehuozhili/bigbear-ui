@@ -11,9 +11,11 @@
         font-size: $input-fontsize;
         border:none;
         outline: none;
-        flex:1;
+        flex-grow:1;
+        flex-shrink: 0;
         padding:0px 10px;
         color:$gray-7;
+        width: 10px;
     }
     input:disabled{
         background-color: $gray-2;
@@ -28,6 +30,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        flex-shrink: 1;
     }
     .bigbear-input-group-append{
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
@@ -36,5 +39,6 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        flex-shrink: 1;
     }
 }

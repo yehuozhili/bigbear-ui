@@ -13,7 +13,7 @@ export {default as Avatar} from './components/Avatar';
 export {default as VirtualList} from './components/VirtualList';
 export {default as Badge} from './components/Badge';
 export {default as Switch} from './components/Switch';
-
+export {default as Select} from './components/Select';
 
 
 

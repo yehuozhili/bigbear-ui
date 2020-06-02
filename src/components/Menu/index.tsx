@@ -7,11 +7,11 @@ export type IMenuComponent = FC<MenuProps> & {
   MenuItem: FC<MenuItemProps>,
   SubMenu: FC<SubMenuProps>
 }
-const TransMenu = Menu as IMenuComponent
+const TransMenu = Menu as IMenuComponent;
 
-TransMenu.MenuItem = MenuItem
-TransMenu.SubMenu = SubMenu
+TransMenu.MenuItem = MenuItem;
+TransMenu.SubMenu = SubMenu;
 
-export default TransMenu
+export default TransMenu;
 
-export {SubMenu,MenuItem}
+export {SubMenu,MenuItem};
