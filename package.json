@@ -1,7 +1,7 @@
 {
   "name": "bigbear-ui",
-  "version": "0.1.10",
-  "description": "Neumorphism component library for React",
+  "version": "0.1.11",
+  "description": "Neumorphic component library for React",
   "keywords": [
     "component",
     "ui",

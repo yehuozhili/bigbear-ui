@@ -1,0 +1,47 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Radio from './radio';
+import Icon from '../Icon'
+
+<Meta title='Display|Radio 单选按钮' component={Radio} />
+
+<br/>
+
+# Radio 单选按钮
+
+<br/>
+
+## 基本使用
+
+不同于别的组件库封装，直接传个数组就可以使用，大大节约代码量。
+
+
+<Preview>
+    <Story name='Radio'>
+        <Radio data={['radio1','radio2','radio3']} callback={(v)=>console.log(v)}></Radio>
+    </Story>
+</Preview>
+
+## 默认选中 defaultIndex
+
+<Preview>
+    <Story name='defaUltvalue'>
+        <Radio data={['radio1','radio2','radio3']} defaultIndex={2}></Radio>
+    </Story>
+</Preview>
+
+
+## 禁用 disableIndex
+
+禁用传入想禁的序号即可，不用一个个组件写disabled了。
+
+<Preview>
+    <Story name='disabled'>
+        <Radio data={['radio1','radio2','radio3','radio4','radio5']} disableIndex={[2,3]}></Radio>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+<Props of={Radio} />

@@ -1,9 +1,10 @@
-## 0.1.10 (2020-06-03)
+## 0.1.11 (2020-06-03)
 
 
 ### Bug Fixes
 
 * **message:** fix message componenet dom remove bug ([547a77c](https://github.com/yehuozhili/bigbear-ui/commit/547a77cc5c0bc9df9fae5ebc354847472ac45f34))
+* **submenu:** fix submenu animation bug ([96edbf7](https://github.com/yehuozhili/bigbear-ui/commit/96edbf78f2babdc7199a6de8f5c4a1ddbac4c2d5))
 * ghpage decorator bug ([8e36b73](https://github.com/yehuozhili/bigbear-ui/commit/8e36b7308635b7a4bf9278b7996b9cab8279b1fe))
 
 

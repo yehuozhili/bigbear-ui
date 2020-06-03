@@ -28,6 +28,7 @@ const loaderFn = () => {
         require('../src/components/Button/button.stories.mdx'),
         require('../src/components/Input/input.stories.mdx'),
         require('../src/components/Switch/switch.stories.mdx'),
+        require('../src/components/Radio/radio.stories.mdx'),
         require('../src/components/Select/select.stories.mdx'),
         require('../src/components/MultiSelect/multiselect.stories.mdx'),
         require('../src/components/AutoComplete/autocomplete.stories.mdx'),
