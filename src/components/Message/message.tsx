@@ -10,7 +10,7 @@ import Icon from '../Icon';
 export type DirectionType='top'|'lt'|'lb'|'rt'|'rb';
 
 export interface MessageProps{
-    /**文本内容 */
+    /**标题内容 */
     title?:string;
     /**容器 */
     container?:Element|null;
@@ -22,9 +22,14 @@ export interface MessageProps{
     autoclosedelay?:number,
      /** 图标 */
     icon?:ReactNode,
-
+    /** 额外类名 */
     className?:string,
+    /**参考alert */
     closeCallback?:()=>void;
+    /** 文本内容*/
+    description?:string;
+    /**  关闭按钮 */
+    close?:boolean;
 }
 
 
@@ -54,7 +59,7 @@ function createContainer(){
 
 
 export const  Message:FC<MessageProps>=function(props:MessageProps){
-    let {title,container,directions,autoclosedelay,icon,type,className,closeCallback,...restProps}=props;
+    let {title,container,close,directions,autoclosedelay,icon,type,className,closeCallback,description}=props;
     if(!container){
        let createObj=createContainer()
        container=createObj.container
@@ -62,6 +67,7 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
     }
     let select:AlertProps['directions'] = directionSelect(directions as DirectionType)
     const animateclass=directions==='top'?'zoom-in-topmesssage':undefined;
+    console.log(autoclosedelay,close)
     return(
      createPortal(<Alert title={title} 
         className={`bigbear-message-${directions} bigbear-message ${className?className:''}`}
@@ -72,8 +78,8 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
         directions={select}
         closeCallback={closeCallback}
         animateClassName={animateclass}
-        {...restProps}
-        
+        description={description}
+        close={close}
         ></Alert>,container)
     )
 }
@@ -82,13 +88,34 @@ Message.defaultProps={
     title:'',
     type:'default',
     directions:'top',
-    autoclosedelay:3000
+    autoclosedelay:3000,
+    close:false
+}
+
+
+const defaultOptions={
+    directions:'top',
+    description:undefined,
+    icon:undefined as ReactNode
+}
+
+const defaultIcon={
+    default:undefined,
+    primary:<Icon icon='bell' theme='default' ></Icon>,
+    danger:<Icon icon='times-circle' theme='default' ></Icon>,
+    warning:<Icon icon='exclamation-circle' theme='dark' ></Icon>,
+    info:<Icon icon='info-circle' theme='default' ></Icon>,
+    secondary:<Icon icon='bookmark' theme='default' ></Icon>,
+    success:<Icon icon='check-circle' theme='default' ></Icon>,
+    light:<Icon icon='map-marker-alt' theme='dark' ></Icon>,
+    dark:<Icon icon='atom' theme='default' ></Icon>,
 }
 
 
 
-
-function messageRender(str:string,messageType:AlertProps['type'],icon?:ReactNode,directions?:DirectionType){
+function messageRender(str:string,messageType:AlertProps['type'],options:DefaultOptionsType){
+    defaultOptions.icon=defaultIcon[messageType!]
+    let mergeOptions = {...defaultOptions,...options}
     let container=document.createElement('div')
     container.className='bigbear-message-factory'
     container=document.body.appendChild(container)
@@ -96,22 +123,35 @@ function messageRender(str:string,messageType:AlertProps['type'],icon?:ReactNode
     let dom  = document.createElement('div')
     dom.className='bigbear-message-factory-item';
     container.appendChild(dom)
-    return ReactDOM.render(<Message title={str} type={messageType} icon={icon} directions={directions} 
-        closeCallback={closeCallback} container={container}></Message>,
+    return ReactDOM.render(<Message title={str} type={messageType} icon={mergeOptions.icon} directions={mergeOptions.directions as DirectionType} 
+        closeCallback={closeCallback} container={container} description={mergeOptions.description}
+        autoclosedelay={mergeOptions.autoclosedelay}
+        close={mergeOptions.close}
+        ></Message>,
         container)
 }
 
+interface DefaultOptionsType{
+    directions?:DirectionType,
+    description?:string|undefined;
+    icon?:ReactNode,
+    autoclosedelay?:number,
+    close?:boolean
+}
+
+
+
 
 const message={
-    default:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'default',icon?icon:undefined,directions),
-    primary:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'primary',icon?icon:<Icon icon='bell' theme='default' ></Icon>,directions),
-    danger:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'danger',icon?icon:<Icon icon='times-circle' theme='default' ></Icon>,directions),
-    warning:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'warning',icon?icon:<Icon icon='exclamation-circle' theme='dark' ></Icon>,directions),
-    info:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'info',icon?icon:<Icon icon='info-circle' theme='default' ></Icon>,directions),
-    secondary:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'secondary',icon?icon:<Icon icon='bookmark' theme='default' ></Icon>,directions),
-    success:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'success',icon?icon:<Icon icon='check-circle' theme='default' ></Icon>,directions),
-    light:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'light',icon?icon:<Icon icon='map-marker-alt' theme='dark' ></Icon>,directions),
-    dark:(str:string,icon?:ReactNode,directions:DirectionType='top')=>messageRender(str,'dark',icon?icon:<Icon icon='atom' theme='default' ></Icon>,directions),
+    default:(str:string,options:DefaultOptionsType)=>messageRender(str,'default',options),
+    primary:(str:string,options:DefaultOptionsType)=>messageRender(str,'primary',options),
+    danger:(str:string,options:DefaultOptionsType)=>messageRender(str,'danger',options),
+    warning:(str:string,options:DefaultOptionsType)=>messageRender(str,'warning',options),
+    info:(str:string,options:DefaultOptionsType)=>messageRender(str,'info',options),
+    secondary:(str:string,options:DefaultOptionsType)=>messageRender(str,'secondary',options),
+    success:(str:string,options:DefaultOptionsType)=>messageRender(str,'success',options),
+    light:(str:string,options:DefaultOptionsType)=>messageRender(str,'light',options),
+    dark:(str:string,options:DefaultOptionsType)=>messageRender(str,'dark',options),
 }
 
 

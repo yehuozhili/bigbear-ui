@@ -29,10 +29,16 @@
 .bigbear-message{
     padding:$message-padding;
     z-index: 500;
+    max-width: 300px;
     > span:nth-child(1){
         font-size: $font-size-sm;
     }
-    
+    > span:nth-child(2){
+        font-size: $font-size-sm - 1;
+    }
+    button.btn{
+        font-size: $font-size-sm - 5;
+    }
 }
 
 

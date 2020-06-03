@@ -28,7 +28,7 @@ import Icon from '../Icon'
 
 ## message 函数调用
 
-第一个参数文本，第二个参数是图标，可以不传或者undefined来使用默认图标，第三个参数是方位。
+第一个参数文本，第二个参数是options，可以加上各种配置。
 
 <Preview>
   <Story name='message3'>
@@ -36,14 +36,28 @@ import Icon from '../Icon'
         <Button onClick={()=>message.success('成功的消息')}> success</Button>
         <Button onClick={()=>message.warning('警告的消息')}> warning</Button>
         <Button onClick={()=>message.danger('危险的消息')}> danger</Button>
-        <Button onClick={()=>message.info('普通通知')}> info</Button>
-        <Button onClick={()=>message.default('普通消息')}> default</Button>
-        <Button onClick={()=>message.primary('主题通知',undefined,'rb')}> primary</Button>
-        <Button onClick={()=>message.secondary('副标题通知',undefined,'lt')}> secondary</Button>
-        <Button onClick={()=>message.light('浅色通知',<Icon icon='microphone' theme='dark'></Icon>)}> light</Button>
+        <Button onClick={()=>message.info('普通通知',{icon:undefined})}> info取消icon</Button>
+        <Button onClick={()=>message.default('普通消息',{icon:<Icon icon='coffee'></Icon>})}> default+自定义图标</Button>
+        <Button onClick={()=>message.primary('主题通知',{directions:'rb'})}> primary</Button>
+        <Button onClick={()=>message.secondary('副标题通知',{directions:'lt'})}> secondary</Button>
+        <Button onClick={()=>message.light('浅色通知',)}> light</Button>
         <Button onClick={()=>message.dark('深色通知')}> dark</Button>
-        <div className="zoom-in-topmesssage-enter"></div>
       </div>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='description'>
+      <Button onClick={()=>message.info('我是标题',{directions:'rb',description:'我是长文本我是长文本我是我是长文本我是长文本我是长文本我是长文本我是长文本长文本我是长文本我是长文本我是长文本'})}>传递长文本</Button>
+  </Story>
+</Preview>
+
+不自动关闭需要设置autoclosedelay:0,close:true
+
+<Preview>
+  <Story name='consistant'>
+      <Button onClick={()=>message.info('我是标题',{autoclosedelay:0,close:true,directions:'rb',description:'我是长文本我是长文本我是我是长文本我是长文本我是长文本我是长文本我是长文本长文本我是长文本我是长文本我是长文本'
+        })}>持久化点击关闭</Button>
   </Story>
 </Preview>
 
