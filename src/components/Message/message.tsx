@@ -67,7 +67,6 @@ export const  Message:FC<MessageProps>=function(props:MessageProps){
     }
     let select:AlertProps['directions'] = directionSelect(directions as DirectionType)
     const animateclass=directions==='top'?'zoom-in-topmesssage':undefined;
-    console.log(autoclosedelay,close)
     return(
      createPortal(<Alert title={title} 
         className={`bigbear-message-${directions} bigbear-message ${className?className:''}`}
