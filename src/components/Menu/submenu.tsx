@@ -19,7 +19,7 @@ export interface SubMenuProps{
     style?:CSSProperties
 }
 
-const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|undefined) => {
+const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|undefined,mode:"horizontal" | "vertical" | undefined) => {
     const classes =classNames('bigbear-submenu-children',{
         'bigbear-menuopen':menuopen
     })
@@ -37,7 +37,7 @@ const renderChildren = (children:React.ReactNode,menuopen:boolean,index:string|u
         <Transition
             in={menuopen}
             timeout={300}
-            animation='zoom-in-top'
+            classNames={mode==='horizontal'?'menu-zoom-in-top':'menu-zoom-in-top-vertical'}
         >
         <ul className={classes} >
             {childrenComponent}
@@ -78,12 +78,12 @@ export const SubMenu:FC<SubMenuProps>=(props)=>{
         }
     },[isopen])
     return (
-        <li key={index} className={classes} style={style}  onClick={handleClick} {...hoverEvents}>
+        <li key={index} className={classes} style={style}  onClick={handleClick} {...hoverEvents } >
             <div onClick={()=>context.mode==='vertical'?setMenuopen(!menuopen):null} className='bigbear-submenu-title'>
                 {title?title:null}
                 <Icon icon="angle-down" className='bigbear-submenu-icon'></Icon>
             </div>
-            {renderChildren(children,menuopen,index)}
+            {renderChildren(children,menuopen,index,context.mode)}
         </li>
     )
 }
