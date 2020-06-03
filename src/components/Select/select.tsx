@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useRef, PropsWithChildren, useEffect } from 'react';
+import React, { useState, ReactNode, useRef, PropsWithChildren, useEffect, CSSProperties } from 'react';
 import  useClickOutside from '../../hooks/useClickOutside';
 import Icon from '../Icon';
 import Transition from '../Transition/index';
@@ -19,12 +19,16 @@ interface SelectProps{
     callback?:(v:string)=>void;
     /** 禁用*/
     disabled?:boolean;
+    /** 外层容器样式*/
+    style?:CSSProperties;
+    /** 内层容器样式 */
+    innerStyle?:CSSProperties;
 }
 
 
 
 function Select(props:PropsWithChildren<SelectProps>){
-    const {icon,defaultValue,timeout,renderTemplate,callback,data,disabled}=props;
+    const {icon,defaultValue,timeout,renderTemplate,callback,data,disabled,style,innerStyle}=props;
     const [state,setState]=useState<string>(defaultValue!)
     const [open,setOpen]=useState(false)
     const ref= useRef(null)
@@ -33,9 +37,9 @@ function Select(props:PropsWithChildren<SelectProps>){
         if(callback)callback(state)
     },[callback, state])
     return(
-        <div className={`bigbear-select ${disabled?'disabled':''}`} ref={ref}>
+        <div className={`bigbear-select ${disabled?'disabled':''}`} ref={ref} style={style}>
             <div className='bigbear-select-display' onClick={()=>{if(!disabled)setOpen(!open)}} >
-                <div className='bigbear-select-displaytext'>{state}</div>
+                <div className='bigbear-select-displaytext' style={innerStyle}>{state}</div>
                 {icon?<div className='bigbear-select-icon'>{icon}</div>:null}
             </div>
             <Transition in={open} animation='zoom-in-top' timeout={timeout!} >

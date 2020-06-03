@@ -27,16 +27,19 @@ export interface AlertProps{
     initAnimate?:boolean,
     /**是否套一层div  */
     wrapper?:boolean;
+    /** 主动关闭逻辑回调函数，如果需要主动消失，需要操作setState，或者使用上层组件的state*/
+    initiativeCloseCallback?:(setState:React.Dispatch<React.SetStateAction<boolean>>,e:React.MouseEvent<HTMLElement, MouseEvent>)=>void;
     /** 自动关闭后的回调函数  */
     closeCallback?:()=>void;
     /** 使用自定义动画的类名 */
     animateClassName?:string;
     /** 动画持续时间*/
     timeout?:number;
+    
 }
 
 export const Alert:FC<AlertProps> = function(props:AlertProps){
-    const {title,type,timeout,description,animateClassName,directions,autoclosedelay,className,initAnimate,wrapper,closeCallback}=props
+    const {title,type,timeout,description,animateClassName,directions,autoclosedelay,className,initAnimate,wrapper,closeCallback,initiativeCloseCallback}=props
     const classes = classNames('bigbear-alert',`bigbear-alert-${type}`,className?className:'')
     const [state,setState]=useState(!initAnimate)
     useEffect(()=>{
@@ -67,7 +70,12 @@ export const Alert:FC<AlertProps> = function(props:AlertProps){
                 description&&<span>{description}</span>
             }
         {
-            props.close&&<Button btnType={type} onClick={()=>setState(false)}><Icon icon='times'></Icon></Button>
+            props.close&&<Button btnType={type} onClick={(e)=>{
+                if(initiativeCloseCallback){
+                    initiativeCloseCallback(setState,e)
+                }else{
+                    setState(false);
+                }}}><Icon icon='times'></Icon></Button>
             
         }
         </div>

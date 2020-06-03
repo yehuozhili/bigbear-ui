@@ -1,0 +1,68 @@
+.bigbear-multiselect{
+    width: 100%;
+    position: relative;
+    .bigbear-multiselect-display{
+        display: flex;
+        width: 100%;
+        padding:10px;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        .bigbear-multiselect-displaytext{
+            flex-grow: 1;
+            display:flex;
+            flex-wrap: wrap;
+            border-radius: 5px;
+            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            .bigbear-multiselect-item{
+                display: inline-block;
+                margin:5px;
+                .bigbear-alert{
+                    flex-direction:row ;
+                    padding:3px;
+                    & span:nth-child(1){
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        margin-right: 2px;
+                    }
+                    .btn{
+                        position: static;
+                        font-size: 14px;
+                    }
+                }
+                
+            }
+        }
+        .bigbear-multiselect-icon{
+            display: flex;
+            width: 10px;
+            align-items: center;
+            margin-left: 10px;
+        }
+    }
+    .bigbear-multiselect-options{
+        position: absolute;
+        width: 100%;
+        padding:10px;
+        overflow-y: auto;
+        cursor: pointer;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        >div{
+            margin:5px;
+            padding:5px;
+            @include neufactory($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            @include neufactory-hover($info,$neu-infoshadow1,$neu-infoshadow2);
+            &:hover{
+                color:$white;
+            }
+        }
+        >div.bigbear-multiselect-active{
+            color:$white;
+            @include neufactory($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+        }
+    }
+    &.disabled{
+        cursor: not-allowed;
+        opacity: .5;
+    }
+}

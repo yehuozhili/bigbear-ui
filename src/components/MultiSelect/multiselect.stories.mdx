@@ -1,0 +1,73 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import MultiSelect from './multiselect';
+import Icon from '../Icon'
+
+<Meta title='Display|MultiSelect 多选框' component={MultiSelect} />
+
+<br/>
+
+# MultiSelect 多选框
+
+<br/>
+
+## 基本使用
+
+多选框是在alert组件上进行的封装。
+
+多选框封装不同于别的组件库，只要传数据就可以了，避免使用上过于复杂。
+
+<Preview>
+    <Story name='multiselect'>
+        <div style={{height:'300px'}}>
+        <MultiSelect  data={['options1','options2','options3','options4']} ></MultiSelect>
+         </div>
+    </Story>
+</Preview>
+
+## 默认值 
+
+<Preview>
+    <Story name='multiselect defaultValue'>
+        <div style={{height:'300px'}}>
+        <MultiSelect  data={['options1','options2','options3','options4']} displayType='dark' defaultIndex={[1,2]} ></MultiSelect>
+         </div>
+    </Story>
+</Preview>
+
+
+
+## 无图标
+
+<Preview>
+    <Story name='multiselect noicon'>
+        <div style={{height:'300px'}}>
+        <MultiSelect displayType='primary'  data={['options1','options2','options3','options4']} icon={null} ></MultiSelect>
+         </div>
+    </Story>
+</Preview>
+
+## 超长数据
+
+option maxHeight可以设置style修改。
+
+<Preview>
+    <Story name='multiselectlong'>
+        <div style={{height:'600px'}}>
+        <MultiSelect  data={new Array(100).fill(1).map((x,y)=>y)} callback={(e)=>console.log(e)}></MultiSelect>
+        </div>
+    </Story>
+</Preview>
+
+## 禁用样式
+
+<Preview>
+    <Story name='multiselectdisable'>
+        <MultiSelect  data={new Array(100).fill(1).map((x,y)=>y)} disabled ></MultiSelect>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+<Props of={MultiSelect} />
