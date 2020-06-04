@@ -53,7 +53,7 @@ function useForm(args:UseFormProps[]):UseFormType{
                 }else{
                     setBlurData({...blurData,...{[o.name]:true}})
                     if(o.validate){
-                        let resArr:any=[]
+                        let resArr:string[]=[]
                         o.validate.forEach((v)=>{
                             let sign = v.validate(e)
                             if(!sign){//true验证过

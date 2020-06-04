@@ -29,7 +29,7 @@ function FormExample(){
             name: 'input2',
             validate:[
                 {validate:(e)=>e!=='',message:'密码不为空'},
-                {validate:(e)=>e.length>2&&e.length<7,message:'密码必须大于2位或者高于7位'}
+                {validate:(e)=>e.length>2&&e.length<7,message:'密码必须大于2位或者小于7位'}
             ]
         },
         {
