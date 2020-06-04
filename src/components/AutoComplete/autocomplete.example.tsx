@@ -11,6 +11,7 @@ const myfilter=(query:string)=>{
 const AutocompleteExample =()=>{
     return <AutoComplete renderFilter={myfilter} prepend='autocomplete'
     selectCallback={(item)=>console.log(item)}
+    callback={(e)=>console.log(e)}
     ></AutoComplete>
 }
 export default AutocompleteExample;

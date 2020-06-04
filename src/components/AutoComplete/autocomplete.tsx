@@ -11,7 +11,7 @@ interface DataSourceObject{
 export type DataSourceType<T={}>=T&DataSourceObject
 
 
-export interface AutoCompleteType extends InputProps{
+export interface AutoCompleteType extends Omit<InputProps,'callback'>{
     /**筛选函数  */
     renderFilter:(keyword:string)=>DataSourceType[]|Promise<DataSourceType[]>;
     /**下拉菜单选择后的回调 */
@@ -21,7 +21,9 @@ export interface AutoCompleteType extends InputProps{
     /** 初始值 */
     value?:string;
     /**防抖延迟参数 */
-    delay?:number
+    delay?:number;
+    /** input的值*/
+    callback?:(v:string)=>void
 }
 
 
@@ -34,7 +36,8 @@ setDropDown: React.Dispatch<React.SetStateAction<DataSourceObject[]>>,
 setState: React.Dispatch<React.SetStateAction<string>>,
 renderOption:((item:DataSourceType)=>ReactElement)|undefined,
 highlightIndex:number,
-triggerSearch:React.MutableRefObject<boolean>
+triggerSearch:React.MutableRefObject<boolean>,
+callback:((v:string)=>void)|undefined
 )=>{
     return(
         <ul className="bigbear-autocomplete-ul">
@@ -48,6 +51,7 @@ triggerSearch:React.MutableRefObject<boolean>
                         onClick={()=>{
                         triggerSearch.current=false
                         setState(item.value)
+                        if(callback)callback(item.value)
                         setDropDown([])
                         selectCallback&&selectCallback(item)
                     }}>
@@ -61,7 +65,7 @@ triggerSearch:React.MutableRefObject<boolean>
 
 
 export const AutoComplete:FC<AutoCompleteType>=(props)=>{
-    const {renderFilter,selectCallback,value,renderOption,delay,...restProps}=props
+    const {renderFilter,selectCallback,value,renderOption,delay,callback,...restProps}=props
     const [dropdown,setDropDown]=useState<DataSourceType[]>([])
     const [state,setState]=useState(value?value:'')
     const [loading,setLoading]=useState(false)
@@ -116,8 +120,9 @@ export const AutoComplete:FC<AutoCompleteType>=(props)=>{
                 break;
         }
     }
-    const handleChange=()=>{
+    const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
         triggerSearch.current=true
+        if(callback)callback(state)
     }
     return(
         <div className="bigbear-autocomplete" ref={autoRef}>
@@ -128,7 +133,7 @@ export const AutoComplete:FC<AutoCompleteType>=(props)=>{
             ></Input>
             {loading&&<ul className="bigbear-autocomplete-spin"><Icon icon='spinner' spin ></Icon></ul>}
             {dropdown.length>0&&generateDropDown(dropdown,
-                selectCallback,setDropDown,setState,renderOption,highlightIndex,triggerSearch)}
+                selectCallback,setDropDown,setState,renderOption,highlightIndex,triggerSearch,callback)}
         </div>
     )
 }
