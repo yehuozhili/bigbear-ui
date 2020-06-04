@@ -1,4 +1,4 @@
-## 0.1.11 (2020-06-03)
+## 0.1.12 (2020-06-04)
 
 
 ### Bug Fixes
@@ -18,6 +18,7 @@
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))
 * **menu:** menu component inital complete ([2094eba](https://github.com/yehuozhili/bigbear-ui/commit/2094eba806ead1cb7ea03b8f9aaef9163fe9c0a4))
 * **multiselect:** complete multiselect component ([a83176d](https://github.com/yehuozhili/bigbear-ui/commit/a83176df79926f979e47ebe4bb578b2360bbee14))
+* **radio:** complete radio component ([3fff13d](https://github.com/yehuozhili/bigbear-ui/commit/3fff13d5723327e28b785ed51855abfa05e2eccb))
 * **select:** complete select component ([3552bf6](https://github.com/yehuozhili/bigbear-ui/commit/3552bf63a9afff5d78d55f8824ba546e64508b57))
 * **src:** change style and add alert message component ([21590e7](https://github.com/yehuozhili/bigbear-ui/commit/21590e7ea989c9c2f685a791dcfc26b3cd0239f2))
 * **switch:** complete switch component ([2393b24](https://github.com/yehuozhili/bigbear-ui/commit/2393b242efb6c3b769d8c9e70d9071c946b8cf3e))

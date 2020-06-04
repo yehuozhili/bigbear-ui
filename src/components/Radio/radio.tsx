@@ -1,4 +1,4 @@
-import React, { useState, PropsWithChildren, useRef } from 'react';
+import React, { useState, PropsWithChildren,  useMemo } from 'react';
 import classnames from 'classnames'
 
 interface RadioProps{
@@ -18,10 +18,14 @@ interface RadioProps{
 
 function Radio(props:PropsWithChildren<RadioProps>){
     const {defaultIndex,callback,data,className,disableIndex}=props
-    const disableRef=useRef(new Array(data.length).fill(false))
-    if(disableIndex){
-        disableIndex.forEach((v)=>disableRef.current[v]=true)
-    }
+    const disableRef=useMemo(()=>{
+        let arr = new Array(data.length).fill(false);
+        if(disableIndex){
+            disableIndex.forEach((v)=>arr[v]=true)
+        }
+        return arr
+    },[data.length, disableIndex])
+    
     const classes = classnames('bigbear-radio-wrapper',className)
     const [state,setState]=useState(new Array(data.length).fill(false).map((v,i)=>i===defaultIndex?true:v))
     return (
@@ -29,10 +33,10 @@ function Radio(props:PropsWithChildren<RadioProps>){
             {
                 data.map((value,index)=>{
                     return(
-                        <label className={`bigbear-radio-label ${disableRef.current[index]?'radio-disabled':''}`} key={index}>
+                        <label className={`bigbear-radio-label ${disableRef[index]?'radio-disabled':''}`} key={index}>
                             <input type='radio' className='bigbear-radio-input' checked={state[index]} 
                             onClick={()=>{
-                                if(!disableRef.current[index]){
+                                if(!disableRef[index]){
                                     let newState=new Array(data.length).fill(false)
                                     newState[index]=true;
                                     setState(newState)

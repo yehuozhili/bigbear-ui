@@ -16,6 +16,8 @@ export {default as Switch} from './components/Switch';
 export {default as Select} from './components/Select';
 export {default as MultiSelect} from './components/MultiSelect';
 export {default as Radio} from './components/Radio';
+export {default as CheckBox} from './components/CheckBox';
+
 
 export {default as useClickOutside}from './hooks/useClickOutside';
 export {default as useDebounce}from './hooks/useDebounce';

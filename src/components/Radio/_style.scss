@@ -21,8 +21,21 @@
             vertical-align: sub;
             
         }
+        .bigbear-radio-dot::after{
+            content: '';
+            position: absolute;
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            transform: scale(0);
+            @include square(10px);
+            border-radius:50%;
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            top:5px;
+            left:5px;
+        }
         .bigbear-radio-dot.radio-active::after{
             content: '';
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            transform: scale(1);
             position: absolute;
             @include square(10px);
             border-radius:50%;

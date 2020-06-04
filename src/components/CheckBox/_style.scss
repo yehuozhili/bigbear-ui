@@ -1,0 +1,80 @@
+.bigbear-checkBox-wrapper{
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    display: inline-block;
+    padding: 5px;
+    .bigbear-checkbox-label {
+        position: relative;
+        margin:0;
+        cursor: pointer;
+        margin-left:5px;
+        margin-right: 5px;
+        .bigbear-checkbox-input{
+            position: absolute;
+            opacity: 0;
+        }
+        .bigbear-checkbox-dot {
+            position: relative;
+            @include square(20px);
+            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            display: inline-block;
+            vertical-align: sub;
+            
+        }
+        .bigbear-checkbox-dot::before{
+            content: '';
+            position: absolute;
+            @include size(3px,15px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            opacity: 0;
+            transform:rotate(45deg) scale(0) translate(140%,-40%);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            top:5px;
+            left:5px;
+        }
+        .bigbear-checkbox-dot::after{
+            content: '';
+            position: absolute;
+            opacity: 0;
+            @include size(3px,9px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            transform:rotate(135deg) scale(0) translate(90%,-35%);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            top:5px;
+            left:5px;
+        }
+        .bigbear-checkbox-dot.checkbox-active::before{
+            content: '';
+            position: absolute;
+            opacity: 1;
+            @include size(3px,15px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            transform:rotate(45deg) scale(1) translate(140%,-40%);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            top:5px;
+            left:5px;
+        }
+        .bigbear-checkbox-dot.checkbox-active::after{
+            content: '';
+            position: absolute;
+            opacity: 1;
+            @include size(3px,9px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            transform:rotate(135deg) scale(1) translate(90%,-35%);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            top:5px;
+            left:5px;
+        }
+        .bigbear-checkbox-value{
+            padding:5px;
+            text-shadow: 1px 1px 4px $neu-whiteshadow1, -1px -1px 4px $neu-whiteshadow2;
+        }
+        .checkbox-active ~ .bigbear-checkbox-value{
+            color:$primary;
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+        }
+        &.checkbox-disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import CheckBox from './checkbox';
+import {CheckBoxExample} from './checkbox.example'
+
+<Meta title='ENTRY|CheckBox 多选按钮' component={CheckBox} />
+
+<br/>
+
+# CheckBox 多选按钮
+
+<br/>
+
+## 基本使用
+
+<Preview>
+    <Story name='checkbox'> 
+        <CheckBox data={['check1','check2','check3']} callback={(e)=>console.log(e)} ></CheckBox>
+    </Story>
+</Preview>
+
+
+## 默认选中 defaultIndexArr
+
+<Preview>
+    <Story name='defaultvalue'> 
+        <CheckBox data={['check1','check2','check3']} defaultIndexArr={[1,2]} ></CheckBox>
+    </Story>
+</Preview>
+
+
+
+## 禁用 disableIndex
+
+<Preview>
+    <Story name='disableIndex'> 
+        <CheckBox data={['check1','check2','check3']} disableIndex={[1,2]} ></CheckBox>
+    </Story>
+</Preview>
+
+## 全选 
+
+全选需要自行封装，利用checkbox的状态转移来制作，排斥等特殊规则制作同理：👇
+
+注意：使用状态转移状态交由父组件处理，组件内不维护状态，初始值等属性无效。
+
+```jsx
+export function CheckBoxExample(){
+    const data=['check1','check2','check3']
+    const [state,setState]=useState<boolean[]>([])
+    return(
+        <div>
+            <CheckBox data={['全选']} callback={(e)=>{
+               e[0]?setState(new Array(data.length).fill(true)):setState(new Array(data.length).fill(false))
+            }}></CheckBox>
+            <CheckBox data={data} parentSetStateCallback={(e,i)=>{
+                e[i]=!e[i]
+                setState([...e])
+            }} parentState={state}></CheckBox>
+        </div>
+    )
+}
+```
+
+<Preview>
+    <Story name='全选'> 
+        <CheckBoxExample />
+    </Story>
+</Preview>
+
+
+
+
+
+
+## 属性详情
+
+<Props of={CheckBox} />
