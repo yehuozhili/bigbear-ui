@@ -3,7 +3,7 @@
     .bigbear-autocomplete-ul{
         list-style: none;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-        padding:$input-padding-y;
+        padding:5px;
         position: absolute;
         width: 100%;
         .bigbear-autocomplete-item{

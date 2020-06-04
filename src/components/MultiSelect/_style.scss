@@ -4,7 +4,7 @@
     .bigbear-multiselect-display{
         display: flex;
         width: 100%;
-        padding:10px;
+        padding:5px;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
         .bigbear-multiselect-displaytext{
             flex-grow: 1;
@@ -14,7 +14,7 @@
             @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
             .bigbear-multiselect-item{
                 display: inline-block;
-                margin:5px;
+                margin:2px;
                 .bigbear-alert{
                     flex-direction:row ;
                     padding:3px;
@@ -27,6 +27,7 @@
                     .btn{
                         position: static;
                         font-size: 14px;
+                        padding:1px 3px 1px 3px;
                     }
                 }
                 
@@ -36,7 +37,7 @@
             display: flex;
             width: 10px;
             align-items: center;
-            margin-left: 10px;
+            margin-left: 5px;
         }
     }
     .bigbear-multiselect-options{
@@ -45,6 +46,7 @@
         padding:10px;
         overflow-y: auto;
         cursor: pointer;
+        font-weight: 700;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
         >div{
             margin:5px;

@@ -97,7 +97,7 @@ MultiSelect.defaultProps={
     disabled:false,
     displayType:'default',
     optionStyle:{maxHeight:'500px'},
-    displayStyle:{minHeight:'65px'},
+    displayStyle:{minHeight:'43px'},
     defaultIndex:[]
 }
 
