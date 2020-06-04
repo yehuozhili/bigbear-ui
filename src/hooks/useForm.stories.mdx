@@ -1,0 +1,82 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import FormExample from '../components/Form/form.example';
+import { linkTo } from '@storybook/addon-links'
+import Button from '../components/Button'
+
+
+
+<Meta title='HOOKS|useForm 表单验证器'/>
+
+<br/>
+
+# useForm 表单验证器
+
+<br/>
+
+## 基本使用
+
+传入参数为数组，需要name和validate
+
+validate是数组，每个对象必须有validate属性和message属性，其中validate需要返回布尔值，true为通过，false会显示设定的message。
+
+useForm有4个返回值：
+
+第一个返回值可以获取useForm里维护的状态，用于最后提交表单
+
+第二个返回值需要搭配前面传入的name组成函数放入受控组件的onchange回调中，同时传入需要维护的值。
+
+第三个返回值用来返回验证结果，可以输出到页面或者进行判定。
+
+第四个返回值和第二个相似，需要搭配传入的name组成函数放入受控组件的onBlur回调中，用于对dirty状态进行检测，如果不需要dirty判定可以不用。
+
+<Button onClick={linkTo('ENTRY|Form 表单', 'formexample')}>跳转至Form</Button>
+
+
+```jsx
+function FormExample(){
+    const [handleSubmit,callbackObj,validate,blurObj]=useForm([ 
+        {
+            name:'input1',
+            validate:[{validate:(e)=>e!=='',message:'用户名不能为空'}]
+        },
+        {
+            name: 'input2',
+            validate:[
+                {validate:(e)=>e!=='',message:'密码不为空'},
+                {validate:(e)=>e.length>2&&e.length<7,message:'密码必须大于2位或者高于7位'}
+            ]
+        },
+        {
+            name:'checkbox',
+            validate:[{validate:(e)=>e.filter((v:boolean)=>v).length===3,message:'必须3个都选上'}],
+        }])
+    const onSubmit=(data:any)=>console.log(data)
+    return(
+        <Form >
+            <Input prepend='用户名' callback={(e)=>callbackObj.input1(e.target.value)} 
+                onBlur={(e:React.FocusEvent<HTMLInputElement>)=>{blurObj.input1(e.target.value)}} >
+            </Input>
+            <div className='bigbear-form-validate'>{validate.input1.map((v:string)=>v)}</div>
+            <Input prepend='密码' type='password' callback={(e)=>callbackObj.input2(e.target.value)}
+                onBlur={(e:React.FocusEvent<HTMLInputElement>)=>{blurObj.input2(e.target.value)}}
+            >
+            </Input>
+            <div className='bigbear-form-validate'>{validate.input2.map((v:string,i:number)=><div key={i}>{v}</div>)}</div>
+            <CheckBox data={['check1', 'check2', 'check3']}
+                callback={(e)=>callbackObj.checkbox(e)}>
+            </CheckBox>
+            <div className='bigbear-form-validate'>{validate.checkbox.map((v:string)=>v)}</div>
+            <br></br>
+            <Button onClick={(e)=>{
+                e.preventDefault();
+                handleSubmit(onSubmit)
+            }} >提交</Button>
+        </Form>
+    )
+}
+```
+
+
+<Story name='FormExample'>
+    <FormExample></FormExample>
+</Story>

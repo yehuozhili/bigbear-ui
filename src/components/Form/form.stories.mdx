@@ -1,0 +1,75 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import FormExample from './form.example';
+import Form from './form'
+import { linkTo } from '@storybook/addon-links'
+import Button from '../Button'
+
+<Meta title='ENTRY|Form 表单' component={Form}/>
+
+<br/>
+
+# Form 表单
+
+<br/>
+
+## 基本使用
+
+Form组件就是个壳，需要结合useForm使用，useForm相比于传统封装方法灵活性更大，性能更好。
+
+<Button onClick={linkTo('HOOKS|useForm 表单验证器', 'FormExample')}>跳转至useForm</Button>
+
+```jsx
+function FormExample(){
+    const [handleSubmit,callbackObj,validate,blurObj]=useForm([ 
+        {
+            name:'input1',
+            validate:[{validate:(e)=>e!=='',message:'用户名不能为空'}]
+        },
+        {
+            name: 'input2',
+            validate:[
+                {validate:(e)=>e!=='',message:'密码不为空'},
+                {validate:(e)=>e.length>2&&e.length<7,message:'密码必须大于2位或者高于7位'}
+            ]
+        },
+        {
+            name:'checkbox',
+            validate:[{validate:(e)=>e.filter((v:boolean)=>v).length===3,message:'必须3个都选上'}],
+        }])
+    const onSubmit=(data:any)=>console.log(data)
+    return(
+        <Form >
+            <Input prepend='用户名' callback={(e)=>callbackObj.input1(e.target.value)} 
+                onBlur={(e:React.FocusEvent<HTMLInputElement>)=>{blurObj.input1(e.target.value)}} >
+            </Input>
+            <div className='bigbear-form-validate'>{validate.input1.map((v:string)=>v)}</div>
+            <Input prepend='密码' type='password' callback={(e)=>callbackObj.input2(e.target.value)}
+                onBlur={(e:React.FocusEvent<HTMLInputElement>)=>{blurObj.input2(e.target.value)}}
+            >
+            </Input>
+            <div className='bigbear-form-validate'>{validate.input2.map((v:string,i:number)=><div key={i}>{v}</div>)}</div>
+            <CheckBox data={['check1', 'check2', 'check3']}
+                callback={(e)=>callbackObj.checkbox(e)}>
+            </CheckBox>
+            <div className='bigbear-form-validate'>{validate.checkbox.map((v:string)=>v)}</div>
+            <br></br>
+            <Button onClick={(e)=>{
+                e.preventDefault();
+                handleSubmit(onSubmit)
+            }} >提交</Button>
+        </Form>
+    )
+}
+```
+
+
+<Preview>
+    <Story name='formexample'>
+        <FormExample></FormExample>
+    </Story>
+</Preview>
+
+
+## 属性详情
+
+<Props of={Form}></Props>

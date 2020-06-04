@@ -33,6 +33,7 @@ const loaderFn = () => {
         require('../src/components/Select/select.stories.mdx'),
         require('../src/components/MultiSelect/multiselect.stories.mdx'),
         require('../src/components/AutoComplete/autocomplete.stories.mdx'),
+        require('../src/components/Form/form.stories.mdx'),
         require('../src/components/List/list.stories.mdx'),
         require('../src/components/VirtualList/virtuallist.stories.mdx'),
         require('../src/components/Menu/menu.stories.mdx'),
@@ -41,6 +42,7 @@ const loaderFn = () => {
         require('../src/components/Icon/icon.stories.mdx'),
         require('../src/components/Transition/transition.stories.mdx'),
         require('../src/components/Message/message.stories.mdx'),
+        require('../src/hooks/useForm.stories.mdx'),
         require('../src/hooks/useClickOutside.stories.mdx'),
         require('../src/hooks/useDebounce.stories.mdx'),
     ]

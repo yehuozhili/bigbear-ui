@@ -25,13 +25,11 @@ const myfilter=(query:string)=>{
     return data.filter(name=>name.includes(query)).map(v=>({value:v}))
 }
 const AutocompleteExample =()=>{
-    return <AutoComplete 
-        renderFilter={myfilter} 
-        prepend='autocomplete'  
-        selectCallback={(item)=>console.log(item)}
+    return <AutoComplete renderFilter={myfilter} prepend='autocomplete'
+    selectCallback={(item)=>console.log(item)}
+    callback={(e)=>console.log(e)}
     ></AutoComplete>
 }
-export default AutocompleteExample;
 ```
 
 

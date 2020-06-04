@@ -1,10 +1,11 @@
 .bigbear-input-wrapper{
     display: flex;
     align-items: center;
-    margin:$input-margin;
+    margin-bottom: $input-margin;
     box-shadow: $input-box-shadow;
     overflow: hidden;
     position: relative;
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
     input{
         background: transparent;
         height: $input-height;
@@ -16,6 +17,7 @@
         padding:0px 10px;
         color:$gray-7;
         width: 10px;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
     }
     input:disabled{
         background-color: $gray-2;

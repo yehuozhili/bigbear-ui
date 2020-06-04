@@ -1,0 +1,10 @@
+.bigbear-form{
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    padding:20px;
+    .bigbear-form-validate{
+        font-size: 13px;
+        color:$red;
+        margin-top: $input-margin;
+        margin-bottom: $input-margin;
+    }
+}
