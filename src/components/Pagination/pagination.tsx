@@ -60,20 +60,23 @@ function Pagination(props:PropsWithChildren<PaginationProps>){
     const totalPage = useMemo(()=>{
         let number =Math.ceil(total/pageSize!)
         if(number>barMaxSize!){
-            setState(new Array(barMaxSize).fill(1).map((x,y)=>y+1))
+            let statetmp=new Array(barMaxSize).fill(1).map((x,y)=>y+1)
+            setState(statetmp)
+            let arr=calculateMove(defaultCurrent!,statetmp,number)
+            if(arr){
+                setState(arr)
+            }
         }else{
-            setState(new Array(number).fill(1).map((x,y)=>y+1))
-        }
-        return number
-    },[barMaxSize, pageSize, total])
-    useEffect(()=>{
-        if(state.length>0){
-            let arr=calculateMove(current,state,totalPage)
+            let statetmp=new Array(number).fill(1).map((x,y)=>y+1)
+            setState(statetmp)
+            let arr=calculateMove(defaultCurrent!,statetmp,number)
             if(arr){
                 setState(arr)
             }
         }
-    },[current, state, totalPage])
+        return number
+    },[barMaxSize, defaultCurrent, pageSize, total])
+ 
 
     return(
         <ul className='bigbear-pagination-wrapper'>
@@ -81,12 +84,21 @@ function Pagination(props:PropsWithChildren<PaginationProps>){
                 disabled={current===1?true:false}
             onClick={()=>{
                 if(state&&state[0]>1){
-                    setState(state.map((x)=>x-1))
+                    let statetmp=state.map((x)=>x-1)
+                    setState(statetmp)
                     setCurrent(current-1)
+                    let arr=calculateMove(current-1,statetmp,totalPage)
+                    if(arr){
+                        setState(arr)
+                    }
                     if(callback)callback(current-1)
                 }else{
                     if(current!==state[0]){
                         setCurrent(current-1)
+                        let arr=calculateMove(current-1,state,totalPage)
+                        if(arr){
+                            setState(arr)
+                        }
                         if(callback)callback(current-1)
                     }
                 }
@@ -97,7 +109,13 @@ function Pagination(props:PropsWithChildren<PaginationProps>){
                     return (
                     <li className={`bigbear-pagination-item ${current===x?'pagination-active':''}`} key={i}><Button
                      btnType={current===x?'primary':'default'}
-                    onClick={()=>{setCurrent(x); if(callback)callback(x)}}>{x}</Button></li>
+                    onClick={()=>{setCurrent(x);
+                        let arr=calculateMove(x,state,totalPage)
+                        if(arr){
+                            setState(arr)
+                        }
+                        
+                        if(callback)callback(x)}}>{x}</Button></li>
                     )
                 })
             }
@@ -105,12 +123,21 @@ function Pagination(props:PropsWithChildren<PaginationProps>){
                  disabled={current===totalPage?true:false}
             onClick={()=>{
                 if(state&&state[barMaxSize!-1]<totalPage){
-                    setState(state.map((x)=>x+1))
+                    let statetmp=state.map((x)=>x+1)
+                    setState(statetmp)
                     setCurrent(current+1)
+                    let arr=calculateMove(current+1,statetmp,totalPage)
+                    if(arr){
+                        setState(arr)
+                    }
                     if(callback)callback(current+1)
                 }else{
                     if(current!==totalPage){
                         setCurrent(current+1)
+                        let arr=calculateMove(current+1,state,totalPage)
+                        if(arr){
+                            setState(arr)
+                        }
                         if(callback)callback(current+1)
                     }
                 }
