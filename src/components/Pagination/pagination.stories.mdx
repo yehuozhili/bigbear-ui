@@ -1,0 +1,43 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Pagination  from './pagination';
+
+
+
+
+<Meta title='DISPLAY|Pagination 分页' component={Pagination} />
+
+<br/>
+
+# Pagination 分页
+<br/>
+
+## 基本使用
+
+传入总数即可使用，组件会除以每页条数得到需要展示的分页数，callback获取用户选了第几页。
+
+<Preview>
+<Story name='pagination'>
+    <Pagination total={50}></Pagination>
+</Story>
+</Preview>
+
+## 默认页 defaultCurrent
+
+<Preview>
+<Story name='pagination200'>
+    <Pagination total={200} defaultCurrent={19}></Pagination>
+</Story>
+</Preview>
+
+## 设置长度 barMaxSize
+
+<Preview>
+<Story name='pagination2000'>
+    <Pagination total={2000}
+        pageSize={100}
+     barMaxSize={10} callback={(v)=>console.log(v)}></Pagination>
+</Story>
+</Preview>
+
+
+<Props of={Pagination} ></Props>

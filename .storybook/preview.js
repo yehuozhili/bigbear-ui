@@ -40,6 +40,7 @@ const loaderFn = () => {
         require('../src/components/Menu/menuitem.stories.mdx'),
         require('../src/components/Menu/submenu.stories.mdx'),
         require('../src/components/Icon/icon.stories.mdx'),
+        require('../src/components/Pagination/pagination.stories.mdx'),
         require('../src/components/Transition/transition.stories.mdx'),
         require('../src/components/Message/message.stories.mdx'),
         require('../src/hooks/useForm.stories.mdx'),
