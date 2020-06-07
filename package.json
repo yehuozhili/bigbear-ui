@@ -52,7 +52,8 @@
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog"
+    "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog",
+    "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx"
   },
   "eslintConfig": {
     "extends": "react-app"

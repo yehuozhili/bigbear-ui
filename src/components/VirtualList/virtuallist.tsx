@@ -1,33 +1,33 @@
 import React, { PropsWithChildren, useEffect, useState, ReactNode, CSSProperties } from "react";
 
-
-
 type Props = PropsWithChildren<{
-	/** 每个元素高 */ 
-	itemHeight: number; 
-	/** 一行几个元素 */ 
-	columnNumber?: number; 
+	/** 每个元素高 */
+
+	itemHeight: number;
+	/** 一行几个元素 */
+
+	columnNumber?: number;
 	/** 可视范围里几个元素 */
-	insightNumber: number; 
+	insightNumber: number;
 	/** 滚动到第一个元素的高度 */
-	startHeight?: number; 
+	startHeight?: number;
 	/** 有滚动条的dom */
-	scrollDom: HTMLDivElement | null; 
+	scrollDom: HTMLDivElement | null;
 	/** 扩展行数*/
-	scaleRow?: number; 
+	scaleRow?: number;
 	/** 装载完成回调函数*/
-	onloadFunc?: () => void; 
+	onloadFunc?: () => void;
 	/** 节流函数的延迟 */
-	delay?:number,
+	delay?: number;
 	/** virtual-custom-item的额外样式 */
-	style?:CSSProperties,
+	style?: CSSProperties;
 	/** 设置滚动条高度的误差调整 */
-	scrollbar?:number
+	scrollbar?: number;
 }>;
 
 export function throttle(fn: Function, delay: number) {
 	let flag = true;
-	return function (this: Function, ...args: Array<any>) {
+	return function(this: Function, ...args: Array<any>) {
 		const context = this;
 		if (flag) {
 			flag = false;
@@ -39,8 +39,6 @@ export function throttle(fn: Function, delay: number) {
 	};
 }
 
-
-
 function VirtualList(props: Props) {
 	const [costomHeight, setCostomHeight] = useState<number>();
 	const [visbleHeight, setVisibleHeight] = useState<number>();
@@ -48,7 +46,7 @@ function VirtualList(props: Props) {
 	const [indexNumber, setIndexNumber] = useState({
 		startIndex: 0,
 		endIndex: props.insightNumber,
-		overScroll: 0,
+		overScroll: 0
 	});
 	useEffect(() => {
 		if (props.children instanceof Array) {
@@ -59,9 +57,9 @@ function VirtualList(props: Props) {
 				childrenLen = childrenLen + remain;
 			}
 			const fullheight = (childrenLen / props.columnNumber!) * props.itemHeight;
-			if(props.scrollbar){
-				setCostomHeight(fullheight+props.scrollbar);
-			}else{
+			if (props.scrollbar) {
+				setCostomHeight(fullheight + props.scrollbar);
+			} else {
 				setCostomHeight(fullheight);
 			}
 			let insightHeight;
@@ -76,39 +74,46 @@ function VirtualList(props: Props) {
 			setVisibleHeight(insightHeight);
 			setRenderChildren(scuRender);
 		}
-	}, [props.children, indexNumber, props.columnNumber, props.itemHeight, props.insightNumber, props.scrollbar]);
+	}, [
+		props.children,
+		indexNumber,
+		props.columnNumber,
+		props.itemHeight,
+		props.insightNumber,
+		props.scrollbar
+	]);
 
 	useEffect(() => {
-        const scrollFunc = (e: Event) => {
-            const target = e.target as HTMLDivElement;
-            let overScroll = target.scrollTop - props.startHeight!; //卷曲高度
-            let timer = (overScroll / props.itemHeight) * props.columnNumber!;
-            let startIndex = Math.floor(timer); //起始索引 从0开始
-            startIndex = startIndex < 0 ? 0 : startIndex;
-            timer = (timer % props.columnNumber!) / props.columnNumber!; //滚的每行百分比
-            if (timer < 0) timer = 0;
-            if (overScroll < 0) overScroll = 0;
-            if (startIndex % props.columnNumber! !== 0) {
-                //每行没补满
-                startIndex = startIndex - (startIndex % props.columnNumber!);
+		const scrollFunc = (e: Event) => {
+			const target = e.target as HTMLDivElement;
+			let overScroll = target.scrollTop - props.startHeight!; //卷曲高度
+			let timer = (overScroll / props.itemHeight) * props.columnNumber!;
+			let startIndex = Math.floor(timer); //起始索引 从0开始
+			startIndex = startIndex < 0 ? 0 : startIndex;
+			timer = (timer % props.columnNumber!) / props.columnNumber!; //滚的每行百分比
+			if (timer < 0) timer = 0;
+			if (overScroll < 0) overScroll = 0;
+			if (startIndex % props.columnNumber! !== 0) {
+				//每行没补满
+				startIndex = startIndex - (startIndex % props.columnNumber!);
 			}
-            const endIndex = startIndex + props.insightNumber + props.scaleRow!;
+			const endIndex = startIndex + props.insightNumber + props.scaleRow!;
 			overScroll = overScroll - timer * props.itemHeight;
-            setTimeout(() => {
-                setIndexNumber({
-                    startIndex,
-                    endIndex,
-                    overScroll,
-                });
-            });
+			setTimeout(() => {
+				setIndexNumber({
+					startIndex,
+					endIndex,
+					overScroll
+				});
+			});
 		};
-		if (props.scrollDom){ 
-			props.scrollDom.addEventListener("scroll", throttle(scrollFunc,props.delay!));
+		if (props.scrollDom) {
+			props.scrollDom.addEventListener("scroll", throttle(scrollFunc, props.delay!));
 		}
 		if (props.onloadFunc) props.onloadFunc();
 		return () => {
 			if (props.scrollDom)
-				props.scrollDom.removeEventListener("scroll", throttle(scrollFunc,props.delay!));
+				props.scrollDom.removeEventListener("scroll", throttle(scrollFunc, props.delay!));
 		};
 	}, [props]);
 	return (
@@ -116,7 +121,7 @@ function VirtualList(props: Props) {
 			<div className="virtual-container">
 				<div
 					style={{
-						height: costomHeight ? costomHeight : 0,
+						height: costomHeight ? costomHeight : 0
 					}}
 				></div>
 				<div
@@ -135,15 +140,11 @@ function VirtualList(props: Props) {
 	);
 }
 
-VirtualList.defaultProps={
-	scaleRow:2,
-	delay:50,
-	columnNumber:1,
-	startHeight:0
-}
-
+VirtualList.defaultProps = {
+	scaleRow: 2,
+	delay: 50,
+	columnNumber: 1,
+	startHeight: 0
+};
 
 export default VirtualList;
-
-
-

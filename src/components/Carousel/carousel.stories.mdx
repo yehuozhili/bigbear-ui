@@ -1,0 +1,125 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Carousel from './carousel';
+
+
+<Meta title='DISPLAY|Carousel 轮播图' component={Carousel} />
+
+<br/>
+
+# Carousel 轮播图
+<br/>
+
+## 基本使用
+
+由Carousel组件包住需要轮播的节点即可使用。
+
+由于是简化版的，功能有限，需要更多定制可以去安装react-slick。
+
+高度需要自行传入，默认高度200px，传入容器也要设定高度，宽度自适应。
+
+<Preview>
+    <Story name='carousel'>
+        <Carousel>
+            <div style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>1</span>
+            </div>
+           <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>2</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>3</span>
+            </div>
+        </Carousel>
+    </Story>
+</Preview>
+
+
+
+## 关闭自动播放 autoplay
+
+自动播放默认开启的，可以关闭
+
+
+
+<Preview>
+    <Story name='carousel close autoplay'>
+        <Carousel autoplay={false} >
+            <div style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>1</span>
+            </div>
+           <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>2</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>3</span>
+            </div>
+            <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>4</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>5</span>
+            </div>
+        </Carousel>
+    </Story>
+</Preview>
+
+
+## 设置默认索引 defaultIndex
+
+从0开始
+
+<Preview>
+    <Story name='carousel defaultIndex'>
+        <Carousel defaultIndex={3} autoplay={false} >
+            <div style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>1</span>
+            </div>
+           <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>2</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>3</span>
+            </div>
+            <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>4</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'200px',color:'white',fontSize:'20px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>5</span>
+            </div>
+        </Carousel>
+    </Story>
+</Preview>
+
+
+## 设置高度height & 设置自动播放延迟autoplayDelay
+
+默认高度200px，设置高度记得把传入元素高度也定下。
+
+<Preview>
+    <Story name='carousel height'>
+        <Carousel height={500} autoplayDelay={2000} >
+            <div style={{background:'#364d79'}}>
+                <span style={{lineHeight:'500px',color:'white',fontSize:'50px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>1</span>
+            </div>
+           <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'500px',color:'white',fontSize:'50px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>2</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'500px',color:'white',fontSize:'50px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>3</span>
+            </div>
+            <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'500px',color:'white',fontSize:'50px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>4</span>
+            </div>
+               <div  style={{background:'#364d79'}}>
+                <span style={{lineHeight:'500px',color:'white',fontSize:'50px',fontWeight:'800',width:'100%',textAlign:'center',display:'inline-block'}}>5</span>
+            </div>
+        </Carousel>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+
+<Props of={Carousel} />

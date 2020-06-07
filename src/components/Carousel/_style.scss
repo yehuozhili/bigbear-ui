@@ -1,0 +1,107 @@
+.bigbear-carousel-wrapper{
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    padding:10px;
+    box-sizing:content-box;
+    .bigbear-carousel-viewport{
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        
+    }
+    .bigbear-carousel-ul{
+        display: flex;
+        list-style-type: none;
+        justify-content: center;
+        align-items: center;
+        padding:10px;
+        li{
+            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            border-radius: 50%;
+            @include square(16px);
+            margin:5px;
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                display: block;
+                left:3px;
+                top:3px;
+                @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+                @include square(10px);
+                border-radius: 50%;
+                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+                transform: scale(0);
+                opacity: 0;
+            }
+            &.carousel-active::after{
+                content: '';
+                position: absolute;
+                opacity: 1;
+                display: block;
+                left:3px;
+                top:3px;
+                @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+                @include square(10px);
+                border-radius: 50%;
+                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+.left{
+    transform: translateX(33.333%);
+    transition: all 0.5s ease;
+    left:300px
+}
+
+.left.bigbear-carousel-exit-active {
+    transform: translateX(33.333%);
+    transition: none;
+}
+.left.bigbear-carousel-enter {
+    transform: translateX(33.333%);
+    transition: all 0.5s ease;
+}
+.left.bigbear-carousel-enter-active {
+    transform: translateX(33.333%);
+    transition: all 0.5s ease;
+}
+.left.bigbear-carousel-enter-done{
+    transform: translateX(0);
+    transition: all 0.5s ease;
+}
+
+
+.right{
+    transform: translateX(-33.333%);
+}
+
+.right.bigbear-carousel-exit-active {
+    transform: translateX(-33.333%);
+    transition: all 0.5s ease;
+}
+.right.bigbear-carousel-enter {
+    transform: translateX(-33.333%);
+    transition: all 0.5s ease;
+}
+.right.bigbear-carousel-enter-active {
+    transform: translateX(0%);
+    transition: all 0.5s ease;
+}
+.right.bigbear-carousel-enter-done{
+    transform: translateX(0%);
+    transition: all 0.5s ease;
+}
+
+
+
