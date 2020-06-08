@@ -1,0 +1,171 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Tabel  from './table';
+import {data,columns,longdata,longcolumns,longlongdata,columnsRender} from './table.example'
+
+
+<Meta title='DISPLAY | Tabel 表格' component={Tabel} />
+
+<br/>
+
+# Tabel 表格
+
+<br/>
+
+## 数据格式
+
+需要表头列表，以及数据列表。
+
+表头列表的dataIndex对应data中的字段，title是真正显示内容。
+
+
+```jsx
+export const columns = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+    },
+    {
+        title: 'Chinese Score',
+        dataIndex: 'chinese',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) => b.chinese-a.chinese ,
+        },
+    },
+    {
+        title: 'Math Score',
+        dataIndex: 'math',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) =>b.math- a.math ,
+        },
+    },
+    {
+        title: 'English Score',
+        dataIndex: 'english',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) => b.english-a.english ,
+        },
+    },
+];
+export const data = [
+    {
+        key: '1',
+        name: 'John Brown',
+        chinese: 55,
+        math: 60,
+        english: 70,
+    },
+    {
+        key: '2',
+        name: 'Jim Green',
+        chinese: 98,
+        math: 66,
+        english: 89,
+    },
+    {
+        key: '3',
+        name: 'Joe Black',
+        chinese: 78,
+        math: 90,
+        english: 70,
+    },
+    {
+        key: '4',
+        name: 'Jim Red',
+        chinese: 88,
+        math: 99,
+        english: 89,
+    },
+];
+```
+
+## 基本使用
+
+传表头和数据即可使用。
+
+<Preview>
+    <Story name='table basic'> 
+        <Tabel data={data} columns={columns} ></Tabel>
+    </Story>
+</Preview>
+
+
+
+## 带排序功能 sorted
+
+需要表头数据传sorter对象的compare是sort函数返回。
+
+<Preview>
+    <Story name='table'> 
+        <Tabel data={data} columns={columns} sorted={true} ></Tabel>
+    </Story>
+</Preview>
+
+
+## 带分页功能 pagination
+<Preview>
+    <Story name='tablelong'> 
+        <Tabel data={longdata} columns={longcolumns} pagination={true}></Tabel>
+    </Story>
+</Preview>
+
+
+## 分页+排序
+
+<Preview>
+    <Story name='tablelonglong'> 
+        <Tabel data={longlongdata} columns={columns} sorted={true} pagination={true}></Tabel>
+    </Story>
+</Preview>
+
+## 使用模板 render 
+
+表头字段加入render即可使用自定义模板渲染
+
+```jsx
+export const columnsRender = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+    },
+    {
+        title: 'Chinese Score',
+        dataIndex: 'chinese',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) => b.chinese-a.chinese ,
+        },
+        render:(data:number)=><a href='/'>{data}</a>
+    },
+    {
+        title: 'Math Score',
+        dataIndex: 'math',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) =>b.math- a.math ,
+        },
+        render:(data:number)=><h5>{data}</h5>
+    },
+    {
+        title: 'English Score',
+        dataIndex: 'english',
+        sorter: {
+        compare: (a:SourceDataType, b:SourceDataType) => b.english-a.english ,
+        },
+        render:(data:number)=><Button>{data}</Button>
+    },
+];
+
+```
+
+
+<Preview>
+    <Story name='tableremder'> 
+        <Tabel data={data} columns={columnsRender} sorted={true} ></Tabel>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+
+
+<Props of={Tabel}></Props>

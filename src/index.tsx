@@ -19,6 +19,7 @@ export { default as CheckBox } from "./components/CheckBox";
 export { default as Form } from "./components/Form";
 export { default as Pagination } from "./components/Pagination";
 export { default as Carousel } from "./components/Carousel";
+export { default as Table } from "./components/Table";
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";

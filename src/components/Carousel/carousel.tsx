@@ -37,11 +37,7 @@ function mapToState(map: [number, number, number], children: ReactNode, totalLen
 	}
 }
 
-function currentSetMap(
-	current: number,
-	map: [number, number, number],
-	totalLen: number
-): [number, number, number] {
+function currentSetMap(current: number, map: [number, number, number]): [number, number, number] {
 	let mid = map[1];
 	if (mid === current) {
 		return map;
@@ -137,7 +133,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 				} else {
 					y = 0;
 				}
-				let newmap = currentSetMap(y, indexMap, totalLen);
+				let newmap = currentSetMap(y, indexMap);
 				setIndexMap(newmap);
 			}, autoplayDelay);
 		}
@@ -181,7 +177,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 					return (
 						<li
 							onClick={() => {
-								let newmap = currentSetMap(y, indexMap, totalLen);
+								let newmap = currentSetMap(y, indexMap);
 								setIndexMap(newmap);
 							}}
 							className={y === indexMap[1] ? "carousel-active" : ""}

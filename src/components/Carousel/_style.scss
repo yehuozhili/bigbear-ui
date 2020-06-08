@@ -22,6 +22,7 @@
             @include square(16px);
             margin:5px;
             position: relative;
+            cursor: pointer;
             &::after{
                 content: '';
                 position: absolute;
