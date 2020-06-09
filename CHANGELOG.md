@@ -1,4 +1,4 @@
-## 0.1.15 (2020-06-08)
+## 0.1.16 (2020-06-09)
 
 
 ### Bug Fixes
@@ -22,12 +22,14 @@
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))
 * **menu:** menu component inital complete ([2094eba](https://github.com/yehuozhili/bigbear-ui/commit/2094eba806ead1cb7ea03b8f9aaef9163fe9c0a4))
+* **modal:** complete modal component ([57e2426](https://github.com/yehuozhili/bigbear-ui/commit/57e2426c8bb444c40a3e95f8ce3da3c5f8c2f00d))
 * **multiselect:** complete multiselect component ([a83176d](https://github.com/yehuozhili/bigbear-ui/commit/a83176df79926f979e47ebe4bb578b2360bbee14))
 * **pagination:** complete pagination component ([6b5afb3](https://github.com/yehuozhili/bigbear-ui/commit/6b5afb36c9a905adc41cb90c7822ac71a9dc2480))
 * **radio:** complete radio component ([3fff13d](https://github.com/yehuozhili/bigbear-ui/commit/3fff13d5723327e28b785ed51855abfa05e2eccb))
 * **select:** complete select component ([3552bf6](https://github.com/yehuozhili/bigbear-ui/commit/3552bf63a9afff5d78d55f8824ba546e64508b57))
 * **src:** change style and add alert message component ([21590e7](https://github.com/yehuozhili/bigbear-ui/commit/21590e7ea989c9c2f685a791dcfc26b3cd0239f2))
 * **switch:** complete switch component ([2393b24](https://github.com/yehuozhili/bigbear-ui/commit/2393b242efb6c3b769d8c9e70d9071c946b8cf3e))
+* **table:** complete table component ([73378ef](https://github.com/yehuozhili/bigbear-ui/commit/73378ef5a08a5735b4f53749e9a45c7fc804baa9))
 * **virtuallist:** complete virtuallist ([8e6b44a](https://github.com/yehuozhili/bigbear-ui/commit/8e6b44a0b9d2ed3d6478d8da6a93f843dc1439c5))
 
 
