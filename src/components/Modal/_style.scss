@@ -21,14 +21,18 @@
             font-size: $font-size-lg;
             font-weight: $font-weight-bold;
             @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            .bigbear-icon{
+                margin-right: 10px;
+            }
             .bigbear-modal-closebtn{
                 position: absolute;
                 right: $modal-padding ;
                 top:$modal-padding ;
+                .bigbear-icon{
+                    margin-right: 0px;
+                }
             }
-            .bigbear-icon{
-                margin-right: 10px;
-            }
+           
         }
         .bigbear-modal-children{
             padding:$modal-padding;
