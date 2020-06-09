@@ -1,0 +1,85 @@
+.bigbear-modal-potral{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    .bigbear-modal-viewport{
+        z-index: 1001;
+        position: relative;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        padding:$modal-padding;
+        margin:0 auto;
+        top:100px;
+        width: 30%;
+        min-width: 320px;
+        overflow: hidden;
+        transition: all  0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        .bigbear-modal-title{
+            padding: $modal-padding;
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            .bigbear-modal-closebtn{
+                position: absolute;
+                right: $modal-padding ;
+                top:$modal-padding ;
+            }
+            .bigbear-icon{
+                margin-right: 10px;
+            }
+        }
+        .bigbear-modal-children{
+            padding:$modal-padding;
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        }
+        .bigbear-modal-confirm{
+            padding: $modal-padding;
+            display: flex;
+            justify-content: flex-end;
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            >button{
+                margin-right: 10px;
+            }
+        }
+    
+    }
+    .bigbear-modal-mask{
+        position: fixed;
+        top:0;
+        left:0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0,0,0,.45);
+    }
+}
+
+
+.bigbear-modal-animation-enter {
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) ;
+    .bigbear-modal-viewport{
+        transform: scaleY(0) scaleX(0);
+    }
+}
+
+.bigbear-modal-animation-enter-done {
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) ;
+    .bigbear-modal-viewport{
+        transform: scaleY(1) scaleX(1);
+        transform-origin: center top;
+    }
+}
+.bigbear-modal-animation-exit {
+    opacity: 1;
+    transition: all  0.3s cubic-bezier(0.23, 1, 0.32, 1) ;
+
+}
+.bigbear-modal-animation-exit-active {
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) ;
+    transform-origin:center top;
+
+}

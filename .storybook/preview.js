@@ -37,6 +37,7 @@ const loaderFn = () => {
         require('../src/components/Form/form.stories.mdx'),
         require('../src/components/List/list.stories.mdx'),
         require('../src/components/VirtualList/virtuallist.stories.mdx'),
+        require('../src/components/Modal/modal.stories.mdx'),
         require('../src/components/Menu/menu.stories.mdx'),
         require('../src/components/Menu/menuitem.stories.mdx'),
         require('../src/components/Menu/submenu.stories.mdx'),
@@ -48,6 +49,7 @@ const loaderFn = () => {
         require('../src/hooks/useForm.stories.mdx'),
         require('../src/hooks/useClickOutside.stories.mdx'),
         require('../src/hooks/useDebounce.stories.mdx'),
+        require('../src/hooks/useStopScroll.stories.mdx'),
     ]
 }
 configure(loaderFn, module);

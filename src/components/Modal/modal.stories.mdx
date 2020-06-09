@@ -1,0 +1,150 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Modal  from './modal';
+import {ModalExample,ModalExample2,ModalExample3,ModalExample4,ModalExample5} from './modal.example'
+
+
+<Meta title='REACTION|Modal 模态框' component={Modal} />
+
+<br/>
+
+# Modal 模态框
+<br/>
+
+## 基本使用
+
+父组件做个state控制开关即可。
+
+```jsx
+export function ModalExample(){
+    const [state,setState]=useState(false)
+    return(
+        <div>
+        <Modal setState={setState} visible={state} callback={(v)=>console.log(v)}>
+            <p>balabalabala</p>
+            <p>balabalabalalalalallaa</p>
+        </Modal>
+        <Button onClick={()=>setState(!state)}>基本使用</Button>
+        </div>
+    )
+}
+```
+
+<Preview>
+    <Story name='modal'>
+        <ModalExample></ModalExample>
+    </Story>
+</Preview>
+
+
+
+## 点击mask不关闭
+
+```tsx
+export function ModalExample2(){
+    const [state,setState]=useState(false)
+    return(
+        <div>
+        <Modal setState={setState} visible={state} maskClose={false} callback={(v)=>console.log(v)}>
+            <p>balabalabala</p>
+            <p>balabalabalalalalallaa</p>
+        </Modal>
+        <Button onClick={()=>setState(!state)}>点击mask不关闭</Button>
+        </div>
+    )
+}
+```
+
+<Preview>
+    <Story name='modal closefalse'>
+        <ModalExample2></ModalExample2>
+    </Story>
+</Preview>
+
+## 改变confirm按钮文本
+
+```tsx
+export function ModalExample3(){
+    const [state,setState]=useState(false)
+    return(
+        <div>
+        <Modal setState={setState} visible={state} okText='ok' cancelText='cancel' 	  >
+            <p>balabalabala</p>
+            <p>balabalabalalalalallaa</p>
+        </Modal>
+        <Button onClick={()=>setState(!state)}>改变confirm按钮文本</Button>
+        </div>
+    )
+}
+```
+
+
+<Preview>
+    <Story name='modal confirm'>
+        <ModalExample3></ModalExample3>
+    </Story>
+</Preview>
+
+## 自定义按钮
+
+不使用默认按钮可以自己在children里传
+
+```jsx
+export function ModalExample4(){
+    const [state,setState]=useState(false)
+    return(
+        <div>
+        <Modal setState={setState} visible={state} confirm={false}  >
+            <p>balabalabala</p>
+            <p>balabalabalalalalallaa</p>
+            <div style={{display:'flex',justifyContent:'flex-end'}}>
+                <Button btnType={"primary"}>自定义ok</Button>
+                <Button btnType='info'>自定义取消</Button>
+            </div>
+        </Modal>
+        <Button onClick={()=>setState(!state)}>自定义按钮</Button>
+        </div>
+    )
+}
+```
+
+
+<Preview>
+    <Story name='modal btn'>
+        <ModalExample4></ModalExample4>
+    </Story>
+</Preview>
+
+
+## 自定义大小
+
+设置style即可自定义大小，主要是靠top定位位置，width定位宽度。
+
+```tsx
+export function ModalExample5(){
+    const [state,setState]=useState(false)
+    return(
+        <div>
+        <Modal title={<p><Icon icon={'info-circle'}></Icon>带上图标标题</p>} 
+            setState={setState} visible={state}  style={{top:'40px',width:'800px'}} 
+            closeButton={false}	  
+        >
+            <p>balabalabala</p>
+            <p>balabalabalalalalallaa</p>
+        </Modal>
+        <Button onClick={()=>setState(!state)}>自定义大小</Button>
+        </div>
+    )
+}
+```
+
+
+<Preview>
+    <Story name='modal style'>
+        <ModalExample5></ModalExample5>
+    </Story>
+</Preview>
+
+
+## 属性详情
+
+<Props of={Modal} />
