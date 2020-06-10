@@ -12,12 +12,13 @@
             flex-wrap: wrap;
             border-radius: 5px;
             @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
-            .bigbear-multiselect-item{
-                display: inline-block;
-                margin:2px;
+               
                 .bigbear-alert{
                     flex-direction:row ;
+                    flex-wrap: nowrap;
                     padding:3px;
+                    display: flex;
+                    margin:2px;
                     & span:nth-child(1){
                         font-size: 14px;
                         display: flex;
@@ -31,7 +32,6 @@
                     }
                 }
                 
-            }
         }
         .bigbear-multiselect-icon{
             display: flex;

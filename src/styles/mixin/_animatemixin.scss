@@ -14,6 +14,16 @@
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin: $origin
   }
+  .zoom-in-#{$direction}-appear {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .zoom-in-#{$direction}-appear-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin
+  }
   .zoom-in-#{$direction}-exit {
     opacity: 1;
   }
@@ -24,3 +34,4 @@
     transform-origin: $origin;
   }
 }
+

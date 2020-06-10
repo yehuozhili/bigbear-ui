@@ -2,7 +2,7 @@
 @include zoom-animation('left', scale(.45, .45), scale(1, 1), top left);
 @include zoom-animation('right', scale(.45, .45), scale(1, 1), top right);
 @include zoom-animation('bottom', scaleY(0), scaleY(1),  center bottom);
-
+@include zoom-animation('allscale',scaleY(0,0),scale(1, 1),center);
 
 
 
