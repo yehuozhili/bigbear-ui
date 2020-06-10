@@ -36,7 +36,9 @@ export interface MessageProps {
 	/** 文本内容*/
 	description?: string;
 	/**  关闭按钮 */
-	close?: boolean;
+    close?: boolean;
+    /** 动画时间 */
+    timeout?:number;
 }
 
 function directionSelect(directions: DirectionType) {
@@ -73,13 +75,16 @@ export const Message: FC<MessageProps> = function(props: MessageProps) {
 		type,
 		className,
 		closeCallback,
-		description
+        description,
+        timeout,
 	} = props;
 	if (!container) {
 		let createObj = createContainer();
 		container = createObj.container;
-		closeCallback = createObj.closeCallback;
-	}
+		closeCallback =()=>setTimeout(() => {
+           createObj.closeCallback()
+        }, timeout);;
+    }
 	let select: AlertProps["directions"] = directionSelect(directions as DirectionType);
 	const animateclass = directions === "top" ? "zoom-in-topmesssage" : undefined;
 	return createPortal(
@@ -96,7 +101,8 @@ export const Message: FC<MessageProps> = function(props: MessageProps) {
 			closeCallback={closeCallback}
 			animateClassName={animateclass}
 			description={description}
-			close={close}
+            close={close}
+            timeout={timeout}
 		></Alert>,
 		container
 	);
@@ -107,13 +113,15 @@ Message.defaultProps = {
 	type: "default",
 	directions: "top",
 	autoclosedelay: 3000,
-	close: false
+    close: false,
+    timeout:300
 };
 
 const defaultOptions = {
 	directions: "top",
 	description: undefined,
-	icon: undefined as ReactNode
+    icon: undefined as ReactNode,
+    timeout:300
 };
 
 const defaultIcon = {
@@ -133,8 +141,10 @@ function messageRender(str: string, messageType: AlertProps["type"], options: De
 	let mergeOptions = { ...defaultOptions, ...options };
 	let container = document.createElement("div");
 	container.className = "bigbear-message-factory";
-	container = document.body.appendChild(container);
-	const closeCallback = () => container.parentElement!.removeChild(container);
+    container = document.body.appendChild(container);
+	const closeCallback =()=> setTimeout(() => {
+        container.parentElement!.removeChild(container);
+    }, mergeOptions.timeout);
 	let dom = document.createElement("div");
 	dom.className = "bigbear-message-factory-item";
 	container.appendChild(dom);
@@ -148,7 +158,8 @@ function messageRender(str: string, messageType: AlertProps["type"], options: De
 			container={container}
 			description={mergeOptions.description}
 			autoclosedelay={mergeOptions.autoclosedelay}
-			close={mergeOptions.close}
+            close={mergeOptions.close}
+            timeout={mergeOptions.timeout}
 		></Message>,
 		container
 	);
