@@ -27,7 +27,7 @@ export interface ColumnType {
 	sorter?: {
 		compare: (a: SourceDataType, b: SourceDataType) => number;
 	};
-	render?: (v: any) => ReactNode;
+	render?: (v: any,rowData:ColumnType) => ReactNode;
 }
 
 const MapData = (data: SourceDataType[], columnData: ColumnType[]) => {
@@ -39,7 +39,7 @@ const MapData = (data: SourceDataType[], columnData: ColumnType[]) => {
 						<td key={index} className="bigbear-table-data-item">
 							<span>
 								{value.render
-									? value.render(v[value.dataIndex])
+									? value.render(v[value.dataIndex],value)
 									: v[value.dataIndex]}
 							</span>
 						</td>
