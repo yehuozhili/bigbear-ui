@@ -32,7 +32,7 @@
         }
     }
     .bigbear-progress-number{
-        min-width: 50px;
+        min-width: 55px;
         display: inline-block;
         margin-left: 10px;
         text-align: center;
@@ -49,4 +49,20 @@
 }
 
 
- 
+.bigbear-progress-circle{
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    .bigbear-progress-circle-inner{
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        font-weight: $font-weight-bold;
+        top:50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate3d(-50%,-50%,0);
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+}
