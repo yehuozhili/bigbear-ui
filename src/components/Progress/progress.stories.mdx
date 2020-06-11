@@ -1,0 +1,58 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Progress  from './progress';
+import {ProgressExample}from './progress.example';
+
+
+
+<Meta title='REACTION |Progress 进度条' component={Progress} />
+
+<br/>
+
+# Progress 进度条
+<br/>
+
+## 基本使用
+
+
+<Preview>
+    <Story name='progress'>
+        <Progress count={22}></Progress>
+    </Story>
+</Preview>
+
+## 可操作
+
+```tsx
+export function ProgressExample(){
+    const [count,setCount]=useState(30)
+    return (
+        <div>
+            <Button onClick={()=>setCount(count+1)}>+1</Button>
+            <Button onClick={()=>setCount(count-1)}>-1</Button>
+            <Button onClick={()=>setCount(count+10)}>+10</Button>
+            <Button onClick={()=>setCount(count-10)}>-10</Button>
+            <Progress count={count}></Progress>
+        </div>
+    )
+}
+```
+
+<Preview>
+    <Story name='progress dynamic'>
+        <ProgressExample count={22}></ProgressExample>
+    </Story>
+</Preview>
+
+## 不要文字
+
+
+<Preview>
+    <Story name='progress notext'>
+        <Progress count={99} countNumber={false}></Progress>
+    </Story>
+</Preview>
+
+
+## 属性详情
+
+<Props of={Progress} />

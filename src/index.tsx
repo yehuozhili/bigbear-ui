@@ -21,6 +21,7 @@ export { default as Pagination } from "./components/Pagination";
 export { default as Carousel } from "./components/Carousel";
 export { default as Table } from "./components/Table";
 export {default as Modal} from "./components/Modal";
+export {default as Progress} from './components/Progress';
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";

@@ -1,0 +1,52 @@
+.bigbear-progress-wrapper{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    padding:5px;
+    .bigbear-progress-bar{
+        position: relative;
+        width: 100%;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        border-radius: $porgress-radius;
+        padding: 1px;
+        flex:1;
+        .bigbear-progress-inner{
+            background-color: $primary;
+            border-radius: $porgress-radius;
+            transition:all .4s cubic-bezier(.08,.82,.17,1) 0s ;
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+            background-image: linear-gradient(to right, $primary, $info);
+            &::before{
+                position: absolute;
+                top:0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: $white;
+                border-radius: 10px;
+                content: '';
+                opacity: 0;
+                animation: bigbear-progress-active 2.4s cubic-bezier(.23,1,.32,1) infinite;
+            }
+            
+        }
+    }
+    .bigbear-progress-number{
+        min-width: 50px;
+        display: inline-block;
+        margin-left: 10px;
+        text-align: center;
+        padding: 5px;
+        font-weight: $font-weight-bold;
+        @include neu-textshadow($neu-whiteshadow1,$neu-whiteshadow2);
+    }
+}
+
+@keyframes bigbear-progress-active{
+    0% { width: 0px; opacity: 0.1; }
+    20% { width: 0px; opacity: 0.5; } 
+    100% { width: 100%; opacity: 0; }
+}
+
+
+ 

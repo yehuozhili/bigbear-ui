@@ -112,11 +112,13 @@
     inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
 }
 
-
-
 @mixin switch-neu($bgcolor,$shadow1,$shadow2){
     background:$bgcolor;
     box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
     inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2,
     $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1;
+}
+
+@mixin  neu-textshadow( $shadow1,$shadow2) {
+    text-shadow: 1px 1px 4px $shadow1, -1px -1px 4px $shadow2;
 }
