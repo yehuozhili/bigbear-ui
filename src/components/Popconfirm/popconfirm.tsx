@@ -1,16 +1,7 @@
-import React from 'react';
+import React from "react";
 
-
-
-
-
-function Popconfirm(){
-    return (
-        <div></div>
-    )
+function Popconfirm() {
+	return <div></div>;
 }
 
-
-
 export default Popconfirm;
-

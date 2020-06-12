@@ -4,7 +4,7 @@ import React, {
 	useRef,
 	PropsWithChildren,
 	useEffect,
-	CSSProperties,
+	CSSProperties
 } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
 import Icon from "../Icon";
@@ -38,22 +38,25 @@ interface MultiSelectProps {
 	/** 选项框样式 */
 	optionStyle?: CSSProperties;
 	/** 显示框样式 */
-    displayStyle?: CSSProperties;
-    itemTimeout?:number
+	displayStyle?: CSSProperties;
+	itemTimeout?: number;
 }
 
-const mapToState=function(data:string[],datamap:number[],setState:React.Dispatch<React.SetStateAction<string[]>>){
-    if (datamap.length === 0) {
-        setState([]);
-    } else {
-        let newState: Array<string> = [];
-        datamap.forEach((v) => {
-            newState.push(data[v]);
-        });
-        setState(newState);
-    }
-}
-
+const mapToState = function(
+	data: string[],
+	datamap: number[],
+	setState: React.Dispatch<React.SetStateAction<string[]>>
+) {
+	if (datamap.length === 0) {
+		setState([]);
+	} else {
+		let newState: Array<string> = [];
+		datamap.forEach((v) => {
+			newState.push(data[v]);
+		});
+		setState(newState);
+	}
+};
 
 function MultiSelect(props: PropsWithChildren<MultiSelectProps>) {
 	const {
@@ -65,18 +68,18 @@ function MultiSelect(props: PropsWithChildren<MultiSelectProps>) {
 		displayType,
 		optionStyle,
 		displayStyle,
-        defaultIndex,
-        itemTimeout
+		defaultIndex,
+		itemTimeout
 	} = props;
-	const [state, setState] = useState<Array<string>>(()=>{
-        if(defaultIndex){
-            return defaultIndex.map((v)=>data[v])
-        }else{
-            return []
-        }
-    });
+	const [state, setState] = useState<Array<string>>(() => {
+		if (defaultIndex) {
+			return defaultIndex.map((v) => data[v]);
+		} else {
+			return [];
+		}
+	});
 	const [datamap, setDataMap] = useState<Array<number>>(defaultIndex ? defaultIndex : []); //增加时候可能会有重名所以要map
-    const [open, setOpen] = useState(() => false);
+	const [open, setOpen] = useState(() => false);
 	const ref = useRef(null);
 	useClickOutside(ref, () => setOpen(false));
 	useEffect(() => {
@@ -95,24 +98,24 @@ function MultiSelect(props: PropsWithChildren<MultiSelectProps>) {
 				<div className="bigbear-multiselect-displaytext">
 					{state.map((item, index) => {
 						return (
-                                <Alert
-                                    key={datamap[index]}
-                                    title={item}
-                                    close={true}
-                                    type={displayType}
-                                    timeout={itemTimeout}
-                                    initiativeCloseCallback={(setAlert, e) => {
-                                        e.stopPropagation();
-                                        setAlert(false)
-                                        setTimeout(() => {
-                                            unstable_batchedUpdates(()=>{
-                                                datamap.splice(index, 1);
-                                                mapToState(data,datamap,setState)
-                                                setDataMap([...datamap]);
-                                            })
-                                        }, itemTimeout);
-                                    }}
-                                ></Alert>
+							<Alert
+								key={datamap[index]}
+								title={item}
+								close={true}
+								type={displayType}
+								timeout={itemTimeout}
+								initiativeCloseCallback={(setAlert, e) => {
+									e.stopPropagation();
+									setAlert(false);
+									setTimeout(() => {
+										unstable_batchedUpdates(() => {
+											datamap.splice(index, 1);
+											mapToState(data, datamap, setState);
+											setDataMap([...datamap]);
+										});
+									}, itemTimeout);
+								}}
+							></Alert>
 						);
 					})}
 				</div>
@@ -126,13 +129,13 @@ function MultiSelect(props: PropsWithChildren<MultiSelectProps>) {
 								onClick={() => {
 									let res = datamap.indexOf(index);
 									if (res === -1) {
-                                        const newmap=[...datamap, index]
-                                        setDataMap(newmap);
-                                        mapToState(data,newmap,setState)
+										const newmap = [...datamap, index];
+										setDataMap(newmap);
+										mapToState(data, newmap, setState);
 									} else {
 										datamap.splice(res, 1);
-                                        setDataMap([...datamap]);
-                                        mapToState(data,datamap,setState)
+										setDataMap([...datamap]);
+										mapToState(data, datamap, setState);
 									}
 								}}
 								key={index}
@@ -161,8 +164,8 @@ MultiSelect.defaultProps = {
 	displayType: "default",
 	optionStyle: { maxHeight: "500px" },
 	displayStyle: { minHeight: "43px" },
-    defaultIndex: [],
-    itemTimeout:300
+	defaultIndex: [],
+	itemTimeout: 300
 };
 
 export default MultiSelect;

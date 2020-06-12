@@ -24,7 +24,7 @@ export interface AlertProps {
 	/** 内容*/
 	description?: string | null;
 	/** 动画方向 */
-	directions?: "left" | "top" | "right" | "bottom"|"allscale";
+	directions?: "left" | "top" | "right" | "bottom" | "allscale";
 	/** 自动关闭延时时间，0表示不自动关闭 */
 	autoclosedelay?: number;
 	/** 额外类名 */
