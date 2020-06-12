@@ -28,6 +28,7 @@
 * **multiselect:** add multiselect animation ([d42213f](https://github.com/yehuozhili/bigbear-ui/commit/d42213ff5fa5dbfe3249a766105fbb42536337e5))
 * **multiselect:** complete multiselect component ([a83176d](https://github.com/yehuozhili/bigbear-ui/commit/a83176df79926f979e47ebe4bb578b2360bbee14))
 * **pagination:** complete pagination component ([6b5afb3](https://github.com/yehuozhili/bigbear-ui/commit/6b5afb36c9a905adc41cb90c7822ac71a9dc2480))
+* **popconfirm:** complete popconfirm component ; add more parameter to modal; ([cedbccd](https://github.com/yehuozhili/bigbear-ui/commit/cedbccdeb2c9294d7de55050ff33a891380046d1))
 * **progress:** add circle progress bar ([d937eb8](https://github.com/yehuozhili/bigbear-ui/commit/d937eb81d8cae67993f4ec96826394b50949bca2))
 * **progress:** complete progress componenet ([88097bd](https://github.com/yehuozhili/bigbear-ui/commit/88097bd01328917fc8b70b78e38a429525de1baa))
 * **radio:** complete radio component ([3fff13d](https://github.com/yehuozhili/bigbear-ui/commit/3fff13d5723327e28b785ed51855abfa05e2eccb))
