@@ -1,0 +1,35 @@
+.bigbear-modal-potral.bigbear-popconfirm{
+    position: absolute;
+    right:unset;
+    bottom: unset;
+    top:unset;
+    left:unset;
+    padding:0;
+    white-space: nowrap;
+    
+    .bigbear-modal-viewport.bigbear-popconfirm{
+        position: unset;
+        display: block;
+        padding:4px;
+        margin: 0;
+        width: unset;
+        min-width: unset;
+        .bigbear-modal-title.bigbear-popconfirm{
+            font-size: $font-size-sm;
+            >span{
+                display: inline-block;
+                margin-right: 20px;
+            }
+        }
+        .bigbear-modal-confirm.bigbear-popconfirm{
+            font-size: $font-size-sm;
+            padding: 2px;
+        }
+    }
+
+}
+.bigbear-popconfirm-wrapper{
+    display: inline-block;
+}
+
+

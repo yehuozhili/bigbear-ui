@@ -57,8 +57,8 @@ function Progress(props: ProgressType) {
 								cy="100%"
 								spreadMethod="pad"
 							>
-								<stop offset="0%" stop-color="#40a9ff" />
-								<stop offset="100%" stop-color="#36cfc9" />
+								<stop offset="0%" stopColor="#40a9ff" />
+								<stop offset="100%" stopColor="#36cfc9" />
 							</radialGradient>
 						</defs>
 						<circle
@@ -79,7 +79,7 @@ function Progress(props: ProgressType) {
 							opacity={state === 0 ? 0 : 1}
 							strokeLinecap="round"
 							strokeDasharray={dasharray}
-							stroke-dashoffset={"0px"}
+							strokeDashoffset={"0px"}
 							style={{
 								transition:
 									"stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s ease 0s, stroke-width 0.06s ease 0.3s"

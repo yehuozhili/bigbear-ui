@@ -9,9 +9,10 @@ import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 
 ## 使用方式
 
-组件内引入，第一个参数为组件内state,第二个参数为需要延迟时间。
+组件内引入，第一个参数为组件内state,第二个参数为需要延迟时间，第三个参数open,true为使用false为关闭。
 
 state为true则隐藏滚动条，false则恢复滚动。
+
 
 ```jsx
  useStopScroll(state)

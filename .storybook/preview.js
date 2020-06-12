@@ -45,6 +45,7 @@ const loaderFn = () => {
         require('../src/components/Menu/menuitem.stories.mdx'),
         require('../src/components/Menu/submenu.stories.mdx'),
         require('../src/components/Progress/progress.stories.mdx'),
+        require('../src/components/Popconfirm/popconfirm.stories.mdx'),
         require('../src/components/Message/message.stories.mdx'),
         require('../src/components/Transition/transition.stories.mdx'),
         require('../src/hooks/useForm.stories.mdx'),

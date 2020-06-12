@@ -15,16 +15,18 @@ https://fontawesome.com/icons?d=gallery&s=solid&m=free
 
 ## 基础使用
 
+注意：超过1dpr设备使用未设置大小的icon并且使用spin等动效会导致模糊，需要设置size
+
 <Preview>
   <Story name='base' >
   <div>
 <Icon icon='search' ></Icon>
-<Icon icon='spinner' spin ></Icon>
-<Icon icon='cog' pulse ></Icon>
-<Icon icon='spinner' flip='vertical' ></Icon>
-<Icon icon='spinner' flip='both' ></Icon>
-<Icon  icon="spinner" transform={{ rotate: 1 }} ></Icon>
-<Icon icon="cog" pulse mask='circle'></Icon>
+<Icon icon='spinner' spin size='2x'></Icon>
+<Icon icon='cog' pulse size='2x'></Icon>
+<Icon icon='spinner' flip='vertical' size='2x'></Icon>
+<Icon icon='spinner' flip='both' size='2x'></Icon>
+<Icon  icon="spinner" transform={{ rotate: 1 }} size='2x'></Icon>
+<Icon icon="cog" pulse mask='circle'size='2x'></Icon>
   </div>
   </Story>
 </Preview>
