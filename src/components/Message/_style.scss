@@ -2,7 +2,7 @@
     position: fixed;
     top:20px;
     left:50%;
-    transform: translate3D(-50%,0,0);
+    transform: translateX(-50%);
 }
 .bigbear-message-lt{
     position: fixed;
@@ -45,21 +45,21 @@
 
 .zoom-in-topmesssage-enter {
     opacity: 0;
-    transform: scaleY(0)  translate3D(-50%,0,0);
+    transform: scaleY(0) translateX(-50%);
 }
 .zoom-in-topmesssage-enter-active {
     opacity: 1;
-    transform: scaleY(1)  translate3D(-50%,0,0);
+    transform: scaleY(1) translateX(-50%);
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin: center top
 }
 .zoom-in-topmesssage-enter-done {
     opacity: 1;
-    transform:scaleY(1) translate3D(-50%,0,0);
+    transform:scaleY(1) translateX(-50%);
 }
 .zoom-in-topmesssage-exit{
     opacity: 0;
-    transform: scaleY(0)  translate3D(-50%,0,0);
+    transform: scaleY(0)  translateX(-50%);
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin:center top;
 }

@@ -62,7 +62,7 @@
         top:50%;
         left: 50%;
         border-radius: 50%;
-        transform: translate3d(-50%,-50%,0);
+        transform: translateX(-50%) translateY(-50%);
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
     }
 }

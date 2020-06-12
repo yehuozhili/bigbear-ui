@@ -129,7 +129,7 @@ function VirtualList(props: Props) {
 					style={{
 						height: visbleHeight ? visbleHeight : 0,
 						position: "relative",
-						transform: `translate3d(0px, ${indexNumber.overScroll}px, 0px)`,
+						transform: `translateY(${indexNumber.overScroll}px)`,
 						...props.style
 					}}
 				>
