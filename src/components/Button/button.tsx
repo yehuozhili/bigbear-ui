@@ -30,7 +30,7 @@ export interface BaseButtonProps {
 	/** link类型才有效的url */
 	href?: string;
 	/** 回调ref，组件加载完成回调ref，返回值会在卸载组件时调用 */
-	refcallback?: (ref: any) => any;
+	refcallback?: (ref: React.RefObject<HTMLButtonElement & HTMLAnchorElement>) => (() => void)|undefined;
 }
 
 type NativeButtonProps = ButtonHTMLAttributes<HTMLElement> & BaseButtonProps;
@@ -46,7 +46,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
 		[`btn-size-${size}`]: size,
 		disabled: btnType === "link" && disabled
 	});
-	const btnRef = useRef(null);
+	const btnRef = useRef<HTMLButtonElement&HTMLAnchorElement>(null);
 	useEffect(() => {
 		let uninstall: any = null;
 		if (refcallback) {

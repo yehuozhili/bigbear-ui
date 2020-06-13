@@ -25,16 +25,20 @@ export function NeuWclick(
 	const [state, setState] = useState(false);
 	const downReplace = () => setState(true);
 	const upReplace = () => setState(false);
-	const btnRef = (ref: any) => {
-		if (ref) {
+	const btnRef = (ref: React.RefObject<HTMLButtonElement & HTMLAnchorElement>) => {
+		if (ref.current) {
 			ref.current.addEventListener("mousedown", downReplace);
 			ref.current.addEventListener("mouseup", upReplace);
 			ref.current.addEventListener("mouseleave", upReplace);
+			ref.current.addEventListener("touchstart", downReplace);
+			ref.current.addEventListener("touchend", upReplace);
 		}
 		return () => {
 			ref.current?.removeEventListener("mouseup", upReplace);
 			ref.current?.removeEventListener("mousedown", downReplace);
 			ref.current?.removeEventListener("mouseleave", downReplace);
+			ref.current?.removeEventListener("touchstart", downReplace);
+			ref.current?.removeEventListener("touchend", upReplace);
 		};
 	};
 	return (
@@ -62,7 +66,7 @@ export function Ringclick(
 				...props.style
 			}}
 		>
-			<NeuWclick callback={props.callback}>{props.children}</NeuWclick>
+			<Button onClick={props.callback}>{props.children}</Button>
 		</div>
 	);
 }
