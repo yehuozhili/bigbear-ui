@@ -1,4 +1,4 @@
-## 0.1.19 (2020-06-13)
+## 0.1.20 (2020-06-13)
 
 
 ### Bug Fixes
@@ -22,6 +22,7 @@
 * **checkbox:** complete checkbox and add animate to radio ([7a975e5](https://github.com/yehuozhili/bigbear-ui/commit/7a975e520de9b01c10ece3d967328ee3c4f76f8a))
 * **form&useform:** complete form and useForm ,change input style ([076d913](https://github.com/yehuozhili/bigbear-ui/commit/076d9136290521fa45f40c283fe38e92f72190de))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
+* **layout:** complete layout component ([716ca03](https://github.com/yehuozhili/bigbear-ui/commit/716ca03ed50d5ad965835bfacb4e6609c5212b14))
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))
 * **menu:** menu component inital complete ([2094eba](https://github.com/yehuozhili/bigbear-ui/commit/2094eba806ead1cb7ea03b8f9aaef9163fe9c0a4))
 * **modal:** complete modal component ([57e2426](https://github.com/yehuozhili/bigbear-ui/commit/57e2426c8bb444c40a3e95f8ce3da3c5f8c2f00d))
