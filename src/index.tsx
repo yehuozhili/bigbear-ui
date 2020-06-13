@@ -23,7 +23,7 @@ export { default as Table } from "./components/Table";
 export { default as Modal } from "./components/Modal";
 export { default as Progress } from "./components/Progress";
 export { default as Popconfirm } from "./components/Popconfirm";
-
+export {default as Layout} from "./components/Layout";
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";

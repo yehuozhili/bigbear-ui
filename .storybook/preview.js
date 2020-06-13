@@ -22,6 +22,7 @@ addParameters({
 const loaderFn = () => {
     return [
         require('../src/stories/Welcome.stories.mdx'),
+        require('../src/components/Layout/layout.stories.mdx'),
         require('../src/components/Alert/alert.stories.mdx'),
         require('../src/components/Avatar/avatar.stories.mdx'),
         require('../src/components/Badge/badge.stories.mdx'),
@@ -55,3 +56,4 @@ const loaderFn = () => {
     ]
 }
 configure(loaderFn, module);
+

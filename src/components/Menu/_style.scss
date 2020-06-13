@@ -70,6 +70,7 @@
     border-bottom: 0px;
     .bigbear-menuitem{
         border:none;
+        text-align: left;
         &.bigbear-submenu{
             padding:$menu-item-padding-y 0 $menu-item-padding-y $menu-item-padding-x;
         }

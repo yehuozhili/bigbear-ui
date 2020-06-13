@@ -1,0 +1,143 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Layout from './layout'
+import Menu from '../Menu';
+
+
+
+<Meta title='LAYOUT |Layout 布局' component={Layout} />
+
+<br/>
+
+# Layout 布局
+<br/>
+
+可以通过直接传行内样式进行修正。
+
+## 常见布局
+
+<br/>
+
+<Preview>
+    <Story name='default'>
+        <Layout>
+            <Layout.Header style={{background:'#7dbcea'}}>HEADER</Layout.Header>
+            <Layout.Content style={{height:'200px',lineHeight:'200px',background:'rgba(16, 142, 233, 1)'}}>CONTENT</Layout.Content>
+            <Layout.Footer  style={{background:'#7dbcea'}}>FOOTER</Layout.Footer>
+        </Layout>
+    </Story>
+</Preview>
+
+
+如果要使用横向布局，比如sider和content是一个横向,那么给包裹的Layout传递row这个参数。
+
+
+sider默认宽200，content默认最小宽度300,写了个媒体查询，在宽度小于520下sider单独一行（20是滚动条宽度）。
+
+doc上展示由于preview有边框所以并不是很准确。
+
+<Preview>
+    <Story name='default2'>
+        <Layout>
+            <Layout.Header style={{background:'#7dbcea'}}>HEADER</Layout.Header>
+            <Layout row>
+                <Layout.Sider style={{background:'#3ba0e9'}}>SIDER</Layout.Sider>
+                <Layout.Content style={{height:'200px',lineHeight:'200px',background:'rgba(16, 142, 233, 1)'}}>CONTENT</Layout.Content>
+            </Layout>
+            <Layout.Footer  style={{background:'#7dbcea'}}>FOOTER</Layout.Footer>
+        </Layout>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='default3'>
+        <Layout>
+            <Layout.Header style={{background:'#7dbcea'}}>HEADER</Layout.Header>
+            <Layout row>
+                 <Layout.Content style={{height:'200px',lineHeight:'200px',background:'rgba(16, 142, 233, 1)'}}>CONTENT</Layout.Content>
+                <Layout.Sider style={{background:'#3ba0e9'}}>SIDER</Layout.Sider>
+            </Layout>
+            <Layout.Footer  style={{background:'#7dbcea'}}>FOOTER</Layout.Footer>
+        </Layout>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='default4'>
+        <Layout row>
+            <Layout.Sider style={{background:'#3ba0e9'}}>SIDER</Layout.Sider>
+            <Layout >
+                <Layout.Header style={{background:'#7dbcea'}}>HEADER</Layout.Header>
+                <Layout.Content style={{height:'200px',lineHeight:'200px',background:'rgba(16, 142, 233, 1)'}}>CONTENT</Layout.Content>
+                <Layout.Footer  style={{background:'#7dbcea'}}>FOOTER</Layout.Footer>
+            </Layout>
+        </Layout>
+    </Story>
+</Preview>
+
+
+## 常见布局结合组件
+
+为便于制造阴影效果，可以使用`bigbear-layout-block-颜色` 和`bigbear-layout-wrapper-颜色` 获得凸起或者凹下效果。default就是白色
+
+<Preview>
+    <Story name='page1'>
+        <Layout>
+            <Layout.Header >
+                <Menu onSelect={index => {console.log(index);}}>
+                    <Menu.MenuItem>item1</Menu.MenuItem>
+                    <Menu.MenuItem>item2</Menu.MenuItem>
+                    <Menu.MenuItem>item3</Menu.MenuItem>
+                </Menu>
+            </Layout.Header>
+            <Layout.Content className='bigbear-layout-block-default' style={{height:'200px',lineHeight:'200px'}}>CONTENT</Layout.Content>
+            <Layout.Footer style={{marginTop:'20px'}}  className='bigbear-layout-block-default' >bigbear-ui ©2020 Created by yehuozhili</Layout.Footer>
+        </Layout>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='page2'>
+        <Layout>
+            <Layout.Header >
+                <Menu style={{justifyContent:'flex-end'}} defaultIndex='0' onSelect={index => {console.log(index);}}>
+                    <Menu.MenuItem>item1</Menu.MenuItem>
+                    <Menu.MenuItem>item2</Menu.MenuItem>
+                    <Menu.MenuItem>item3</Menu.MenuItem>
+                </Menu>
+            </Layout.Header>
+            <Layout row>
+                  <Layout.Sider >
+                      <Menu onSelect={index => {
+                        console.log(index);
+                        }} mode={'vertical'}
+                        defaultIndex='0-0'
+                         >
+                    <Menu.SubMenu title="下拉菜单1"  isopen={true}>
+                        <Menu.MenuItem>item1</Menu.MenuItem>        
+                        <Menu.MenuItem>item2</Menu.MenuItem>     
+                            <Menu.MenuItem>item3</Menu.MenuItem>        
+                    </Menu.SubMenu>
+                    <Menu.SubMenu title="下拉菜单2" >
+                        <Menu.MenuItem>item1</Menu.MenuItem>        
+                        <Menu.MenuItem>item2</Menu.MenuItem>     
+                        <Menu.MenuItem>item3</Menu.MenuItem>
+                        <Menu.MenuItem>item4</Menu.MenuItem>         
+                    </Menu.SubMenu>
+                    <Menu.SubMenu title="下拉菜单3">
+                        <Menu.MenuItem>item1</Menu.MenuItem>                 
+                    </Menu.SubMenu>
+                    <Menu.MenuItem>item</Menu.MenuItem>
+                </Menu>
+                  </Layout.Sider>
+                 <Layout.Content className='bigbear-layout-block-default' style={{lineHeight:'200px'}}>CONTENT</Layout.Content>
+            </Layout>
+            <Layout.Footer className='bigbear-layout-block-default' style={{marginTop:'20px'}} >bigbear-ui ©2020 Created by yehuozhili</Layout.Footer>
+        </Layout>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+<Props of={Layout} />
