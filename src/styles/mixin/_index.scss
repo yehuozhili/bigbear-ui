@@ -41,7 +41,7 @@
         background:$background;
         border:none;
         box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
-        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
+        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 lighten($shadow2,5%)
         
     }
 }
@@ -56,7 +56,7 @@
         background:$background;
         border:none;
         box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
-        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
+        inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 lighten($shadow2,5%)
     }
 
 }
@@ -109,13 +109,13 @@
 @mixin  ringwrapper ($bgcolor,$shadow1,$shadow2) {
     background:$bgcolor;
     box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
-    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2
+    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 lighten($shadow2,5%)
 }
 
 @mixin switch-neu($bgcolor,$shadow1,$shadow2){
     background:$bgcolor;
     box-shadow: inset $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1, 
-    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 $shadow2,
+    inset (-$btn-neu-normal)  (-$btn-neu-normal)  $btn-neu-normal*2 lighten($shadow2,5%),
     $btn-neu-normal $btn-neu-normal $btn-neu-normal*2 $shadow1;
 }
 
