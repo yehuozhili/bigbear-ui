@@ -2,7 +2,7 @@ import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Menu from './menu';
 import MenuItem from './menuitem'
 import { linkTo } from '@storybook/addon-links'
-import {NeuWclick} from '../Button/button.example.tsx'
+import Button from '../Button'
 
 <Meta title='REACTION|Menu 菜单/Menu' component={Menu} />
 
@@ -53,9 +53,9 @@ Menu需要包裹MenuItem进行使用
 
 <Story name='link'>
   <div>
-<NeuWclick 
-callback={linkTo('REACTION|Menu 菜单/MenuItem', 'default')} style={{marginRight:'20px'}} >跳转至MenuItem</NeuWclick>
-<NeuWclick callback={linkTo('REACTION|Menu 菜单/SubMenu', 'default')}>跳转至SubMenu</NeuWclick>
+<Button 
+callback={linkTo('REACTION|Menu 菜单/MenuItem', 'default')} style={{marginRight:'20px'}} >跳转至MenuItem</Button>
+<Button callback={linkTo('REACTION|Menu 菜单/SubMenu', 'default')}>跳转至SubMenu</Button>
   </div>
 </Story>
 

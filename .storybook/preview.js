@@ -22,6 +22,7 @@ addParameters({
 const loaderFn = () => {
     return [
         require('../src/stories/Welcome.stories.mdx'),
+        require('../src/stories/color.stories.mdx'),
         require('../src/components/Layout/layout.stories.mdx'),
         require('../src/components/Alert/alert.stories.mdx'),
         require('../src/components/Avatar/avatar.stories.mdx'),

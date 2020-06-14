@@ -46,4 +46,7 @@
         margin: 0;
         padding:0;
     }
+    .bigbear-layout-lineargradient-#{$key}{
+        background:linear-gradient(145deg, nth($val,4),nth($val,1))
+    }
 }

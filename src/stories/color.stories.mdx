@@ -1,0 +1,180 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title='COLOR |Color 颜色'  />
+
+
+
+
+## Color 颜色
+
+<br/>
+
+一般组件化定制使用css in js可能会比较好，但是如果这样会使得js变得更大，样式更难以维护和修改，css in js应该更适合专门定制的组件。
+
+为了方便大部分人的修改和样式理解，使用类名进行样式制作。
+
+中性色板和主色色板提供background和color供使用。
+
+
+### 中性色板
+
+
+
+<Preview>
+    <Story name='neutral-color'>
+        <div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-white bigbear-color-black'>
+                white
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-1 bigbear-color-black'>
+                gray-1
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-2 bigbear-color-black'>
+                gray-2
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-3 bigbear-color-black'>
+                gray-3
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-4 bigbear-color-black'>
+                gray-4
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-5 bigbear-color-black'>
+                gray-5
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-6 bigbear-color-white'>
+                gray-6
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-7 bigbear-color-white'>
+                gray-7
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-8 bigbear-color-white'>
+                gray-8
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gray-9 bigbear-color-white'>
+                gray-9
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-black bigbear-color-white'>
+                black
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+### 主色色板
+
+
+<Preview>
+    <Story name='main-color'>
+        <div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-red bigbear-color-white'>
+                red
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-volcano bigbear-color-white'>
+                volcano
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-orange bigbear-color-white'>
+                orange
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gold bigbear-color-black'>
+                gold
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-yellow bigbear-color-black'>
+                yellow
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-lime bigbear-color-black'>
+                lime
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-green bigbear-color-white'>
+                green
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-cyan bigbear-color-white'>
+                cyan
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-blue bigbear-color-white'>
+                blue
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-gblue bigbear-color-white'>
+                gblue
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-purple bigbear-color-white'>
+                purple
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-background-pink bigbear-color-white'>
+                pink
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+
+
+### 主题色
+
+默认使用以下颜色和阴影颜色文字颜色搭配。拟物风格需要较浅的颜色，选取上偏向浅色。
+
+
+为便于制造阴影效果，可以使用`bigbear-layout-block-颜色` 和`bigbear-layout-wrapper-颜色` 获得凸起或者凹下效果。default就是白色
+
+使用`bigbear-layout-lineargradient-颜色`可以单独加上对应主题色的渐变色。
+
+
+<Preview>
+    <Story name='color'>
+        <div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-default bigbear-layout-block-default'>
+                default
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-primary bigbear-layout-block-primary'>
+                primary
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-secondary bigbear-layout-block-secondary'>
+                secondary
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-success bigbear-layout-block-success'>
+                success
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-info bigbear-layout-block-info'>
+                info
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-warning bigbear-layout-block-warning'>
+                warning
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-danger bigbear-layout-block-danger'>
+                danger
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-light bigbear-layout-block-light'>
+                light
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-dark bigbear-layout-block-dark'>
+                dark
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-default bigbear-layout-wrapper-default'>
+                default
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-primary bigbear-layout-wrapper-primary'>
+                primary
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-secondary bigbear-layout-wrapper-secondary'>
+                secondary
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-success bigbear-layout-wrapper-success'>
+                success
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-info bigbear-layout-wrapper-info'>
+                info
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-warning bigbear-layout-wrapper-warning'>
+                warning
+            </div>
+             <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-danger bigbear-layout-wrapper-danger'>
+                danger
+            </div>
+              <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-light bigbear-layout-wrapper-light'>
+                light
+            </div>
+            <div style={{height:'50px',lineHeight:'50px','textAlign':'center'}} className='bigbear-layout-lineargradient-dark bigbear-layout-wrapper-dark'>
+                dark
+            </div>
+        </div>
+    </Story>
+</Preview>

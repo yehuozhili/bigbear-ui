@@ -11,6 +11,21 @@ $gray-8:  #434343 !default;
 $gray-9:  #262626 !default;
 $black:   #000000 !default;
 
+$neutral-colors:(
+  "white":$white,
+  "gray-1":$gray-1,
+  "gray-2":$gray-2,
+  "gray-3":$gray-3,
+  "gray-4":$gray-4,
+  "gray-5":$gray-5,
+  "gray-6":$gray-6,
+  "gray-7":$gray-7, 
+  "gray-8":$gray-8,
+  "gray-9":$gray-9,
+  "black":$black,
+);
+
+
 //主色色板
 $red:     #ff4d4f !default;
 $volcano: #ff7a45 !default;
@@ -25,6 +40,22 @@ $gblue:   #597ef7 !default;
 $purple:  #9254de !default;
 $pink:    #f759ab !default;
 
+$main-colors:(
+  "red":$red,
+  "volcano":$volcano,
+  "orange":$orange,
+  "gold":$gold,
+  "yellow":$yellow,
+  "lime":$lime,
+  "green":$green,
+  "cyan":$cyan,
+  "blue":$gblue,
+  "purple":$purple,
+  "pink":$pink,
+  "gblue":$gblue
+);
+
+
 
 //主题色
 $primary:       $blue     !default;
@@ -37,6 +68,7 @@ $light:         $gray-1   !default;
 $dark:          $gray-8   !default;
 
 
+
 $neu-whiteshadow1:#d9d9d9;
 $neu-whiteshadow2:#ffffff;
 $neu-blueshadow1:#3690d9;
@@ -47,15 +79,15 @@ $neu-infoshadow2:#3eeee7;
 
 $theme-colors: 
 (//type         //背景色    //文字色  //neushadow1 2
-  "default":    ($white,$gray-7, #d9d9d9,#ffffff),
-  "primary":    ($primary,$white,#3690d9,#4ac2ff),
+  "default":    ($white,$gray-7, $neu-whiteshadow1,$neu-whiteshadow2),
+  "primary":    ($primary,$white,$neu-blueshadow1,$neu-blueshadow2),
   "secondary":  ($secondary,$white,#777777,#a1a1a1),
   "success":    ($success,$white,#62b234,#84f046),
-  "info":       ($info,$white,#2eb0ab,#3eeee7),
+  "info":       ($info,$white,$neu-infoshadow1,$neu-infoshadow2),
   "warning":    ($warning,$gray-7,#d9c934,#ffff46),
-  "danger":     ($danger,$white,#c33b3c,#ff595b),
+  "danger":     ($danger,$white,#c33b3c,#f97677),
   "light":      ($light,$gray-7,#d5d5d5, #ffffff),
-  "dark":       ($dark,$white,#393939,#4d4d4d)
+  "dark":       ($dark,$white,#393939,#777777)
 );
 
 

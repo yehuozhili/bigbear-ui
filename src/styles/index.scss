@@ -2,7 +2,7 @@
 @import "variables";
 @import "reboot";
 @import "./animation.scss" ;
-
+@import "./color.scss";
 
 //button
 @import "../components/Button/style";
@@ -73,5 +73,5 @@
 //popconfirm
 @import "../components/Popconfirm/style";
 
-//layout
+//layout&colors
 @import "../components/Layout/style";

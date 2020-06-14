@@ -1,6 +1,5 @@
 import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Button  from './button';
-import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
 <Meta title='DISPLAY |Button 按钮' component={Button} />
 
@@ -13,6 +12,7 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
 
 ## 按钮类型 btnType
 
+类型除了link就是主题色，可以设置lineargradient加上渐变色效果。
 
 <Preview >
   <Story name='default' >
@@ -42,30 +42,46 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
   <Story name='dark'>
     <Button btnType='dark'>dark</Button>
   </Story>
- 
    <Story name='link'>
     <Button btnType='link'>link</Button>
   </Story>
 </Preview>
 
 <Preview>
-  <Story name='neu-white1'>
-    <Button btnType='neu-w-up' >neu-w-up</Button>
+  <Story name='default2' >
+    <Button lineargradient btnType='default' >default</Button>
   </Story>
-  <Story name='neu-white2'>
-    <Button btnType='neu-w-down'>neu-w-down</Button>
+  <Story name='primary2'  >
+    <Button lineargradient btnType='primary'>primary</Button>
   </Story>
-    <Story name='neu-white3'>
-    <Button btnType='neu-w-co'>neu-w-co</Button>
+  <Story name='danger2'>
+    <Button lineargradient btnType='danger'>danger</Button>
   </Story>
-    <Story name='neu-white4'>
-    <Button btnType='neu-w-fl'>neu-w-fl</Button>
+   <Story name='warning2'>
+    <Button lineargradient btnType='warning'>warning</Button>
+  </Story>
+   <Story name='info2'>
+    <Button lineargradient btnType='info'>info</Button>
+  </Story>
+   <Story name='secondary2'>
+    <Button lineargradient btnType='secondary'>secondary</Button>
+  </Story>
+  <Story name='success2'>
+    <Button lineargradient btnType='success'>success</Button>
+  </Story>
+  <Story name='light2'>
+    <Button lineargradient btnType='light'>light</Button>
+  </Story>
+  <Story name='dark2'>
+    <Button lineargradient btnType='dark'>dark</Button>
+  </Story>
+   <Story name='link2'>
+    <Button lineargradient btnType='link'>link</Button>
   </Story>
 </Preview>
 
   
 
-<br/>
 
 ## 按钮大小 size
 
@@ -85,21 +101,21 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
   </Story>
 </Preview>
 
-
 <Preview>
-  <Story name='neu-w-up-lg' >
-    <Button btnType='neu-w-up' size='lg' >neu-w-up</Button>
+  <Story name='default-lg2' >
+    <Button lineargradient btnType='default' size='lg' >default</Button>
   </Story>
-  <Story name='neu-w-down-lg' >
-    <Button btnType='neu-w-down' size='lg'>neu-w-down</Button>
+  <Story name='primary-lg2' >
+    <Button lineargradient btnType='primary' size='lg'>primary</Button>
   </Story>
-  <Story name='neu-w-co-lg'>
-    <Button btnType='neu-w-co' size='lg'>neu-w-co</Button>
+  <Story name='danger-lg2'>
+    <Button lineargradient btnType='danger' size='lg'>danger</Button>
   </Story>
-   <Story name='neu-w-fl-lg'>
-    <Button btnType='neu-w-fl' size='lg'>neu-w-fl</Button>
+   <Story name='link-lg2'>
+    <Button lineargradient btnType='link' size='lg'>link</Button>
   </Story>
 </Preview>
+
 
 
 <Preview>
@@ -117,22 +133,21 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
   </Story>
 </Preview>
 
+
 <Preview>
-  <Story name='neu-w-up-sm' >
-    <Button btnType='neu-w-up' size='sm' >neu-w-up</Button>
+  <Story name='default-sm2' >
+    <Button lineargradient btnType='default' size='sm' >default</Button>
   </Story>
-  <Story name='neu-w-down-sm' >
-    <Button btnType='neu-w-down' size='sm'>neu-w-down</Button>
+  <Story name='primary-sm2' >
+    <Button lineargradient btnType='primary' size='sm'>primary</Button>
   </Story>
-  <Story name='neu-w-co-sm'>
-    <Button btnType='neu-w-co' size='sm'>neu-w-co</Button>
+  <Story name='danger-sm2'>
+    <Button lineargradient btnType='danger' size='sm'>danger</Button>
   </Story>
-   <Story name='neu-w-fl-sm'>
-    <Button btnType='neu-w-fl' size='sm'>neu-w-fl</Button>
+   <Story name='link-sm2'>
+    <Button lineargradient btnType='link' size='sm'>link</Button>
   </Story>
 </Preview>
-
-<br/>
 
 
 ### 禁用样式 disabled
@@ -153,130 +168,25 @@ import NeuWdown,{NeuWclick,Ringclick} from './button.example'
   </Story>
 </Preview>
 
+
 <Preview>
-  <Story name='neu-white1d'>
-    <Button btnType='neu-w-up' disabled >neu-w-up</Button>
+  <Story name='defaultd2' >
+    <Button lineargradient btnType='default' disabled >default</Button>
   </Story>
-  <Story name='neu-white2d'>
-    <Button btnType='neu-w-down' disabled>neu-w-down</Button>
+  <Story name='primaryd2' >
+    <Button lineargradient btnType='primary' disabled>primary</Button>
   </Story>
-    <Story name='neu-white3d'>
-    <Button btnType='neu-w-co' disabled>neu-w-co</Button>
+  <Story name='dangerd2'>
+    <Button lineargradient btnType='danger' disabled>danger</Button>
   </Story>
-    <Story name='neu-white4d'>
-    <Button btnType='neu-w-fl' disabled>neu-w-fl</Button>
+   <Story name='linkd2'>
+    <Button lineargradient btnType='link' disabled>link</Button>
   </Story>
 </Preview>
 
   
 
-## 类型结合示例 example
-<br/>
 
-有些时候，可能只需要类名进行状态切换，或者做一些特别效果，需要自行封装，下面是一些效果封装方法。
-
-#### 点击切换按钮类型 click ⬇
-
-<Preview>
-<Story name='button-example' >
-  <NeuWdown  callback={()=>console.log('123')}>按下切换状态</NeuWdown>
-</Story>
-</Preview>
-
-自行封装方法⬇
-
-```tsx
-function NeuWdown(props:PropsWithChildren<{callback:()=>void,style?:CSSProperties}>){
-    const [state,setState] = useState(false)
-    return (
-       <Button btnType={state?'neu-w-down':'neu-w-up'} onClick={()=>{
-           setState(!state)
-           props.callback()
-        }} style={props.style}>{props.children}</Button>
-    )
-}
-```
-
-#### 按下切换按钮类型 click ⬇
-
-refcallback其实就是button的useEffect生命周期,返回值用来卸载时调用。
-
-<Preview>
-<Story name='button-example2' >
-  <NeuWclick callback={()=>console.log('123')}>按下切换按钮类型</NeuWclick>
-</Story>
-</Preview>
-
-自行封装方法⬇
-
-```tsx
-
-export function NeuWclick(
-	props: PropsWithChildren<{ callback: () => void; style?: CSSProperties }>
-) {
-	const [state, setState] = useState(false);
-	const downReplace = () => setState(true);
-	const upReplace = () => setState(false);
-	const btnRef = (ref: React.RefObject<HTMLButtonElement & HTMLAnchorElement>) => {
-		if (ref.current) {
-			ref.current.addEventListener("mousedown", downReplace);
-			ref.current.addEventListener("mouseup", upReplace);
-			ref.current.addEventListener("mouseleave", upReplace);
-			ref.current.addEventListener("touchstart", downReplace);
-			ref.current.addEventListener("touchend", upReplace);
-		}
-		return () => {
-			ref.current?.removeEventListener("mouseup", upReplace);
-			ref.current?.removeEventListener("mousedown", downReplace);
-			ref.current?.removeEventListener("mouseleave", downReplace);
-			ref.current?.removeEventListener("touchstart", downReplace);
-			ref.current?.removeEventListener("touchend", upReplace);
-		};
-	};
-	return (
-		<Button
-			btnType={state ? "neu-w-down" : "neu-w-fl"}
-			style={props.style}
-			onClick={props.callback}
-			refcallback={btnRef}
-		>
-			{props.children}
-		</Button>
-	);
-}
-```
-
-#### 环状嵌套按钮
-
-- 环状嵌套主要是利用一个凹下去的div嵌套凸起的div。
-
-<Preview>
-<Story name='button-example3' >
-  <Ringclick callback={()=>console.log('123')}>环形按钮</Ringclick>
-</Story>
-</Preview>
-
-自行封装方法⬇
-
-```tsx
-export function Ringclick(
-	props: PropsWithChildren<{ callback: () => void; style?: CSSProperties }>
-) {
-	return (
-		<div
-			className="btn-type-neu-w-down"
-			style={{
-				padding: "10px",
-				display: "inline-block",
-				borderRadius: "5px",
-				...props.style
-			}}
-		>
-			<Button onClick={props.callback}>{props.children}</Button>
-		</div>
-	);
-}
-```
 
 
 <br/>

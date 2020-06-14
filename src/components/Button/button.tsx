@@ -13,14 +13,12 @@ export type ButtonType =
 	| "warning"
 	| "dark"
 	| "link"
-	| "neu-w-up"
-	| "neu-w-down"
-	| "neu-w-co"
-	| "neu-w-fl";
 
 export interface BaseButtonProps {
 	className?: string;
 	disabled?: boolean;
+	/** 是否底色渐变 */
+	lineargradient?:boolean;
 	/** 设置按钮大小 */
 	size?: ButtonSize;
 	/**
@@ -39,12 +37,13 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
-	const { btnType, size, disabled, children, href, className, refcallback, ...restProps } = props;
+	const { btnType,lineargradient, size, disabled, children, href, className, refcallback, ...restProps } = props;
 
 	const classes = classNames("btn", className, {
 		[`btn-type-${btnType}`]: btnType,
 		[`btn-size-${size}`]: size,
-		disabled: btnType === "link" && disabled
+		disabled: btnType === "link" && disabled,
+		[`bigbear-layout-lineargradient-${btnType}`]:lineargradient
 	});
 	const btnRef = useRef<HTMLButtonElement&HTMLAnchorElement>(null);
 	useEffect(() => {
@@ -78,7 +77,8 @@ Button.defaultProps = {
 	disabled: false,
 	btnType: "default",
 	size: "default",
-	href: "/"
+	href: "/",
+	lineargradient:false,
 };
 
 export default Button;

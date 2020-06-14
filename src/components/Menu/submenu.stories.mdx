@@ -2,7 +2,7 @@ import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
 import  Menu from './menu';
 import MenuItem from './menuitem'
 import { linkTo } from '@storybook/addon-links'
-import {NeuWclick} from '../Button/button.example'
+import Button from '../Button/'
 import SubMenu from './submenu'
 
 
@@ -17,8 +17,8 @@ SubMenu是Menu的子项，包裹MenuItem。
 
 索引序号是从0开始数
 <Story name='default'>
-<NeuWclick 
-callback={linkTo('REACTION|Menu 菜单/Menu', 'default')}>跳转至Menu</NeuWclick>
+<Button 
+callback={linkTo('REACTION|Menu 菜单/Menu', 'default')}>跳转至Menu</Button>
 </Story>
 
 <Preview>

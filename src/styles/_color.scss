@@ -1,0 +1,17 @@
+
+@each $key,$val in $main-colors {
+    .bigbear-background-#{$key}{
+        background-color: $val;
+    }
+    .bigbear-color-#{$key}{
+        color:$val
+    }
+}
+@each $key,$val in $neutral-colors {
+    .bigbear-background-#{$key}{
+        background-color: $val;
+    }
+    .bigbear-color-#{$key}{
+        color:$val
+    }
+}
