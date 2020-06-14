@@ -38,7 +38,7 @@ export const Badge: FC<BadgeProps> = (props) => {
 		<div className={classes} ref={divref}>
 			{count || dot ? (
 				<div
-					className={`bigbear-badge-count bigbear-count-${type} 
+					className={`bigbear-badge-count bigbear-count-${type}
             ${props.children ? "" : "nochildren"} ${visible ? "" : "badge-hide"} ${
 						dot ? "badge-dot" : ""
 					}`}

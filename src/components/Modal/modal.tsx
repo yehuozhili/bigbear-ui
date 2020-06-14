@@ -78,7 +78,7 @@ function Modal(props: PropsWithChildren<ModalType>) {
 	const render = useMemo(() => {
 		return createPortal(
 			<Transition in={visible} timeout={delay!} classNames={`bigbear-modal-animation`}>
-				<div className={`bigbear-modal-potral ${visible ? "open" : ""} ${className?className:''}`} ref={ref} 
+				<div className={`bigbear-modal-potral ${visible ? "open" : ""} ${className?className:''}`} ref={ref}
 				style={portralStyle}>
 					<div className={`bigbear-modal-viewport ${className?className:''}`} style={style}>
 						<div className={`bigbear-modal-title ${className?className:''}`}>
@@ -121,7 +121,7 @@ function Modal(props: PropsWithChildren<ModalType>) {
 						<div
 							className="bigbear-modal-mask"
 							onClick={() => {
-								if (maskClose){ 
+								if (maskClose){
 									setState(false);
 									if(closeCallback){
 										closeCallback()

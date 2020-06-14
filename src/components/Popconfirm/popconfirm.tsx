@@ -22,7 +22,7 @@ interface DefaultParameter{
     className:string,
     stopScroll:false,
     btnSize:'sm',
-}  
+}
 
 
 
@@ -88,15 +88,15 @@ function Popconfirm(props:PropsWithChildren<PopconfirmProps>) {
         }
     },[directions, modalRef])
 	return (
-        <div className='bigbear-popconfirm-wrapper' ref={ref} 
+        <div className='bigbear-popconfirm-wrapper' ref={ref}
         onClick={click?()=>setInnerState(!innerstate):undefined}
         onMouseEnter={hover?()=>setInnerState(true):undefined}
         onMouseLeave={hover?()=>setInnerState(false):undefined}
         >
             {wrapperNode}
-            <Modal visible={setState?visible:innerstate} 
-            setState={setState?setState:setInnerState} 
-             {...mergeOption} 
+            <Modal visible={setState?visible:innerstate}
+            setState={setState?setState:setInnerState}
+             {...mergeOption}
              portralStyle={style} refCallback={refcallback}></Modal>
         </div>
     )
