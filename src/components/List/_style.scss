@@ -1,22 +1,23 @@
 .bigbear-list{
     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
     list-style-type: none;
     padding: $list-padding;
 }
 .list-horizontal{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .list-withoveractive{
+    @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
     &:hover,&:active{
-        color:white;
-    }
-    @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2)
-}
+        color:$white;
+    }}
 .bigbear-list-item{
     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
     margin:$list-item-margin;
     padding: $list-item-padding;
 

@@ -1,17 +1,17 @@
 //中性色板
-$white:   #ffffff !default;
-$gray-1:  #fafafa !default;
-$gray-2:  #f5f5f5 !default;
-$gray-3:  #f0f0f0 !default;
-$gray-4:  #d9d9d9 !default;
-$gray-5:  #bfbfbf !default;
-$gray-6:  #8c8c8c !default;
-$gray-7:  #595959 !default;
-$gray-8:  #434343 !default;
-$gray-9:  #262626 !default;
-$black:   #000000 !default;
+$white: #fff !default;
+$gray-1: #fafafa !default;
+$gray-2: #f5f5f5 !default;
+$gray-3: #f0f0f0 !default;
+$gray-4: #d9d9d9 !default;
+$gray-5: #bfbfbf !default;
+$gray-6: #8c8c8c !default;
+$gray-7: #595959 !default;
+$gray-8: #434343 !default;
+$gray-9: #262626 !default;
+$black: #000 !default;
 
-$neutral-colors:(
+$neutral-colors: (
   "white":$white,
   "gray-1":$gray-1,
   "gray-2":$gray-2,
@@ -27,20 +27,20 @@ $neutral-colors:(
 
 
 //主色色板
-$red:     #ff4d4f !default;
+$red: #ff4d4f !default;
 $volcano: #ff7a45 !default;
-$orange:  #ffa940 !default;
-$gold:    #ffc53d !default;
-$yellow:  #ffec3d !default;
-$lime:    #bae637 !default;
-$green:   #73d13d !default;
-$cyan:    #36cfc9 !default;
-$blue:    #40a9ff !default;
-$gblue:   #597ef7 !default;
-$purple:  #9254de !default;
-$pink:    #f759ab !default;
+$orange: #ffa940 !default;
+$gold: #ffc53d !default;
+$yellow: #ffec3d !default;
+$lime: #bae637 !default;
+$green: #73d13d !default;
+$cyan: #36cfc9 !default;
+$blue: #40a9ff !default;
+$gblue: #597ef7 !default;
+$purple: #9254de !default;
+$pink: #f759ab !default;
 
-$main-colors:(
+$main-colors: (
   "red":$red,
   "volcano":$volcano,
   "orange":$orange,
@@ -58,36 +58,35 @@ $main-colors:(
 
 
 //主题色
-$primary:       $blue     !default;
-$secondary:     $gray-6   !default;
-$success:       $green    !default;
-$info:          $cyan     !default;
-$warning:       $yellow   !default;
-$danger:        $red      !default;
-$light:         $gray-1   !default;
-$dark:          $gray-8   !default;
+$primary: $blue !default;
+$secondary: $gray-6 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-1 !default;
+$dark: $gray-8 !default;
 
 
 
-$neu-whiteshadow1:#d9d9d9;
-$neu-whiteshadow2:#ffffff;
-$neu-blueshadow1:#3690d9;
-$neu-blueshadow2:#4ac2ff;
-$neu-infoshadow1:#2eb0ab;
-$neu-infoshadow2:#3eeee7;
+$neu-whiteshadow1: #d9d9d9;
+$neu-whiteshadow2: #fff;
+$neu-blueshadow1: #3690d9;
+$neu-blueshadow2: #4ac2ff;
+$neu-infoshadow1: #2eb0ab;
+$neu-infoshadow2: #3eeee7;
 
 
-$theme-colors: 
-(//type         //背景色    //文字色  //neushadow1 2
+$theme-colors: (
   "default":    ($white,$gray-7, $neu-whiteshadow1,$neu-whiteshadow2),
   "primary":    ($primary,$white,$neu-blueshadow1,$neu-blueshadow2),
-  "secondary":  ($secondary,$white,#777777,#a1a1a1),
+  "secondary":  ($secondary,$white,#777,#a1a1a1),
   "success":    ($success,$white,#62b234,#84f046),
   "info":       ($info,$white,$neu-infoshadow1,$neu-infoshadow2),
   "warning":    ($warning,$gray-7,#d9c934,#ffff46),
   "danger":     ($danger,$white,#c33b3c,#f97677),
-  "light":      ($light,$gray-7,#d5d5d5, #ffffff),
-  "dark":       ($dark,$white,#393939,#777777)
+  "light":      ($light,$gray-7,#d5d5d5, #fff),
+  "dark":       ($dark,$white,#393939,#777),
 );
 
 
@@ -100,212 +99,212 @@ $html-selector: html;
 
 
 //字体
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$font-family-base:            $font-family-sans-serif !default;
+$font-family-sans-serif: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
 // 字体大小
-$font-size-base:              16px !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                $font-size-base * 1.25 !default;
-$font-size-sm:                $font-size-base * .875 !default;
-$font-variant-base:           tabular-nums  !default;
-$font-feature-settings-base:  'tnum'        !default ;
+$font-size-base: 16px !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875 !default;
+$font-variant-base: tabular-nums !default;
+$font-feature-settings-base: 'tnum' !default ;
 // 字重
-$font-weight-lighter:         lighter !default;
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-bold:            700 !default;
-$font-weight-bolder:          bolder !default;
-$font-weight-base:            $font-weight-normal !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
  
 // 行高
-$line-height-base:            1.5 !default;
-$line-height-lg:              2 !default;
-$line-height-sm:              1.25 !default;
+$line-height-base: 1.5 !default;
+$line-height-lg: 2 !default;
+$line-height-sm: 1.25 !default;
 
 // 标题大小
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
 
 // 链接
-$link-color:                              $primary !default;
-$link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
-$link-hover-decoration:                   underline !default;
+$link-color: $primary !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
 
 // body
-$body-bg:                   $white !default;
-$body-color:                $gray-9 !default;
-$body-text-align:           null !default;
+$body-bg: $white !default;
+$body-color: $gray-9 !default;
+$body-text-align: null !default;
 
 // Spacing
 $spacer: 16px !default;
 
-$headings-margin-bottom:      $spacer / 2 !default;
-$headings-font-family:        null !default;
-$headings-font-style:         null !default;
-$headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
-$headings-color:              null !default;
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
 
 // Paragraphs
 
-$paragraph-margin-bottom:   16px !default;
+$paragraph-margin-bottom: 16px !default;
 
 // 字体其他部分 heading list hr 等等
-$headings-margin-bottom:      $spacer / 2 !default;
-$headings-font-family:        null !default;
-$headings-font-style:         null !default;
-$headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
-$headings-color:              null !default;
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
 
-$display1-size:               96px !default;
-$display2-size:               88px !default;
-$display3-size:               72px !default;
-$display4-size:               56px !default;
+$display1-size: 96px !default;
+$display2-size: 88px !default;
+$display3-size: 72px !default;
+$display4-size: 56px !default;
 
-$display1-weight:             300 !default;
-$display2-weight:             300 !default;
-$display3-weight:             300 !default;
-$display4-weight:             300 !default;
-$display-line-height:         $headings-line-height !default;
+$display1-weight: 300 !default;
+$display2-weight: 300 !default;
+$display3-weight: 300 !default;
+$display4-weight: 300 !default;
+$display-line-height: $headings-line-height !default;
 
-$lead-font-size:              $font-size-base * 1.25 !default;
-$lead-font-weight:            300 !default;
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
 
-$small-font-size:             .875em !default;
+$small-font-size: .875em !default;
 
-$sub-sup-font-size:           .75em !default;
+$sub-sup-font-size: .75em !default;
 
-$text-muted:                  $gray-6 !default;
+$text-muted: $gray-6 !default;
 
-$initialism-font-size:        $small-font-size !default;
+$initialism-font-size: $small-font-size !default;
 
-$blockquote-small-color:      $gray-6 !default;
-$blockquote-small-font-size:  $small-font-size !default;
-$blockquote-font-size:        $font-size-base * 1.25 !default;
+$blockquote-small-color: $gray-6 !default;
+$blockquote-small-font-size: $small-font-size !default;
+$blockquote-font-size: $font-size-base * 1.25 !default;
 
-$hr-color:                    inherit !default;
-$hr-height:                   1px !default;
-$hr-opacity:                  .25 !default;
+$hr-color: inherit !default;
+$hr-height: 1px !default;
+$hr-opacity: .25 !default;
 
-$legend-margin-bottom:        8px !default;
-$legend-font-size:            24px !default;
-$legend-font-weight:          null !default;
+$legend-margin-bottom: 8px !default;
+$legend-font-size: 24px !default;
+$legend-font-weight: null !default;
 
-$mark-padding:                .2em !default;
+$mark-padding: .2em !default;
 
-$dt-font-weight:              $font-weight-bold !default;
+$dt-font-weight: $font-weight-bold !default;
 
-$nested-kbd-font-weight:      $font-weight-bold !default;
+$nested-kbd-font-weight: $font-weight-bold !default;
 
-$list-inline-padding:         8px !default;
+$list-inline-padding: 8px !default;
 
-$mark-bg:                     #fcf8e3 !default;
+$mark-bg: #fcf8e3 !default;
 
-$hr-margin-y:                 $spacer !default;
+$hr-margin-y: $spacer !default;
 
 // Code
 
-$code-font-size:                    $small-font-size !default;
-$code-color:                        $pink !default;
-$pre-color:                         null !default;
+$code-font-size: $small-font-size !default;
+$code-color: $pink !default;
+$pre-color: null !default;
 
 // options 可配置选项
-$enable-pointer-cursor-for-buttons:           true !default;
+$enable-pointer-cursor-for-buttons: true !default;
 
 // 边框 和 border radius
 
-$border-width:                1px !default;
-$border-color:                $gray-3 !default;
+$border-width: 1px !default;
+$border-color: $gray-3 !default;
 
-$border-radius:               4px !default;
-$border-radius-lg:            5px !default;
-$border-radius-sm:            3px !default;
+$border-radius: 4px !default;
+$border-radius-lg: 5px !default;
+$border-radius-sm: 3px !default;
 
 // 不同类型的 box shadow
-$box-shadow-sm:               0 2px 4px rgba($black, .075) !default;
-$box-shadow:                  0 8px 16px rgba($black, .15) !default;
-$box-shadow-lg:               0 16px 48px rgba($black, .175) !default;
-$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+$box-shadow-sm: 0 2px 4px rgba($black, .075) !default;
+$box-shadow: 0 8px 16px rgba($black, .15) !default;
+$box-shadow-lg: 0 16px 48px rgba($black, .175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
 
 // 按钮
 // 按钮基本属性
-$btn-font-weight:             500;
-$btn-padding-y:               4px !default;
-$btn-padding-x:               8px !default;
-$btn-font-family:             $font-family-base !default;
-$btn-font-size:               $font-size-base !default;
-$btn-line-height:             $line-height-base !default;
+$btn-font-weight: 500;
+$btn-padding-y: 4px !default;
+$btn-padding-x: 8px !default;
+$btn-font-family: $font-family-base !default;
+$btn-font-size: $font-size-base !default;
+$btn-line-height: $line-height-base !default;
 
 //不同大小按钮的 padding 和 font size
-$btn-padding-y-sm:            2px !default;
-$btn-padding-x-sm:            4px !default;
-$btn-font-size-sm:            $font-size-sm !default;
+$btn-padding-y-sm: 2px !default;
+$btn-padding-x-sm: 4px !default;
+$btn-font-size-sm: $font-size-sm !default;
 
-$btn-padding-y-lg:            6px !default;
-$btn-padding-x-lg:            12px !default;
-$btn-font-size-lg:            $font-size-lg !default;
+$btn-padding-y-lg: 6px !default;
+$btn-padding-x-lg: 12px !default;
+$btn-font-size-lg: $font-size-lg !default;
 
-$btn-neu-normal:              2px !default;
-$btn-neu-large :              4px !default;
-$btn-neu-small :              1px !default;
+$btn-neu-normal: 2px !default;
+$btn-neu-large: 4px !default;
+$btn-neu-small: 1px !default;
 // 按钮边框
-$btn-border-width:            $border-width !default;
+$btn-border-width: $border-width !default;
 
 // 按钮其他
-$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-$btn-disabled-opacity:        .65 !default;
+$btn-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-disabled-opacity: .65 !default;
 
 
 // 链接按钮
-$btn-link-color:              $link-color !default;
-$btn-link-hover-color:        $link-hover-color !default;
-$btn-link-disabled-color:     $gray-6 !default;
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+$btn-link-disabled-color: $gray-6 !default;
 
 
 // 按钮 radius
-$btn-border-radius:           $border-radius !default;
-$btn-border-radius-lg:        $border-radius-lg !default;
-$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
 
-$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
 // menu
-$menu-border-width:            $border-width !default;
-$menu-border-color:            $border-color !default;
-$menu-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-$menu-transition:              color .3s ease-in-out, border-color .35s ease-in-out !default;
+$menu-border-width: $border-width !default;
+$menu-border-color: $border-color !default;
+$menu-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$menu-transition: color .3s ease-in-out, border-color .35s ease-in-out !default;
 
 // menu-item
-$menu-item-padding-y:          8px !default;
-$menu-item-padding-x:          16px !default;
-$menu-item-active-color:       $primary !default;
+$menu-item-padding-y: 8px !default;
+$menu-item-padding-x: 16px !default;
+$menu-item-active-color: $primary !default;
 $menu-item-active-border-width: 2px !default;
-$menu-item-disabled-color:     $gray-6 !default;
+$menu-item-disabled-color: $gray-6 !default;
 
 $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
 
 //message
-$message-padding:         5px !default;
+$message-padding: 5px !default;
 
 
 
 //input
 
-$input-padding-y:  20px !default;
-$input-padding-x:  0px  !default;
-$input-fontsize:  $font-size-base;
+$input-padding-y: 20px !default;
+$input-padding-x: 0 !default;
+$input-fontsize: $font-size-base;
 $input-box-shadow: -4px -4px 10px rgba(255,255,255,1),
                   inset  4px 4px 10px rgba(0,0,0,0.05),
                   inset -4px -4px 10px rgba(255,255,255,1),
                   4px 4px 10px rgba(0,0,0,0.05) !default;
 $input-height: 35px !default;
-$input-margin:  $input-padding-y;
+$input-margin: $input-padding-y;
 
 //autocomplete
 $autocomplete-padding: $input-margin !default;
@@ -313,56 +312,56 @@ $autocomplete-padding: $input-margin !default;
 
 //list
 $list-padding: $input-padding-y !default;
-$list-item-padding:5px !default;
-$list-item-margin :5px !default;
+$list-item-padding: 5px !default;
+$list-item-margin: 5px !default;
 
 
 //avatar
 
-$avatar-size-default:50px !default;
-$avatar-size-lg:100px !default;
-$avatar-size-sm:35px !default;
+$avatar-size-default: 50px !default;
+$avatar-size-lg: 100px !default;
+$avatar-size-sm: 35px !default;
 
-$avatar-padding-default:5px !default;
-$avatar-padding-lg:10px !default;
-$avatar-padding-sm:2px !default;
-$avatar-fontsize-lg:$font-size-base*2 !default;
-$avatar-fontsize-sm:$font-size-base*0.5 !default;
+$avatar-padding-default: 5px !default;
+$avatar-padding-lg: 10px !default;
+$avatar-padding-sm: 2px !default;
+$avatar-fontsize-lg: $font-size-base*2 !default;
+$avatar-fontsize-sm: $font-size-base*0.5 !default;
 
 
 //badge
-$badge-padding:2px 6px 2px 6px !default;
+$badge-padding: 2px 6px 2px 6px !default;
 $badge-font-size: $font-size-sm !default;
-$badge-border-radius:5px !default;
+$badge-border-radius: 5px !default;
 
 
 //switch
 $switch-width-default: 40px;
 $switch-height-default: 15px;
-$switch-border-radius-default:40px;
+$switch-border-radius-default: 40px;
 
 $switch-width-lg: $switch-width-default*1.5;
 $switch-height-lg: $switch-height-default*1.5;
-$switch-border-radius-lg:$switch-border-radius-default*1.5;
+$switch-border-radius-lg: $switch-border-radius-default*1.5;
 
 $switch-width-sm: $switch-width-default*0.6;
 $switch-height-sm: $switch-height-default*0.6;
-$switch-border-radius-sm:$switch-border-radius-default*0.6;
+$switch-border-radius-sm: $switch-border-radius-default*0.6;
 
 
 //modal
-$modal-padding:8px !default;
+$modal-padding: 8px !default;
 
 //progress
-$progress-number-height:30px;
-$porgress-radius:100px;
+$progress-number-height: 30px;
+$porgress-radius: 100px;
 
 //layout
-$header-height:64px;
-$header-padding:0 50px;
+$header-height: 64px;
+$header-padding: 0 50px;
 
-$content-basis:300px;
+$content-basis: 300px;
 
-$footer-padding:24px 50px;
+$footer-padding: 24px 50px;
 
-$aside-flex-basis:200px;
+$aside-flex-basis: 200px;

@@ -1,29 +1,33 @@
 
 .bigbear-autocomplete{
     .bigbear-autocomplete-ul{
-        list-style: none;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        list-style: none;
         padding:5px;
         position: absolute;
         width: 100%;
         .bigbear-autocomplete-item{
-            padding: 5px;
-            margin:5px;
-            cursor: pointer;
             @include neufactory($white,$neu-whiteshadow1,$neu-whiteshadow2);
             @include neufactory-hover($info,$neu-infoshadow1,$neu-infoshadow2);
+
+            cursor: pointer;
+            margin:5px;
+            padding: 5px;
             &:hover{
-                color:white;
+                color:$white;
             }
         }
         .autocomplete-item-highlight{
             @include neufactory($primary,$neu-blueshadow1,$neu-blueshadow2);
             @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
-            color:white;
+
+            color:$white;
         }
     }
     .bigbear-autocomplete-spin{
        @include absolut-middle();
+
         z-index: 10;
     }
    

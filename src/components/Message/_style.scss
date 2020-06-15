@@ -1,12 +1,12 @@
 .bigbear-message-top{
+    left:50%;
     position: fixed;
     top:20px;
-    left:50%;
     transform: translateX(-50%);
 }
 .bigbear-message-lt{
-    position: fixed;
     left: 20px;
+    position: fixed;
     top:20px;
 }
 
@@ -16,27 +16,27 @@
     top:20px;
 }
 .bigbear-message-lb{
-    position: fixed;
     bottom:  20px;
     left:20px;
+    position: fixed;
 }
 .bigbear-message-rb{
-    position: fixed;
     bottom:  20px;
+    position: fixed;
     right: 20px;
 }
 
 .bigbear-message{
+    max-width: 300px;
     padding:$message-padding;
     z-index: 500;
-    max-width: 300px;
     > span:nth-child(1){
         font-size: $font-size-sm;
     }
     > span:nth-child(2){
         font-size: $font-size-sm - 1;
     }
-    button.btn{
+    .btn{
         font-size: $font-size-sm - 5;
     }
 }
@@ -50,8 +50,8 @@
 .zoom-in-topmesssage-enter-active {
     opacity: 1;
     transform: scaleY(1) translateX(-50%);
-    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
-    transform-origin: center top
+    transform-origin: center top;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms
 }
 .zoom-in-topmesssage-enter-done {
     opacity: 1;
@@ -60,6 +60,6 @@
 .zoom-in-topmesssage-exit{
     opacity: 0;
     transform: scaleY(0)  translateX(-50%);
-    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin:center top;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 }

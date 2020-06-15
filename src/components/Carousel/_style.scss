@@ -1,53 +1,58 @@
 .bigbear-carousel-wrapper{
     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-    padding:10px;
+
     box-sizing:content-box;
+    padding:10px;
     .bigbear-carousel-viewport{
-        display: flex;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        border-radius: 10px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
         
     }
     .bigbear-carousel-ul{
-        display: flex;
-        list-style-type: none;
-        justify-content: center;
         align-items: center;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
         padding:10px;
-        li{
+        .bigbear-carousel-li{
             @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
-            border-radius: 50%;
             @include square(16px);
+
+            border-radius: 50%;
+            cursor: pointer;
             margin:5px;
             position: relative;
-            cursor: pointer;
             &::after{
-                content: '';
-                position: absolute;
-                display: block;
-                left:3px;
-                top:3px;
                 @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
                 @include square(10px);
+
                 border-radius: 50%;
-                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
-                transform: scale(0);
+                content: '';
+                display: block;
+                left:3px;
                 opacity: 0;
+                position: absolute;
+                top:3px;
+                transform: scale(0);
+                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
             }
             &.carousel-active::after{
-                content: '';
-                position: absolute;
-                opacity: 1;
-                display: block;
-                left:3px;
-                top:3px;
                 @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
                 @include square(10px);
+
                 border-radius: 50%;
-                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+                content: '';
+                display: block;
+                left:3px;
+                opacity: 1;
+                position: absolute;
+                top:3px;
                 transform: scale(1);
+                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
             }
         }
     }
@@ -60,9 +65,9 @@
 
 
 .left{
+    left:300px;
     transform: translateX(33.333%);
-    transition: all 0.5s ease;
-    left:300px
+    transition: all 0.5s ease
 }
 
 .left.bigbear-carousel-exit-active {

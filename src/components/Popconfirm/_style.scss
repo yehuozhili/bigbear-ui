@@ -1,19 +1,19 @@
 .bigbear-modal-potral.bigbear-popconfirm{
-    position: absolute;
-    right:unset;
     bottom: unset;
-    top:unset;
     left:unset;
     padding:0;
+    position: absolute;
+    right:unset;
+    top:unset;
     white-space: nowrap;
     
     .bigbear-modal-viewport.bigbear-popconfirm{
-        position: unset;
         display: block;
-        padding:4px;
         margin: 0;
-        width: unset;
         min-width: unset;
+        padding:4px;
+        position: unset;
+        width: unset;
         .bigbear-modal-title.bigbear-popconfirm{
             font-size: $font-size-sm;
             >span{

@@ -1,12 +1,12 @@
 @mixin size($width,$height) {
-    width: $width;
     height: $height;
+    width: $width;
 }
 @mixin square($size) {
-   @include size($size,$size)
+   @include size($size,$size);
 }
 @mixin absolut-middle() {
+    left: 50%;
     position: absolute;
     transform: translateX(-50%);
-    left: 50%;
 }

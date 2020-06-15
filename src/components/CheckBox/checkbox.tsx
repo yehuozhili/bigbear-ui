@@ -28,7 +28,7 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 		parentSetStateCallback,
 		parentState
 	} = props;
-	const classes = classnames("bigbear-checkBox-wrapper", className);
+	const classes = classnames("bigbear-checkbox-wrapper", className);
 
 	const disableRef = useMemo(() => {
 		let arr = new Array(data.length).fill(false);

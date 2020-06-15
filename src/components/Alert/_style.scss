@@ -1,9 +1,9 @@
 .bigbear-alert{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    position: relative;
+    justify-content: center;
     padding:10px;
+    position: relative;
     >span{
         &:nth-child(1){
             font-size: $font-size-lg;
@@ -21,7 +21,8 @@
 }
 @each $key,$val in $theme-colors{
     .bigbear-alert-#{$key}{
-        color:#{nth($val,2)};
         @include neufactory-noactive(nth($val,1),nth($val,3),nth($val,4));
+
+        color:#{nth($val,2)};
     }
 }

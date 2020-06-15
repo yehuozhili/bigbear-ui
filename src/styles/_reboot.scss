@@ -30,10 +30,10 @@ input::-ms-reveal {
 #{$html-selector} {
   font-family: $font-family-base;
   line-height: $line-height-base;
-  -webkit-text-size-adjust: 100%; // 4
-  -ms-text-size-adjust: 100%; // 4
   -ms-overflow-style: scrollbar; // 5
   -webkit-tap-highlight-color: rgba($black, 0%); // 6
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
 }
 
 // IE10+ doesn't honor `<meta name="viewport">` in some cases.
@@ -63,15 +63,15 @@ section {
 // 4. Change the default tap highlight to be completely transparent in iOS.
 
 body {
-  margin: 0; // 1
+  background-color: $body-bg; // 2
+  color: $body-color;
   font-family: $font-family-base;
   font-size: $font-size-base;
-  font-weight: $font-weight-base;
   font-variant: $font-variant-base;
-  color: $body-color;
-  text-align: $body-text-align;
-  background-color: $body-bg; // 2
+  font-weight: $font-weight-base;
+  margin: 0; // 1
   overflow: scroll;
+  text-align: $body-text-align;
 }
 
 // Future-proof rule: in browsers that support :focus-visible, suppress the focus outline
@@ -96,10 +96,10 @@ body {
 //    See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_hr_size
 
 hr {
-  margin: $hr-margin-y 0;
-  color: $hr-color; // 1
   background-color: currentColor;
   border: 0;
+  color: $hr-color; // 1
+  margin: $hr-margin-y 0;
   opacity: $hr-opacity;
 }
 
@@ -115,42 +115,48 @@ hr:not([size]) {
 //    margin for easier control within type scales as it avoids margin collapsing.
 
 %heading {
-  margin-top: 0; // 1
-  margin-bottom: $headings-margin-bottom;
+  color: $headings-color;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  margin-bottom: $headings-margin-bottom;
+  margin-top: 0; // 1
 }
 
 h1 {
   @extend %heading;
+
   font-size: $h1-font-size;
 }
 
 h2 {
   @extend %heading;
+
   font-size: $h2-font-size;
 }
 
 h3 {
   @extend %heading;
+
   font-size: $h3-font-size;
 }
 
 h4 {
   @extend %heading;
+
   font-size: $h4-font-size;
 }
 
 h5 {
   @extend %heading;
+
   font-size: $h5-font-size;
 }
 
 h6 {
   @extend %heading;
+
   font-size: $h6-font-size;
 }
 
@@ -161,8 +167,8 @@ h6 {
 // bottom margin to use `rem` units instead of `em`.
 
 p {
-  margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
+  margin-top: 0;
 }
 
 
@@ -175,17 +181,17 @@ p {
 
 abbr[title],
 abbr[data-original-title] { // 1
+  cursor: help; // 3
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
-  cursor: help; // 3
   text-decoration-skip-ink: none; // 4
 }
 
 
 address {
-  margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+  margin-bottom: 1rem;
 }
 
 ol,
@@ -196,8 +202,8 @@ ul {
 ol,
 ul,
 dl {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 ol ol,
@@ -241,9 +247,9 @@ small {
 
 sub,
 sup {
-  position: relative;
   font-size: $sub-sup-font-size;
   line-height: 0;
+  position: relative;
   vertical-align: baseline;
 }
 
@@ -292,24 +298,24 @@ samp {
 // 3. Don't allow content to break outside
 
 pre {
-  display: block;
-  margin-top: 0; // 1
-  margin-bottom: 1rem; // 2
-  overflow: auto; // 3
-  font-size: $code-font-size;
   color: $pre-color;
+  display: block;
+  font-size: $code-font-size;
+  margin-bottom: 1rem; // 2
+  margin-top: 0; // 1
+  overflow: auto; // 3
 
   // Account for some code outputs that place code tags in pre tags
   code {
-    font-size: inherit;
     color: inherit;
+    font-size: inherit;
     word-break: normal;
   }
 }
 
 code {
-  font-size: $code-font-size;
   color: $code-color;
+  font-size: $code-font-size;
   word-wrap: break-word;
 
   // Streamline the style when inside anchors to avoid broken underline and more
@@ -352,11 +358,11 @@ table {
 }
 
 caption {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  color: $text-muted;
-  text-align: left;
   caption-side: bottom;
+  color: $text-muted;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  text-align: left;
 }
 
 // Matches default `<td>` alignment by inheriting from the `<body>`, or the
@@ -402,10 +408,10 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  margin: 0;
 }
 
 // Show the overflow in Edge
@@ -460,8 +466,8 @@ button,
 // Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 
 ::-moz-focus-inner {
-  padding: 0;
   border-style: none;
+  padding: 0;
 }
 
 
@@ -494,10 +500,10 @@ textarea {
 // 2. Reset the default outline behavior of fieldsets so they don't affect page layout.
 
 fieldset {
+  border: 0; // 2
+  margin: 0; // 2
   min-width: 0; // 1
   padding: 0;  // 2
-  margin: 0; // 2
-  border: 0; // 2
 }
 
 
@@ -506,21 +512,21 @@ fieldset {
 // 3. Correct the text wrapping in Edge and IE.
 
 legend {
+  color: inherit; // 2
   float: left; // 1
-  width: 100%;
-  padding: 0;
-  margin-bottom: $legend-margin-bottom;
   font-size: $legend-font-size;
   font-weight: $legend-font-weight;
   line-height: inherit;
-  color: inherit; // 2
+  margin-bottom: $legend-margin-bottom;
+  padding: 0;
   white-space: normal; // 3
+  width: 100%;
 }
 
 
 mark {
-  padding: $mark-padding;
   background-color: $mark-bg;
+  padding: $mark-padding;
 }
 
 // Add the correct vertical alignment in Chrome, Firefox, and Opera.
@@ -534,8 +540,8 @@ progress {
 // See https://github.com/twbs/bootstrap/issues/18842
 
 ::-webkit-datetime-edit {
-  overflow: visible;
   line-height: 0;
+  overflow: visible;
 }
 
 
@@ -546,8 +552,8 @@ progress {
 //    https://github.com/twbs/bootstrap/issues/11586.
 
 [type="search"] {
-  outline-offset: -2px; // 1
   -webkit-appearance: textfield; // 2
+  outline-offset: -2px; // 1
 }
 
 // Remove the inner padding in Chrome and Safari on macOS.
@@ -566,8 +572,8 @@ progress {
 // 2. Correct the inability to style clickable types in iOS and Safari.
 
 ::-webkit-file-upload-button {
-  font: inherit; // 1
   -webkit-appearance: button; // 2
+  font: inherit; // 1
 }
 
 // Correct element displays
@@ -579,8 +585,8 @@ output {
 // 1. Add the correct display in all browsers
 
 summary {
-  display: list-item; // 1
   cursor: pointer;
+  display: list-item; // 1
 }
 
 // Add the correct display for template & main in IE 11

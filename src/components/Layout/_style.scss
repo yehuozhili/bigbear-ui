@@ -1,10 +1,10 @@
 .bigbear-layout{
     display: flex;
+    flex:auto;
     flex-direction: column;
     margin:0;
     padding: 0;
     text-align: center;
-    flex:auto;
     .bigbear-layout-header{
         height: $header-height;
     }
@@ -13,8 +13,8 @@
         flex-basis: $content-basis;
     }
     .bigbear-layout-footer{
-        padding: $footer-padding;
         font-size: $font-size-sm;
+        padding: $footer-padding;
     }
     .bigbear-layout-sider{
         flex-basis:$aside-flex-basis;
@@ -35,14 +35,16 @@
 
 @each $key,$val in $theme-colors{
     .bigbear-layout-block-#{$key}{
-        color:#{nth($val,2)};
         @include neufactory-noactive(nth($val,1),nth($val,3),nth($val,4));
+
+        color:#{nth($val,2)};
         margin: 0;
         padding: 0;
     }
     .bigbear-layout-wrapper-#{$key}{
-        color:#{nth($val,2)};
         @include ringwrapper(nth($val,1),nth($val,3),nth($val,4));
+
+        color:#{nth($val,2)};
         margin: 0;
         padding:0;
     }

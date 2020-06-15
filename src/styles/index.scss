@@ -1,8 +1,8 @@
 @import './mixin/index';
 @import "variables";
 @import "reboot";
-@import "./animation.scss" ;
-@import "./color.scss";
+@import "./animation";
+@import "./color";
 
 //button
 @import "../components/Button/style";

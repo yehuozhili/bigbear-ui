@@ -1,26 +1,28 @@
 .bigbear-modal-potral{
-    position: fixed;
-    top:0;
-    left:0;
     bottom: 0;
+    left:0;
+    position: fixed;
     right: 0;
+    top:0;
     z-index: 1000;
     .bigbear-modal-viewport{
-        z-index: 1001;
-        position: relative;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-        padding:$modal-padding;
+
         margin:0 auto;
-        top:100px;
-        width: 30%;
         min-width: 320px;
         overflow: hidden;
+        padding:$modal-padding;
+        position: relative;
+        top:100px;
         transition: all  0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        width: 30%;
+        z-index: 1001;
         .bigbear-modal-title{
-            padding: $modal-padding;
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
             font-size: $font-size-lg;
             font-weight: $font-weight-bold;
-            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            padding: $modal-padding;
             .bigbear-icon{
                 margin-right: 10px;
             }
@@ -29,20 +31,22 @@
                 right: $modal-padding ;
                 top:$modal-padding ;
                 .bigbear-icon{
-                    margin-right: 0px;
+                    margin-right: 0;
                 }
             }
            
         }
         .bigbear-modal-children{
-            padding:$modal-padding;
             @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+            padding:$modal-padding;
         }
         .bigbear-modal-confirm{
-            padding: $modal-padding;
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
             display: flex;
             justify-content: flex-end;
-            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            padding: $modal-padding;
             >button{
                 margin-right: 10px;
             }
@@ -50,12 +54,12 @@
     
     }
     .bigbear-modal-mask{
-        position: fixed;
-        top:0;
-        left:0;
-        bottom: 0;
-        right: 0;
         background-color: rgba(0,0,0,.45);
+        bottom: 0;
+        left:0;
+        position: fixed;
+        right: 0;
+        top:0;
     }
 }
 
@@ -83,7 +87,7 @@
 }
 .bigbear-modal-animation-exit-active {
     opacity: 0;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) ;
     transform-origin:center top;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) ;
 
 }

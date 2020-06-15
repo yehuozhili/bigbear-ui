@@ -1,23 +1,25 @@
 .bigbear-input-wrapper{
-    display: flex;
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
     align-items: center;
-    margin-bottom: $input-margin;
     box-shadow: $input-box-shadow;
+    display: flex;
+    margin-bottom: $input-margin;
     overflow: hidden;
     position: relative;
-    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
     input{
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
         background: transparent;
-        height: $input-height;
-        font-size: $input-fontsize;
         border:none;
-        outline: none;
+        color:$gray-7;
         flex-grow:1;
         flex-shrink: 0;
-        padding:0px 10px;
-        color:$gray-7;
+        font-size: $input-fontsize;
+        height: $input-height;
+        outline: none;
+        padding:0 10px;
         width: 10px;
-        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
     }
     input:disabled{
         background-color: $gray-2;
@@ -29,20 +31,22 @@
     }
     .bigbear-input-group-prepend{
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-        padding:0 10px;
-        height: $input-height;
-        display: flex;
-        justify-content: flex-start;
+
         align-items: center;
+        display: flex;
         flex-shrink: 1;
+        height: $input-height;
+        justify-content: flex-start;
+        padding:0 10px;
     }
     .bigbear-input-group-append{
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-        padding:0 10px;
-        height: $input-height;
-        display: flex;
-        justify-content: flex-end;
+
         align-items: center;
+        display: flex;
         flex-shrink: 1;
+        height: $input-height;
+        justify-content: flex-end;
+        padding:0 10px;
     }
 }

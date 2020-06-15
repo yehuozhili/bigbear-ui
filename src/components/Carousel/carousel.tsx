@@ -180,7 +180,9 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 								let newmap = currentSetMap(y, indexMap);
 								setIndexMap(newmap);
 							}}
-							className={y === indexMap[1] ? "carousel-active" : ""}
+							className={`bigbear-carousel-li ${
+								y === indexMap[1] ? "carousel-active" : ""
+							}`}
 							key={y}
 						></li>
 					);

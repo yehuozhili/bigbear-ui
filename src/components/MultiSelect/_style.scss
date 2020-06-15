@@ -1,65 +1,70 @@
 .bigbear-multiselect{
-    width: 100%;
     position: relative;
+    width: 100%;
     .bigbear-multiselect-display{
-        display: flex;
-        width: 100%;
-        padding:5px;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        display: flex;
+        padding:5px;
+        width: 100%;
         .bigbear-multiselect-displaytext{
-            flex-grow: 1;
-            display:flex;
-            flex-wrap: wrap;
-            border-radius: 5px;
             @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+            border-radius: 5px;
+            display:flex;
+            flex-grow: 1;
+            flex-wrap: wrap;
                
                 .bigbear-alert{
+                    display: flex;
                     flex-direction:row ;
                     flex-wrap: nowrap;
-                    padding:3px;
-                    display: flex;
                     margin:2px;
-                    & span:nth-child(1){
-                        font-size: 14px;
-                        display: flex;
+                    padding:3px;
+                    span:nth-child(1){
                         align-items: center;
+                        display: flex;
+                        font-size: 14px;
                         margin-right: 2px;
                     }
                     .btn{
-                        position: static;
                         font-size: 14px;
                         padding:1px 3px;
+                        position: static;
                     }
                 }
                 
         }
         .bigbear-multiselect-icon{
-            display: flex;
-            width: 10px;
             align-items: center;
+            display: flex;
             margin-left: 5px;
+            width: 10px;
         }
     }
     .bigbear-multiselect-options{
-        position: absolute;
-        width: 100%;
-        padding:10px;
-        overflow-y: auto;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
         cursor: pointer;
         font-weight: 700;
-        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        overflow-y: auto;
+        padding:10px;
+        position: absolute;
+        width: 100%;
         >div{
-            margin:5px;
-            padding:5px;
             @include neufactory($white,$neu-whiteshadow1,$neu-whiteshadow2);
             @include neufactory-hover($info,$neu-infoshadow1,$neu-infoshadow2);
+
+            margin:5px;
+            padding:5px;
             &:hover{
                 color:$white;
             }
         }
-        >div.bigbear-multiselect-active{
-            color:$white;
+        >.bigbear-multiselect-active{
             @include neufactory($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            color:$white;
 
         }
     }

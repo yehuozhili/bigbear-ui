@@ -5,15 +5,15 @@
 }
 
 .bigbear-badge-count{
-    position: absolute;
-    z-index: 800;
-    top: 0;
-    right: 0;
-    transform: translate3d(50%,-50%,0);
     border-radius:$badge-border-radius;
-    padding: $badge-padding;
     font-size: $badge-font-size;
     height: 24px;
+    padding: $badge-padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate3d(50%,-50%,0);
+    z-index: 800;
 }
 
 
@@ -24,8 +24,9 @@
 
 @each $key,$val in $theme-colors{
     .bigbear-count-#{$key}{
+       @include neufactory-noactive(nth($val, 1),nth($val,3),nth($val,4));
+
        color:#{nth($val,2)};
-       @include neufactory-noactive(nth($val, 1),nth($val,3),nth($val,4))
     }
 }
 .badge-hide{
@@ -33,6 +34,7 @@
 }
 .badge-dot{
     @include square(5px);
+
     border-radius:50%;
     padding: 0;
 }

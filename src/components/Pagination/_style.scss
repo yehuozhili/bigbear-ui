@@ -3,8 +3,9 @@
     list-style: none;
     .bigbear-pagination-item{
         >button{
-            min-width: 32px;
             @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            min-width: 32px;
             &:hover{
                 color:$white;
             }

@@ -1,43 +1,46 @@
 .bigbear-select{
-    display: inline-block;
-    vertical-align: bottom;
-    margin: 10px;
-    width: 120px;
-    position: relative;
     cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    vertical-align: bottom;
+    width: 120px;
     .bigbear-select-display{
-        height: 30px;
-        display: flex;
-        justify-content: space-between;
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
         align-items: center;
+        display: flex;
+        height: 30px;
+        justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
-       
-        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
         .bigbear-select-displaytext{
-            padding-left: 2px;
-            padding-right: 2px;
+            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
             flex-grow: 1;
-            width: 100%;
             height: 80%;
             overflow: hidden;
-            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2)
+            padding-left: 2px;
+            padding-right: 2px;
+            width: 100%;
         }
         .bigbear-select-icon{
             margin-left: 5px;
         }
     }
     .bigbear-select-options{
-        z-index: 200;
-        position: absolute;
-        left:10px;
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        left:10px;
+        position: absolute;
+        z-index: 200;
         >div{
+            @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            cursor: pointer;
+            height: 30px;
             padding-left:10px;
             padding-right: 10px;
-            height: 30px;
-            cursor: pointer;
-            @include neufactory-hover($primary,$neu-blueshadow1,$neu-blueshadow2);
             &:hover{
                 color:$white;
             }
