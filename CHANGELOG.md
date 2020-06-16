@@ -1,4 +1,4 @@
-## 0.1.20 (2020-06-13)
+## 0.1.21 (2020-06-16)
 
 
 ### Bug Fixes
@@ -20,6 +20,7 @@
 * **button:** complete button component ([616d66e](https://github.com/yehuozhili/bigbear-ui/commit/616d66e66751d0a5a403f5ec93a377cee63fb8b2))
 * **carousel:** use prettier and complete carousel ([9fd3338](https://github.com/yehuozhili/bigbear-ui/commit/9fd3338d0c1b430e29c8bf0c5ace3953c28d05c3))
 * **checkbox:** complete checkbox and add animate to radio ([7a975e5](https://github.com/yehuozhili/bigbear-ui/commit/7a975e520de9b01c10ece3d967328ee3c4f76f8a))
+* **divider:** complete divider component ([c4e24f5](https://github.com/yehuozhili/bigbear-ui/commit/c4e24f586f1e5e781f48515eb7c31e8859d49466))
 * **form&useform:** complete form and useForm ,change input style ([076d913](https://github.com/yehuozhili/bigbear-ui/commit/076d9136290521fa45f40c283fe38e92f72190de))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
 * **layout:** complete layout component ([716ca03](https://github.com/yehuozhili/bigbear-ui/commit/716ca03ed50d5ad965835bfacb4e6609c5212b14))
