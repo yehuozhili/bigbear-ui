@@ -12,13 +12,13 @@ export type ButtonType =
 	| "light"
 	| "warning"
 	| "dark"
-	| "link"
+	| "link";
 
 export interface BaseButtonProps {
 	className?: string;
 	disabled?: boolean;
 	/** 是否底色渐变 */
-	lineargradient?:boolean;
+	lineargradient?: boolean;
 	/** 设置按钮大小 */
 	size?: ButtonSize;
 	/**
@@ -28,7 +28,9 @@ export interface BaseButtonProps {
 	/** link类型才有效的url */
 	href?: string;
 	/** 回调ref，组件加载完成回调ref，返回值会在卸载组件时调用 */
-	refcallback?: (ref: React.RefObject<HTMLButtonElement & HTMLAnchorElement>) => (() => void)|undefined;
+	refcallback?: (
+		ref: React.RefObject<HTMLButtonElement & HTMLAnchorElement>
+	) => (() => void) | undefined;
 }
 
 type NativeButtonProps = ButtonHTMLAttributes<HTMLElement> & BaseButtonProps;
@@ -37,15 +39,25 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
-	const { btnType,lineargradient, size, disabled, children, href, className, refcallback, ...restProps } = props;
+	const {
+		btnType,
+		lineargradient,
+		size,
+		disabled,
+		children,
+		href,
+		className,
+		refcallback,
+		...restProps
+	} = props;
 
 	const classes = classNames("btn", className, {
 		[`btn-type-${btnType}`]: btnType,
 		[`btn-size-${size}`]: size,
 		disabled: btnType === "link" && disabled,
-		[`bigbear-layout-lineargradient-${btnType}`]:lineargradient
+		[`bigbear-layout-lineargradient-${btnType}`]: lineargradient
 	});
-	const btnRef = useRef<HTMLButtonElement&HTMLAnchorElement>(null);
+	const btnRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 	useEffect(() => {
 		let uninstall: any = null;
 		if (refcallback) {
@@ -78,7 +90,7 @@ Button.defaultProps = {
 	btnType: "default",
 	size: "default",
 	href: "/",
-	lineargradient:false,
+	lineargradient: false
 };
 
 export default Button;

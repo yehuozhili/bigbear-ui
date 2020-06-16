@@ -1,0 +1,94 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Divider from './divider'
+
+
+
+<Meta title='LAYOUT |Divider 分割线' component={Divider} />
+
+<br/>
+
+# Divider 分割线
+<br/>
+
+## 基本使用
+
+两种类型，一种凸起，一种凹下。
+
+<Preview>
+    <Story name='divider'>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+               <Divider></Divider>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+             <Divider elevate={false}></Divider>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+        </div>
+    </Story>
+</Preview>
+
+## 可以传文字并且设定方位
+
+<Preview>
+    <Story name='divider3'>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+               <Divider elevate={false}>Text</Divider>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+            <Divider >Text</Divider>
+             <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='divider2'>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+               <Divider elevate={false} direction='left'>Text</Divider>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+            <Divider direction='left' >Text</Divider>
+             <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+        </div>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='dividerright'>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+               <Divider elevate={false} direction='right'>Text</Divider>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+            <Divider direction='right' >Text</Divider>
+             <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+            </p>
+        </div>
+    </Story>
+</Preview>
+
+
+## 属性详情
+
+<Props of={Divider} />

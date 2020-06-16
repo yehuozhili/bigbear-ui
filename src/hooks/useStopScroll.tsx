@@ -1,5 +1,5 @@
-function useStopScroll(state: boolean, delay: number , open?:boolean) {
-	if(open){
+function useStopScroll(state: boolean, delay: number, open?: boolean) {
+	if (open) {
 		let width = window.innerWidth - document.body.clientWidth;
 		if (state) {
 			document.body.style.overflow = "hidden";

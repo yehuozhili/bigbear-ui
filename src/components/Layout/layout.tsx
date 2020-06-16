@@ -1,75 +1,73 @@
-import React, { PropsWithChildren, CSSProperties } from 'react';
-import classnames from 'classnames';
+import React, { PropsWithChildren, CSSProperties } from "react";
+import classnames from "classnames";
 
-export interface LayoutItemProps{
-    /** 样式*/
-    style?:CSSProperties;
-    /** 类名*/
-    className?:string;
+export interface LayoutItemProps {
+	/** 样式*/
+	style?: CSSProperties;
+	/** 类名*/
+	className?: string;
 }
 
-export interface LayoutProps extends LayoutItemProps{
-    /** 子元素是否横向排列 */
-    row?:boolean;
+export interface LayoutProps extends LayoutItemProps {
+	/** 子元素是否横向排列 */
+	row?: boolean;
 }
 
-
-function Layout(props:PropsWithChildren<LayoutProps>){
-    const {style,className,row}=props
-    const classes = classnames('bigbear-layout',className,{
-        'bigbear-layout-row':row
-    })
-    return(
-        <section className={classes} style={style}>
-            {props.children}
-        </section>
-    )
+function Layout(props: PropsWithChildren<LayoutProps>) {
+	const { style, className, row } = props;
+	const classes = classnames("bigbear-layout", className, {
+		"bigbear-layout-row": row
+	});
+	return (
+		<section className={classes} style={style}>
+			{props.children}
+		</section>
+	);
 }
 
-function Header(props:PropsWithChildren<LayoutItemProps>){
-    const {style,className}=props
-    const classes = classnames('bigbear-layout-header',className)
-    return(
-        <header className={classes} style={style}>
-            {props.children}
-        </header>
-    )
+function Header(props: PropsWithChildren<LayoutItemProps>) {
+	const { style, className } = props;
+	const classes = classnames("bigbear-layout-header", className);
+	return (
+		<header className={classes} style={style}>
+			{props.children}
+		</header>
+	);
 }
 
-function Content(props:PropsWithChildren<LayoutItemProps>){
-    const {style,className}=props
-    const classes = classnames('bigbear-layout-content',className)
-    return(
-        <main className={classes} style={style}>
-            {props.children}
-        </main>
-    )
+function Content(props: PropsWithChildren<LayoutItemProps>) {
+	const { style, className } = props;
+	const classes = classnames("bigbear-layout-content", className);
+	return (
+		<main className={classes} style={style}>
+			{props.children}
+		</main>
+	);
 }
 
-function Sider(props:PropsWithChildren<LayoutItemProps>){
-    const {style,className}=props
-    const classes = classnames('bigbear-layout-sider',className)
-    return(
-        <aside className={classes} style={style}>
-            {props.children}
-        </aside>
-    )
+function Sider(props: PropsWithChildren<LayoutItemProps>) {
+	const { style, className } = props;
+	const classes = classnames("bigbear-layout-sider", className);
+	return (
+		<aside className={classes} style={style}>
+			{props.children}
+		</aside>
+	);
 }
 
-function Footer(props:PropsWithChildren<LayoutItemProps>){
-    const {style,className}=props
-    const classes = classnames('bigbear-layout-footer',className)
-    return(
-        <footer className={classes} style={style}>
-            {props.children}
-        </footer>
-    )
+function Footer(props: PropsWithChildren<LayoutItemProps>) {
+	const { style, className } = props;
+	const classes = classnames("bigbear-layout-footer", className);
+	return (
+		<footer className={classes} style={style}>
+			{props.children}
+		</footer>
+	);
 }
 
-
-Layout.Header=Header;
-Layout.Content=Content;
-Layout.Sider =Sider;
-Layout.Footer=Footer;
+Layout.Header = Header;
+Layout.Content = Content;
+Layout.Sider = Sider;
+Layout.Footer = Footer;
 
 export default Layout;

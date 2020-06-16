@@ -1,4 +1,11 @@
-import React, { PropsWithChildren, useMemo, ReactNode, CSSProperties, useRef, useEffect } from "react";
+import React, {
+	PropsWithChildren,
+	useMemo,
+	ReactNode,
+	CSSProperties,
+	useRef,
+	useEffect
+} from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
 import Icon from "../Icon";
@@ -37,17 +44,17 @@ export interface ModalType {
 	/** 动画时间 */
 	delay?: number;
 	/** 额外类名 */
-	className?:string;
+	className?: string;
 	/** 是否停止滚动*/
-	stopScroll?:boolean;
+	stopScroll?: boolean;
 	/** portralstyle*/
-	portralStyle?:CSSProperties;
+	portralStyle?: CSSProperties;
 	/** 默认确认按钮大小 */
-	btnSize?:'default'|'sm'|'lg',
+	btnSize?: "default" | "sm" | "lg";
 	/** portral的回调 */
-	refCallback?:(ref:HTMLDivElement)=>void;
+	refCallback?: (ref: HTMLDivElement) => void;
 	/** 没点确认于取消，直接关闭的回调 */
-	closeCallback?:()=>void;
+	closeCallback?: () => void;
 }
 
 function Modal(props: PropsWithChildren<ModalType>) {
@@ -74,28 +81,48 @@ function Modal(props: PropsWithChildren<ModalType>) {
 		refCallback,
 		closeCallback
 	} = props;
-	const ref=useRef<HTMLDivElement>(null)
+	const ref = useRef<HTMLDivElement>(null);
 	const render = useMemo(() => {
 		return createPortal(
 			<Transition in={visible} timeout={delay!} classNames={`bigbear-modal-animation`}>
-				<div className={`bigbear-modal-potral ${visible ? "open" : ""} ${className?className:''}`} ref={ref}
-				style={portralStyle}>
-					<div className={`bigbear-modal-viewport ${className?className:''}`} style={style}>
-						<div className={`bigbear-modal-title ${className?className:''}`}>
+				<div
+					className={`bigbear-modal-potral ${visible ? "open" : ""} ${
+						className ? className : ""
+					}`}
+					ref={ref}
+					style={portralStyle}
+				>
+					<div
+						className={`bigbear-modal-viewport ${className ? className : ""}`}
+						style={style}
+					>
+						<div className={`bigbear-modal-title ${className ? className : ""}`}>
 							{title && <span>{title}</span>}
 							{closeButton && (
-								<div className={`bigbear-modal-closebtn ${className?className:''}`}>
-									<Button onClick={() => {setState(false);if(closeCallback)closeCallback()}} size={btnSize}>
+								<div
+									className={`bigbear-modal-closebtn ${
+										className ? className : ""
+									}`}
+								>
+									<Button
+										onClick={() => {
+											setState(false);
+											if (closeCallback) closeCallback();
+										}}
+										size={btnSize}
+									>
 										<Icon icon="times"></Icon>
 									</Button>
 								</div>
 							)}
 						</div>
 						{props.children && (
-							<div className={`bigbear-modal-children ${className?className:''}`}>{props.children}</div>
+							<div className={`bigbear-modal-children ${className ? className : ""}`}>
+								{props.children}
+							</div>
 						)}
 						{confirm && (
-							<div className={`bigbear-modal-confirm ${className?className:''}`}>
+							<div className={`bigbear-modal-confirm ${className ? className : ""}`}>
 								<Button
 									onClick={() => {
 										onOk ? onOk() : setState(false);
@@ -121,12 +148,12 @@ function Modal(props: PropsWithChildren<ModalType>) {
 						<div
 							className="bigbear-modal-mask"
 							onClick={() => {
-								if (maskClose){
+								if (maskClose) {
 									setState(false);
-									if(closeCallback){
-										closeCallback()
+									if (closeCallback) {
+										closeCallback();
 									}
-								};
+								}
 							}}
 						></div>
 					)}
@@ -134,13 +161,34 @@ function Modal(props: PropsWithChildren<ModalType>) {
 			</Transition>,
 			container!
 		);
-	}, [btnSize, callback, cancelText, className, closeButton, closeCallback, confirm, container, delay, mask, maskClose, okText, onCancel, onOk, portralStyle, props.children, setState, style, title, visible]);
-	useStopScroll(visible!, 300,stopScroll!);
-	useEffect(()=>{
-		if(refCallback&&ref.current){
-			refCallback(ref.current)
+	}, [
+		btnSize,
+		callback,
+		cancelText,
+		className,
+		closeButton,
+		closeCallback,
+		confirm,
+		container,
+		delay,
+		mask,
+		maskClose,
+		okText,
+		onCancel,
+		onOk,
+		portralStyle,
+		props.children,
+		setState,
+		style,
+		title,
+		visible
+	]);
+	useStopScroll(visible!, 300, stopScroll!);
+	useEffect(() => {
+		if (refCallback && ref.current) {
+			refCallback(ref.current);
 		}
-	},[refCallback])
+	}, [refCallback]);
 	return <div className="bigbear-modal-wrapper">{render}</div>;
 }
 
@@ -153,8 +201,8 @@ Modal.defaultProps = {
 	mask: true,
 	closeButton: true,
 	delay: 200,
-	stopScroll:true,
-	btnSize:'default'
+	stopScroll: true,
+	btnSize: "default"
 };
 
 export default Modal;

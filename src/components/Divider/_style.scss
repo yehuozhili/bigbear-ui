@@ -1,0 +1,69 @@
+.bigbear-divider{
+    clear:both;
+    width: 100%;
+    display: flex;
+    margin:$divider-margin;
+    line-height:$divider-line-height;
+    white-space: nowrap;
+    align-items: center;
+    .bigbear-divider-inner {
+        width: 100%;
+        height: $divider-height;
+        border-radius: 50px;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        &.bigbear-divider-el{
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+        }
+    }
+    .bigbear-divider-span{
+        display: inline-block;
+        padding: 0 1em;
+        font-weight: $font-weight-bold;
+   
+        @include neu-textshadow($neu-whiteshadow1,$neu-whiteshadow2);
+    }
+    &.bigbear-divider-center::before{
+        position: relative;
+        content:'';
+        height: $divider-height;
+        border-radius: 50px;
+        width: 50%;
+        margin-top:  $divider-height / 2;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+    &.bigbear-divider-center::after{
+        position: relative;
+        content:'';
+        height: $divider-height;
+        border-radius: 50px;
+        width: 50%;
+        margin-top:  $divider-height / 2;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+
+    &.bigbear-divider-left::after{
+        position: relative;
+        content:'';
+        height: $divider-height;
+        border-radius: 50px;
+        width: 100%;
+        margin-top:  $divider-height / 2;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+    &.bigbear-divider-right::before{
+        position: relative;
+        content:'';
+        height: $divider-height;
+        border-radius: 50px;
+        width:100%;
+        margin-top:  $divider-height / 2;
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+
+    &.bigbear-divider-elevate::after{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+    &.bigbear-divider-elevate::before{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+    }
+}
