@@ -1,0 +1,54 @@
+.bigbear-grid-row{
+    display: flex;
+    align-items: center;
+}
+.bigbear-grid-col{
+    position: relative;
+}
+
+
+@each $key,$val in $percent {
+    @media screen and (max-width:$media-width-xs) {
+        .bigbear-col-xs-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+}
+//有权重问题，分开循环
+
+@each $key,$val in $percent {
+    @media screen and (min-width:$media-width-sm) {
+        .bigbear-col-sm-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+}
+@each $key,$val in $percent {
+    @media screen and (min-width:$media-width-md) {
+        .bigbear-col-md-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+
+}
+@each $key,$val in $percent {
+    @media screen and (min-width:$media-width-lg) {
+        .bigbear-col-lg-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+}
+@each $key,$val in $percent {
+    @media screen and (min-width:$media-width-xl) {
+        .bigbear-col-xl-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+}
+@each $key,$val in $percent {
+    @media screen and (min-width:$media-width-xxl) {
+        .bigbear-col-xxl-#{$key}{
+            width: #{$val}#{"%"};
+        }
+    };
+}

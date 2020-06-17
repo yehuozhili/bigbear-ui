@@ -24,6 +24,7 @@ const loaderFn = () => {
 		require("../src/stories/Welcome.stories.mdx"),
 		require("../src/stories/color.stories.mdx"),
 		require("../src/components/Layout/layout.stories.mdx"),
+		require("../src/components/Grid/grid.stories.mdx"),
 		require("../src/components/Divider/divider.stories.mdx"),
 		require("../src/components/Alert/alert.stories.mdx"),
 		require("../src/components/Avatar/avatar.stories.mdx"),

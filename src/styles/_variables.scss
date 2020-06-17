@@ -371,3 +371,29 @@ $aside-flex-basis: 200px;
 $divider-margin:24px 0;
 $divider-line-height:1.5715;
 $divider-height:5px;
+
+
+//grid
+$max-grid:12;
+$percent: (
+  12:$max-grid/$max-grid*100,
+  11:11/$max-grid*100,
+  10:10/$max-grid*100,
+  9:9/$max-grid*100,
+  8:8/$max-grid*100,
+  7:7/$max-grid*100,
+  6:6/$max-grid*100,
+  5:5/$max-grid*100,
+  4:4/$max-grid*100,
+  3:3/$max-grid*100,
+  2:2/$max-grid*100,
+  1:1/$max-grid*100,
+  0:0,
+);
+
+$media-width-xs:576px;
+$media-width-sm:576px;
+$media-width-md:768px;
+$media-width-lg:992px;
+$media-width-xl:1200px;
+$media-width-xxl:1600px;

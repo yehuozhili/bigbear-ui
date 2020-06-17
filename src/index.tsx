@@ -25,6 +25,8 @@ export { default as Progress } from "./components/Progress";
 export { default as Popconfirm } from "./components/Popconfirm";
 export { default as Layout } from "./components/Layout";
 export { default as Divider } from "./components/Divider";
+export { default as Row } from "./components/Grid";
+export { Col } from "./components/Grid";
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";

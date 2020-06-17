@@ -1,0 +1,75 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Row,{Col} from './grid'
+
+
+<Meta title='LAYOUT |Grid 栅格' component={Row} />
+
+<br/>
+
+# Grid 栅格
+<br/>
+
+## 基本使用
+
+
+grid 是由Row与Col组成的12栅格布局。
+
+xs:<576px
+sm:≥576px
+md:≥768px
+lg:≥992px
+xl:≥1200px
+xxl:≥1600px
+
+Row是一行，col是行内元素。简单情况就小于576和大于576就可以了。一行相同种类数字之和等于12。
+
+<Preview>
+    <Story name='demo'>
+        <div>
+            <Row>
+                <Row.Col xs={12} sm={12} className='bigbear-background-blue' style={{height:'50px'}}>12</Row.Col>
+            </Row>
+            <Row>
+                <Row.Col xs={6} sm={6} className='bigbear-background-gblue' style={{height:'50px'}}>6</Row.Col>
+                <Row.Col xs={6} sm={6} className='bigbear-background-cyan' style={{height:'50px'}}>6</Row.Col>
+            </Row>
+              <Row>
+                <Row.Col xs={7} sm={7} className='bigbear-background-orange' style={{height:'50px'}}>7</Row.Col>
+                <Row.Col xs={5} sm={5} className='bigbear-background-yellow' style={{height:'50px'}}>5</Row.Col>
+            </Row>
+            <Row>
+                <Row.Col xs={8} sm={8} className='bigbear-background-lime' style={{height:'50px'}}>8</Row.Col>
+                <Row.Col xs={4} sm={4} className='bigbear-background-green' style={{height:'50px'}}>4</Row.Col>
+            </Row>
+             <Row>
+                 <Row.Col xs={3} sm={3} className='bigbear-background-pink' style={{height:'50px'}}>3</Row.Col>
+                <Row.Col xs={9} sm={9} className='bigbear-background-purple' style={{height:'50px'}}>9</Row.Col>
+            </Row>
+        </div>
+    </Story>
+</Preview>
+
+
+
+屏幕大于992时 6,4,3分配，屏幕576-992之间2，2，8分配，小于576时1，1，1分配：
+
+<Preview>
+    <Story name='grid'>
+        <Row>
+            <Row.Col sm={2} lg={6} className='bigbear-background-blue' style={{height:'50px'}}>lg4</Row.Col>
+            <Row.Col sm={2} lg={4} className='bigbear-background-gblue' style={{height:'50px'}}>lg4</Row.Col>
+            <Row.Col sm={8} lg={2} className='bigbear-background-blue' style={{height:'50px'}}>lg4</Row.Col>
+        </Row>
+    </Story>
+</Preview>
+
+
+## 属性详情
+
+### Row属性
+
+<Props of={Row} />
+
+### Col属性
+
+<Props of={Col} />
