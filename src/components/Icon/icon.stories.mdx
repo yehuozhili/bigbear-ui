@@ -15,14 +15,14 @@ https://fontawesome.com/icons?d=gallery&s=solid&m=free
 
 ## 基础使用
 
-注意：超过1dpr设备使用未设置大小的icon并且使用spin等动效会导致模糊，需要设置size
+注意：超过1dpr设备使用spin等动效可能会模糊，再次刷新页面即可正常，原因暂不明。
 
 <Preview>
   <Story name='base' >
   <div>
 <Icon icon='search' ></Icon>
 <Icon icon='spinner' spin size='2x'></Icon>
-<Icon icon='cog' pulse size='2x'></Icon>
+<Icon icon='coffee' pulse size='2x'></Icon>
 <Icon icon='spinner' flip='vertical' size='2x'></Icon>
 <Icon icon='spinner' flip='both' size='2x'></Icon>
 <Icon  icon="spinner" transform={{ rotate: 1 }} size='2x'></Icon>
@@ -54,20 +54,86 @@ https://fontawesome.com/icons?d=gallery&s=solid&m=free
 </Preview>
 
 
-```tsx
-import { library } from '@fortawesome/fontawesome-svg-core' 
-import { fab } from '@fortawesome/free-brands-svg-icons' //brand
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'//solid的单独图标
-import { faStroopwafel as fasFaStroopwafel } from '@fortawesome/pro-solid-svg-icons'
-import { faStroopwafel as farFaStroopwafel } from '@fortawesome/pro-regular-svg-icons'
+## 推荐使用按需导入方式
 
-library.add(...some icons)
+导入library,然后添加你想用的图标，添加进library，当然如果觉得麻烦，可以`import { fas } from "@fortawesome/free-solid-svg-icons";`
+添加fas进library。注意，这种方式虽然简单，但体积量大。
 
+比如你想添加个spinner（默认library已有这个图标）,那么就按如下方式导入。之后正常使用Icon就能出现图标。
+
+```jsx
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner"; // 注意结尾必须有，否则需要配按需加载或者靠treeShaking
+
+library.add(faTimes);
 ```
 
+## 默认提供 
+
+默认提供以下图标，不在此处图标需要按照上面方法按需导入。
+
+<Preview>
+  <Story name='defaulticon' >
+        <div>
+<Icon icon='coffee' ></Icon>
+<Icon icon='info-circle' ></Icon>
+<Icon icon='spinner' ></Icon>
+<Icon icon='ad' ></Icon>
+<Icon icon='adress-book' ></Icon>
+<Icon icon='anchor' ></Icon>
+<Icon icon='arrow-left' ></Icon>
+<Icon icon='arrow-down' ></Icon>
+<Icon icon='arrow-right' ></Icon>
+<Icon icon='arrow-up' ></Icon>
+<Icon icon='question-circle' ></Icon>
+<Icon icon='times' ></Icon>
+<Icon icon='user' ></Icon>
+<Icon icon='search' ></Icon>
+<Icon icon='cog' ></Icon>
+<Icon icon='circle' ></Icon>
+<Icon icon='angle-down' ></Icon>
+<Icon icon='angle-left' ></Icon>
+<Icon icon='angle-right' ></Icon>
+<Icon icon='angle-up' ></Icon>
+<Icon icon='bell' ></Icon>
+<Icon icon='times-circle' ></Icon>
+<Icon icon='exclamation-circle' ></Icon>
+<Icon icon='bookmark' ></Icon>
+<Icon icon='check-circle' ></Icon>
+<Icon icon='map-market-alt' ></Icon>
+<Icon icon='atom' ></Icon>
+<Icon icon='filter' ></Icon>
+        </div>
+  </Story>
+</Preview>
+
+
+
+
 ## tree shaking
+
+已测试只要不是引入整个大类，一个个引入正常情况是可以treeshaking掉的。
+并不需要自己进行额外设置。
+
 https://fontawesome.com/how-to-use/javascript-api/other/tree-shaking
 
+## babel配置按需加载（你可能不需要这个）
+
+插件
+babel-plugin-transform-imports
+
+```json
+{
+    "plugins": [
+      ["transform-imports", {
+        "@fortawesome/free-solid-svg-icons": {
+          "transform": "@fortawesome/free-solid-svg-icons/${member}",
+          "skipDefaultConversion": true
+        }
+      }]
+    ]
+  }
+```
 
 ## 属性详情
 

@@ -45,7 +45,6 @@
     @include neufactory($white, $neu-whiteshadow1,$neu-whiteshadow2);
 
     border:1px dashed lighten($btn-link-color,10%);
-    box-shadow: none;
     color: $btn-link-color;
     font-weight: $font-weight-base;
     text-decoration: $link-decoration;
@@ -59,6 +58,7 @@
     &.disabled{
         color:$btn-link-disabled-color;
         pointer-events: none;
+        border:1px dashed $btn-link-disabled-color;
     }
 }
 

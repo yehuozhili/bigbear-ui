@@ -3,3 +3,13 @@
         color:#{nth($val,1)};
      }
  }
+
+ @keyframes fa-spin{
+     0%{
+         filter: blur(0px);
+         transform:rotate(0deg)
+    }
+     100%{
+        filter: blur(0px); 
+        transform: rotate(360deg);}
+ }

@@ -1,8 +1,6 @@
 .bigbear-input-wrapper{
     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-
     align-items: center;
-    box-shadow: $input-box-shadow;
     display: flex;
     margin-bottom: $input-margin;
     overflow: hidden;
