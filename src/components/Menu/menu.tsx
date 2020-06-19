@@ -21,18 +21,28 @@ export interface MenuProps {
 	style?: CSSProperties;
 	/** 回调函数 */
 	onSelect?: SelectCallback;
+	/** 用户自己逻辑，可以拿到点击索引和修改激活索引的方法，用于制作二次点击取消等效果*/
+	customHandle?: (
+		index: string,
+		current: string | undefined,
+		setActive: React.Dispatch<React.SetStateAction<string | undefined>>
+	) => void;
 }
 
 export const Menu: FC<MenuProps> = (props) => {
-	const { className, mode, style, children, defaultIndex, onSelect } = props;
+	const { className, mode, customHandle, style, children, defaultIndex, onSelect } = props;
 	const [currentActive, setActive] = useState(defaultIndex);
 	const classes = classNames("bigbear-menu", className, {
 		"menu-vertical": mode === "vertical",
 		"menu-horizontal": mode === "horizontal"
 	});
 	const handleClick = (index: string) => {
-		setActive(index);
-		if (onSelect) onSelect(index);
+		if (customHandle) {
+			customHandle(index, currentActive, setActive);
+		} else {
+			setActive(index);
+			if (onSelect) onSelect(index);
+		}
 	};
 	const passedContext: IMenuContext = {
 		index: currentActive ? currentActive : "0",
