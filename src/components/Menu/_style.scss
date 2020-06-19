@@ -115,7 +115,7 @@
             transition: .25s ease-in-out;
         }
     }
-    &:hover{
+    &.bigbear-menuopen{
         .bigbear-submenu-icon{
             transform: rotate(180deg);
         }

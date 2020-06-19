@@ -1,4 +1,4 @@
-## 0.1.23 (2020-06-18)
+## 0.1.24 (2020-06-19)
 
 
 ### Bug Fixes
@@ -8,6 +8,7 @@
 * **message:** fix message componenet dom remove bug ([547a77c](https://github.com/yehuozhili/bigbear-ui/commit/547a77cc5c0bc9df9fae5ebc354847472ac45f34))
 * **modal:** fix modal closebtn style ([742142f](https://github.com/yehuozhili/bigbear-ui/commit/742142f0e1a25f54f272b78951035a3d3af5692d))
 * **pagination:** fix pagination splash screen bug ([31980aa](https://github.com/yehuozhili/bigbear-ui/commit/31980aaf84cabf91e98dab10c3b9cb4916ff74d1))
+* **popconfirm&message:** popconfirm can not get scrolltop in mobile ; message btn style render error ([896eb09](https://github.com/yehuozhili/bigbear-ui/commit/896eb0933eeffa08ba98e5c1192b866895f27cd3))
 * **submenu:** fix submenu animation bug ([96edbf7](https://github.com/yehuozhili/bigbear-ui/commit/96edbf78f2babdc7199a6de8f5c4a1ddbac4c2d5))
 * ghpage decorator bug ([8e36b73](https://github.com/yehuozhili/bigbear-ui/commit/8e36b7308635b7a4bf9278b7996b9cab8279b1fe))
 

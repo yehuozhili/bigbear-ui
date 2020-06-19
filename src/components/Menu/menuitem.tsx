@@ -7,10 +7,17 @@ export interface MenuItemProps {
 	disabled?: boolean;
 	className?: string;
 	style?: CSSProperties;
+	/** 点了menuitem是否关闭submenu 只对horizontal模式有效*/
+	close?: boolean;
+	/** 延迟多久关闭，只在close为true生效*/
+	delay?: number;
+	setMenu?: React.Dispatch<React.SetStateAction<boolean>>;
+	/** 点击后执行逻辑，通过menu回调也可以拿*/
+	callback?: (index: string) => void;
 }
 
 export const MenuItem: FC<MenuItemProps> = (props) => {
-	const { index, disabled, className, style, children } = props;
+	const { index, disabled, className, style, children, close, setMenu, delay, callback } = props;
 	const context = useContext(MenuContext);
 	const classes = classNames("bigbear-menuitem", className, {
 		isdisabled: disabled,
@@ -19,6 +26,14 @@ export const MenuItem: FC<MenuItemProps> = (props) => {
 	const handleClick = () => {
 		if (context.onSelect && !disabled && typeof index === "string") {
 			context.onSelect(index);
+		}
+		if (close && setMenu && context.mode === "horizontal") {
+			setTimeout(() => {
+				setMenu(false);
+			}, delay);
+		}
+		if (callback && !disabled && typeof index === "string") {
+			callback(index);
 		}
 	};
 	return (
@@ -29,5 +44,10 @@ export const MenuItem: FC<MenuItemProps> = (props) => {
 };
 
 MenuItem.displayName = "MenuItem";
+
+MenuItem.defaultProps = {
+	close: true,
+	delay: 300
+};
 
 export default MenuItem;
