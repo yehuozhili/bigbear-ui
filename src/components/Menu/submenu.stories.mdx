@@ -81,12 +81,14 @@ onClick={linkTo('REACTION|Menu 菜单/Menu', 'default')}>跳转至Menu</Button>
 </Preview>
 
 
-## 自定义图标
+## 自定义图标与自定义高亮索引
 
 <Preview>
 <Story name='default4' >
     <div  style={{minHeight:'200px'}} >
-  <Menu  onSelect={(index)=>{console.log(index)}} >
+  <Menu  onSelect={(index)=>{console.log(index)}} customHandle={(index,current,setState)=>{
+      current===index?setState('-1'):setState(index);
+    }} >
            <SubMenu style={{display:'flex'}} title={<Icon icon='coffee' ></Icon>} icon={false}>
                 <MenuItem>item1</MenuItem>        
                 <MenuItem>item2</MenuItem>     

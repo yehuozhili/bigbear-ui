@@ -41,8 +41,8 @@ export const Menu: FC<MenuProps> = (props) => {
 			customHandle(index, currentActive, setActive);
 		} else {
 			setActive(index);
-			if (onSelect) onSelect(index);
 		}
+		if (onSelect) onSelect(index);
 	};
 	const passedContext: IMenuContext = {
 		index: currentActive ? currentActive : "0",
