@@ -1,4 +1,4 @@
-## 0.1.24 (2020-06-19)
+## 0.1.25 (2020-06-19)
 
 
 ### Bug Fixes
@@ -10,6 +10,7 @@
 * **pagination:** fix pagination splash screen bug ([31980aa](https://github.com/yehuozhili/bigbear-ui/commit/31980aaf84cabf91e98dab10c3b9cb4916ff74d1))
 * **popconfirm&message:** popconfirm can not get scrolltop in mobile ; message btn style render error ([896eb09](https://github.com/yehuozhili/bigbear-ui/commit/896eb0933eeffa08ba98e5c1192b866895f27cd3))
 * **submenu:** fix submenu animation bug ([96edbf7](https://github.com/yehuozhili/bigbear-ui/commit/96edbf78f2babdc7199a6de8f5c4a1ddbac4c2d5))
+* **submenu&menuitem:** hover performance not good in mobile ;so change the mode and methods; ([4fa78b2](https://github.com/yehuozhili/bigbear-ui/commit/4fa78b24fe0111d4ea79f16220c317c471308ecc))
 * ghpage decorator bug ([8e36b73](https://github.com/yehuozhili/bigbear-ui/commit/8e36b7308635b7a4bf9278b7996b9cab8279b1fe))
 
 
