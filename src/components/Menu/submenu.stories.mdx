@@ -4,7 +4,7 @@ import MenuItem from './menuitem'
 import { linkTo } from '@storybook/addon-links'
 import Button from '../Button/'
 import SubMenu from './submenu'
-
+import Icon from '../Icon'
 
 <Meta title='REACTION|Menu 菜单/SubMenu' component={SubMenu}  />
 
@@ -79,6 +79,38 @@ onClick={linkTo('REACTION|Menu 菜单/Menu', 'default')}>跳转至Menu</Button>
      
 </Story>
 </Preview>
+
+
+## 自定义图标
+
+<Preview>
+<Story name='default4' >
+    <div  style={{minHeight:'200px'}} >
+  <Menu  onSelect={(index)=>{console.log(index)}} >
+           <SubMenu style={{display:'flex'}} title={<Icon icon='coffee' ></Icon>} icon={false}>
+                <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>     
+                  <MenuItem>item3</MenuItem>        
+            </SubMenu>
+       
+            <SubMenu title="下拉菜单2" >
+               <MenuItem>item1</MenuItem>        
+                <MenuItem>item2</MenuItem>     
+                  <MenuItem>item3</MenuItem>
+                <MenuItem>item4</MenuItem>         
+            </SubMenu>
+     
+             <SubMenu title="下拉菜单3" >
+                 <MenuItem>item1</MenuItem>                 
+            </SubMenu>
+            <MenuItem >item</MenuItem>
+      </Menu>
+    </div>
+     
+</Story>
+</Preview>
+
+
 
 <br/>
 

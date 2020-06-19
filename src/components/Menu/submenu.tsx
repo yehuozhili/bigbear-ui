@@ -28,6 +28,12 @@ export interface SubMenuProps {
 	style?: CSSProperties;
 	/** 开启横向menu的hover打卡submenu */
 	hover?: boolean;
+	/** 是否开启文字旁边小箭头图标 */
+	icon?: boolean;
+	/** 是否要点击submenu外关闭submenu？ho为横向,ver为纵向,none为都不关闭 */
+	unique?: "ho" | "ver" | "none";
+	/** submenu的title的样式*/
+	titleStyle?: CSSProperties;
 }
 
 const renderChildren = (
@@ -42,7 +48,7 @@ const renderChildren = (
 	});
 	const childrenComponent = React.Children.map(children, (child, i) => {
 		const childElement = child as FunctionComponentElement<MenuItemProps>;
-		if (childElement.type.displayName === "MenuItem") {
+		if (childElement && childElement.type && childElement.type.displayName === "MenuItem") {
 			return React.cloneElement(childElement, {
 				index: `${index}-${i}`,
 				setMenu: setMenuopen
@@ -62,7 +68,18 @@ const renderChildren = (
 	);
 };
 export const SubMenu: FC<SubMenuProps> = (props) => {
-	const { index, className, style, children, title, isopen, hover } = props;
+	const {
+		index,
+		className,
+		style,
+		children,
+		title,
+		isopen,
+		titleStyle,
+		hover,
+		icon,
+		unique
+	} = props;
 	const context = useContext(MenuContext);
 	const [menuopen, setMenuopen] = useState(
 		context.index === index && context.mode === "vertical" ? true : false
@@ -80,7 +97,10 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 	let timer: number;
 	const ref = useRef(null);
 	useClickOutside(ref, () => {
-		if (context.mode === "horizontal") {
+		if (context.mode === "horizontal" && unique === "ho") {
+			setMenuopen(false);
+		}
+		if (context.mode === "vertical" && unique === "ver") {
 			setMenuopen(false);
 		}
 	});
@@ -116,9 +136,13 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 			{...hoverEvents}
 			ref={ref}
 		>
-			<div onClick={() => setMenuopen(!menuopen)} className="bigbear-submenu-title">
+			<div
+				style={titleStyle}
+				onClick={() => setMenuopen(!menuopen)}
+				className="bigbear-submenu-title"
+			>
 				{title ? title : null}
-				<Icon icon="angle-down" className="bigbear-submenu-icon"></Icon>
+				{icon && <Icon icon="angle-down" className="bigbear-submenu-icon"></Icon>}
 			</div>
 			{renderChildren(children, menuopen, index, context.mode, setMenuopen)}
 		</li>
@@ -129,7 +153,9 @@ SubMenu.displayName = "SubMenu";
 
 SubMenu.defaultProps = {
 	isopen: false,
-	hover: false
+	hover: false,
+	icon: true,
+	unique: "ho"
 };
 
 export default SubMenu;

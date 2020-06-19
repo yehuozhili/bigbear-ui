@@ -29,7 +29,12 @@
     }
    
 }
-
+.bigbear-menuitem.bigbear-submenu{
+    padding:0;
+    .bigbear-submenu-title{
+        padding:$menu-item-padding-y $menu-item-padding-x;
+    }
+}
 
 
 .menu-realative{
@@ -72,6 +77,9 @@
         text-align: left;
         &.bigbear-submenu{
             padding:$menu-item-padding-y 0 $menu-item-padding-y $menu-item-padding-x;
+            .bigbear-submenu-title{
+                padding:0;
+            }
         }
         &.isactive,&:hover{
             border-bottom: none;
