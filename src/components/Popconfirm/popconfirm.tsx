@@ -133,7 +133,7 @@ function Popconfirm(props: PropsWithChildren<PopconfirmProps>) {
 	};
 	useEffect(() => {
 		if (ref.current && modalRef) {
-			const scroll = document.documentElement.scrollTop;
+			const scroll = document.documentElement.scrollTop + document.body.scrollTop; //移动端可能取不到
 			let res = switchPosition(
 				directions!,
 				modalRef.getBoundingClientRect(),
