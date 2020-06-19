@@ -26,7 +26,7 @@ export interface SubMenuProps {
 	className?: string;
 	/** 样式*/
 	style?: CSSProperties;
-	/** 开启横向menu的hover打卡submenu */
+	/** 横向menu的hover打开submenu？ */
 	hover?: boolean;
 	/** 是否开启文字旁边小箭头图标 */
 	icon?: boolean;
@@ -34,6 +34,8 @@ export interface SubMenuProps {
 	unique?: "ho" | "ver" | "none";
 	/** submenu的title的样式*/
 	titleStyle?: CSSProperties;
+	/** 菜单打开的动画延迟 */
+	delay?: number;
 }
 
 const renderChildren = (
@@ -41,7 +43,8 @@ const renderChildren = (
 	menuopen: boolean,
 	index: string | undefined,
 	mode: "horizontal" | "vertical" | undefined,
-	setMenuopen: React.Dispatch<React.SetStateAction<boolean>>
+	setMenuopen: React.Dispatch<React.SetStateAction<boolean>>,
+	delay: number
 ) => {
 	const classes = classNames("bigbear-submenu-children", {
 		"bigbear-menuopen": menuopen
@@ -60,7 +63,7 @@ const renderChildren = (
 	return (
 		<Transition
 			in={menuopen}
-			timeout={300}
+			timeout={delay}
 			classNames={mode === "horizontal" ? "menu-zoom-in-top" : "menu-zoom-in-top-vertical"}
 		>
 			<ul className={classes}>{childrenComponent}</ul>
@@ -78,7 +81,8 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 		titleStyle,
 		hover,
 		icon,
-		unique
+		unique,
+		delay
 	} = props;
 	const context = useContext(MenuContext);
 	const [menuopen, setMenuopen] = useState(
@@ -109,7 +113,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 		e.preventDefault();
 		timer = window.setTimeout(() => {
 			setMenuopen(toggle);
-		}, 300);
+		}, delay);
 	};
 	const hoverEvents =
 		context.mode !== "vertical" && hover
@@ -144,7 +148,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 				{title ? title : null}
 				{icon && <Icon icon="angle-down" className="bigbear-submenu-icon"></Icon>}
 			</div>
-			{renderChildren(children, menuopen, index, context.mode, setMenuopen)}
+			{renderChildren(children, menuopen, index, context.mode, setMenuopen, delay!)}
 		</li>
 	);
 };
@@ -155,7 +159,8 @@ SubMenu.defaultProps = {
 	isopen: false,
 	hover: false,
 	icon: true,
-	unique: "ho"
+	unique: "ho",
+	delay: 300
 };
 
 export default SubMenu;

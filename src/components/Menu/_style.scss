@@ -154,33 +154,28 @@
 
 .menu-zoom-in-top-enter {
     opacity: 0;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(0) translateX(-50%) ;
 }
 .menu-zoom-in-top-enter-active {
-    opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
-    transform: scaleY(1) translateX(-50%) ;
-    transform-origin: center top;
-    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    opacity: 0;
+    transform: scaleY(0) translateX(-50%) ;
 }
 
 .menu-zoom-in-top-enter-done {
     opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(1) translateX(-50%) ;
     transform-origin: center top;
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 }
 
 .menu-zoom-in-top-exit {
-    opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
-    transform: scaleY(1) translateX(-50%) ;
+    opacity: 0;
+    transform: scaleY(0) translateX(-50%) ;
+    transform-origin:center top;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 }
 .menu-zoom-in-top-exit-active {
     opacity: 0;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(0) translateX(-50%) ;
     transform-origin:center top;
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
@@ -189,33 +184,28 @@
 
 .bigbear-submenu-children.menu-zoom-in-top-vertical-enter {
     opacity: 0;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(0) translateX(0) ;
 }
 .bigbear-submenu-children.menu-zoom-in-top-vertical-enter-active {
-    opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
-    transform: scaleY(1) translateX(0) ;
-    transform-origin: center top;
-    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    opacity: 0;
+    transform: scaleY(0) translateX(0) ;
 }
 
 .bigbear-submenu-children.menu-zoom-in-top-vertical-enter-done {
     opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(1) translateX(0) ;
     transform-origin: center top;
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 }
 
 .bigbear-submenu-children.menu-zoom-in-top-vertical-exit {
-    opacity: 1;
-    top:calc(100% + #{$menu-item-padding-y});
-    transform: scaleY(1) translateX(0) ;
+    opacity: 0;
+    transform: scaleY(0) translateX(0) ;
+    transform-origin:center top;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 }
 .bigbear-submenu-children.menu-zoom-in-top-vertical-exit-active {
     opacity: 0;
-    top:calc(100% + #{$menu-item-padding-y});
     transform: scaleY(0) translateX(0) ;
     transform-origin:center top;
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
