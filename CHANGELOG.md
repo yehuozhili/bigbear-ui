@@ -1,4 +1,4 @@
-## 0.1.26 (2020-06-19)
+## 0.1.27 (2020-06-19)
 
 
 ### Bug Fixes
@@ -28,6 +28,7 @@
 * **icon:** minimize icon size ; update doc; ([be254eb](https://github.com/yehuozhili/bigbear-ui/commit/be254eb199ea2519ad1a3b2bc66c9e752ec23c16))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
 * **layout:** complete layout component ([716ca03](https://github.com/yehuozhili/bigbear-ui/commit/716ca03ed50d5ad965835bfacb4e6609c5212b14))
+* **menu:** expose menu custom configue; ([1b80507](https://github.com/yehuozhili/bigbear-ui/commit/1b80507ef3b10c71af6136b4b1d09138a9183e29))
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))
 * **menu:** menu component inital complete ([2094eba](https://github.com/yehuozhili/bigbear-ui/commit/2094eba806ead1cb7ea03b8f9aaef9163fe9c0a4))
 * **modal:** complete modal component ([57e2426](https://github.com/yehuozhili/bigbear-ui/commit/57e2426c8bb444c40a3e95f8ce3da3c5f8c2f00d))
