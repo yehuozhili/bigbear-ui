@@ -23,9 +23,14 @@
             border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
             color:$menu-item-active-color;
         }
+        &.bigbear-menuclose{
+            color:$body-color;
+            border-bottom: $menu-item-active-border-width solid transparent;;
+        }
         &.issubactive{
             color:$primary;
         }
+      
     }
    
 }
