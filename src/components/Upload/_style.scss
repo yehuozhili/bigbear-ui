@@ -1,0 +1,37 @@
+.bigbear-upload-list{
+    padding: 10px;
+    .bigbear-upload-li{
+        list-style-type: none;
+        .bigbear-alert > span:nth-child(1){
+            font-size: $font-size-sm;
+        }
+        .bigbear-progress-wrapper{
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            border:none;
+        }
+    }
+}
+.bigbear-alert.upload-success{
+    color:$success;
+}
+.bigbear-alert.upload-failed{
+    color:$danger;
+}
+.bigbear-upload-input{
+    margin-bottom: 5px;
+}
+.bigbear-upload-showchoose{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bigbear-upload-btn{
+    display: inline-block;
+}
+
+.bigbear-upload-imageli{
+    display: inline-block;
+    .bigbear-avatar {
+        text-align: center;
+        line-height:$avatar-size-lg - $avatar-padding-lg*2;
+    }
+}

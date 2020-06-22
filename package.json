@@ -1,6 +1,6 @@
 {
   "name": "bigbear-ui",
-  "version": "0.1.28",
+  "version": "0.1.29",
   "description": "Neumorphic component library for React;基于React制作的拟物风格组件库",
   "keywords": [
     "component",
@@ -29,6 +29,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "react-transition-group": "^4.4.1"
   },

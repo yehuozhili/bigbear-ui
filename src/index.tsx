@@ -27,6 +27,7 @@ export { default as Layout } from "./components/Layout";
 export { default as Divider } from "./components/Divider";
 export { default as Row } from "./components/Grid";
 export { Col } from "./components/Grid";
+export { default as Upload } from "./components/Upload";
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";

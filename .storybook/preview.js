@@ -39,6 +39,7 @@ const loaderFn = () => {
 		require("../src/components/MultiSelect/multiselect.stories.mdx"),
 		require("../src/components/AutoComplete/autocomplete.stories.mdx"),
 		require("../src/components/Form/form.stories.mdx"),
+		require("../src/components/Upload/upload.stories.mdx"),
 		require("../src/components/List/list.stories.mdx"),
 		require("../src/components/VirtualList/virtuallist.stories.mdx"),
 		require("../src/components/Icon/icon.stories.mdx"),

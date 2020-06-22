@@ -30,6 +30,8 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt";
 import { faAtom } from "@fortawesome/free-solid-svg-icons/faAtom";
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter";
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons/faFileAlt";
+import { faImage } from "@fortawesome/free-solid-svg-icons/faImage";
 
 library.add(
 	faCoffee,
@@ -59,7 +61,9 @@ library.add(
 	faCheckCircle,
 	faMapMarkerAlt,
 	faAtom,
-	faFilter
+	faFilter,
+	faFileAlt,
+	faImage
 );
 
 export type ThemeProps =

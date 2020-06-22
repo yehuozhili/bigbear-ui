@@ -1,0 +1,130 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Upload  from './upload';
+
+
+
+<Meta title='ENTRY| Upload 上传' component={Upload} />
+
+<br/>
+
+ #  Upload 上传
+
+<br/>
+
+## 基本使用
+
+<Preview>
+    <Story name='upload'>
+        <Upload successCallback={(e)=>console.log(e)} failCallback={(e)=>console.log(e)} ></Upload>
+    </Story>
+</Preview>
+
+## 上传进度
+
+type='progress'可以下方附加进度信息。
+
+注意uid需要唯一
+
+<Preview>
+    <Story name='onProgress'>
+        <Upload filename={()=>'avatar'} 
+defaultProgressBar={[{
+		filename: 'hello.md',
+		percent: 100,
+		status: "success",
+		uid: '111',
+		size: 1222,
+		raw: null
+	},{
+		filename: 'hello2.md',
+		percent: 0,
+		status: "failed",
+		uid: '1112',
+		size: 12222,
+		raw: null
+	},{
+		filename: 'hello3.md',
+		percent: 40,
+		status: "upload",
+		uid: '1113',
+		size: 12222,
+		raw: null
+	},{
+		filename: 'hello4.md',
+		percent: 80,
+		status: "upload",
+		uid: '11132',
+		size: 12222,
+		raw: null
+	}
+    ]}    
+    type={'progress'}        
+ successCallback={(e)=>console.log(e)} failCallback={(e)=>console.log(e)} ></Upload>
+    </Story>
+</Preview>
+
+
+## 确认上传
+
+confirm 为 true 可进行分段上传
+
+<Preview>
+    <Story name='upload3'>
+        <Upload filename={()=>'avatar'}  confirm={true} successCallback={(e)=>console.log(e)} failCallback={(e)=>console.log(e)} ></Upload>
+    </Story>
+</Preview>
+
+
+## 图片回显
+
+文件验证需要自行添加
+
+传入uploadNumber可以控制最大上传数量
+
+<Preview>
+    <Story name='img'>
+        <Upload filename={()=>'avatar'}  confirm={true} type='img' 
+            uploadNumber={3}
+            defaultProgressBar={[{
+		filename: 'hello.md',
+		percent: 100,
+		status: "success",
+		uid: '111',
+		size: 1222,
+		raw: null
+	},{
+		filename: 'hello2.md',
+		percent: 0,
+		status: "failed",
+		uid: '1112',
+		size: 12222,
+		raw: null
+	},{
+		filename: 'hello3.md',
+		percent: 40,
+		status: "upload",
+		uid: '1113',
+		size: 12222,
+		raw: null
+	},{
+		filename: 'hello4.md',
+		percent: 80,
+		status: "upload",
+		uid: '11132',
+		size: 12222,
+		raw: null
+	}
+    ]}    
+            successCallback={(e)=>console.log(e)} failCallback={(e)=>console.log(e)} ></Upload>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='img2'>
+        <Upload filename={()=>'avatar'}   type='img' 
+            successCallback={(e)=>console.log(e)} failCallback={(e)=>console.log(e)} ></Upload>
+    </Story>
+</Preview>
+
+
+<Props of={Upload}></Props>
