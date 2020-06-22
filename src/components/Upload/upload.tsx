@@ -194,7 +194,7 @@ function Upload(props: UploadProps) {
 			} else {
 				if (resFiles) {
 					let postFile = Array.from(resFiles);
-					postFile.forEach((f, i) => {
+					postFile.forEach((f: File, i) => {
 						const formData = new FormData();
 						const fname = filename ? filename(f, i) : f.name;
 						formData.append(fname, f);
