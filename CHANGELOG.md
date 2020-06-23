@@ -1,4 +1,4 @@
-## 0.1.30 (2020-06-22)
+## 0.1.31 (2020-06-23)
 
 
 ### Bug Fixes
@@ -6,6 +6,7 @@
 * **autocomplete:** fix autocomplete callback bug ([f4e7631](https://github.com/yehuozhili/bigbear-ui/commit/f4e76311cfb3bdf3ef012b7d0a16f5e3f6c4bc79))
 * **message:** fix message close animation bug ([5bc6a0e](https://github.com/yehuozhili/bigbear-ui/commit/5bc6a0e783aca534d1ddbc3d2b52d52377dc54f2))
 * **message:** fix message componenet dom remove bug ([547a77c](https://github.com/yehuozhili/bigbear-ui/commit/547a77cc5c0bc9df9fae5ebc354847472ac45f34))
+* **message&upload:** message second params converse to optional;choose same file upload dosent work ([edee0de](https://github.com/yehuozhili/bigbear-ui/commit/edee0de26748e2ffbd167f8f5cc7f398a3c761eb))
 * **modal:** fix modal closebtn style ([742142f](https://github.com/yehuozhili/bigbear-ui/commit/742142f0e1a25f54f272b78951035a3d3af5692d))
 * **pagination:** fix pagination splash screen bug ([31980aa](https://github.com/yehuozhili/bigbear-ui/commit/31980aaf84cabf91e98dab10c3b9cb4916ff74d1))
 * **popconfirm&message:** popconfirm can not get scrolltop in mobile ; message btn style render error ([896eb09](https://github.com/yehuozhili/bigbear-ui/commit/896eb0933eeffa08ba98e5c1192b866895f27cd3))
