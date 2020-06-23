@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, DOMAttributes } from "react";
 import classNames from "classnames";
 
-interface AvatarProps {
+interface AvatarProps extends DOMAttributes<HTMLDivElement> {
 	/** 大小*/
 	size?: "lg" | "sm" | "default";
 	/** 圆形 */
@@ -20,14 +20,14 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
-	const { size, round, type } = props;
+	const { size, round, type, children, ...restProps } = props;
 	const cnames = classNames("bigbear-avatar", `bigbear-avatar-type-${type}`);
 	const wrappernames = classNames(`bigbear-avatar-wrapper-${type} bigbear-avatar-size-${size}`, {
 		isround: round
 	});
 	return (
-		<span className={wrappernames}>
-			<span className={cnames}>{props.children ? props.children : null}</span>
+		<span className={wrappernames} {...restProps}>
+			<span className={cnames}>{children ? children : null}</span>
 		</span>
 	);
 };

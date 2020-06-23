@@ -176,16 +176,21 @@ interface DefaultOptionsType {
 }
 
 const message = {
-	default: (str: string, options: DefaultOptionsType) => messageRender(str, "default", options),
-	primary: (str: string, options: DefaultOptionsType) => messageRender(str, "primary", options),
-	danger: (str: string, options: DefaultOptionsType) => messageRender(str, "danger", options),
-	warning: (str: string, options: DefaultOptionsType) => messageRender(str, "warning", options),
-	info: (str: string, options: DefaultOptionsType) => messageRender(str, "info", options),
-	secondary: (str: string, options: DefaultOptionsType) =>
+	default: (str: string, options: DefaultOptionsType = {}) =>
+		messageRender(str, "default", options),
+	primary: (str: string, options: DefaultOptionsType = {}) =>
+		messageRender(str, "primary", options),
+	danger: (str: string, options: DefaultOptionsType = {}) =>
+		messageRender(str, "danger", options),
+	warning: (str: string, options: DefaultOptionsType = {}) =>
+		messageRender(str, "warning", options),
+	info: (str: string, options: DefaultOptionsType = {}) => messageRender(str, "info", options),
+	secondary: (str: string, options: DefaultOptionsType = {}) =>
 		messageRender(str, "secondary", options),
-	success: (str: string, options: DefaultOptionsType) => messageRender(str, "success", options),
-	light: (str: string, options: DefaultOptionsType) => messageRender(str, "light", options),
-	dark: (str: string, options: DefaultOptionsType) => messageRender(str, "dark", options)
+	success: (str: string, options: DefaultOptionsType = {}) =>
+		messageRender(str, "success", options),
+	light: (str: string, options: DefaultOptionsType = {}) => messageRender(str, "light", options),
+	dark: (str: string, options: DefaultOptionsType = {}) => messageRender(str, "dark", options)
 };
 
 export default Message;

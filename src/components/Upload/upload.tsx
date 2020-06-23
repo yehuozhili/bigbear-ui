@@ -300,6 +300,7 @@ function Upload(props: UploadProps) {
 						onChange={handleChange}
 						multiple={multiple}
 						accept={accept}
+						value={""}
 					></input>
 					<Button onClick={buttonclick} {...uploadBtnAtr}>
 						{uploadBtn}

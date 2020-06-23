@@ -81,6 +81,10 @@ confirm 为 true 可进行分段上传
 
 传入uploadNumber可以控制最大上传数量
 
+raw是File，img是src,img或者raw必传其中一个可以显示.
+
+如果不想点击删除，可以通过onRemove来改变点击删除事件。
+
 <Preview>
     <Story name='img'>
         <Upload filename={()=>'avatar'}  confirm={true} type='img' 
@@ -91,7 +95,8 @@ confirm 为 true 可进行分段上传
 		status: "success",
 		uid: '111',
 		size: 1222,
-		raw: null
+		raw: null,
+		img:'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
 	},{
 		filename: 'hello2.md',
 		percent: 0,
