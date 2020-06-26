@@ -9,10 +9,11 @@
         "allowSyntheticDefaultImports": true
     },
     "include": [
-        "src"
+        "src",
     ],
     "exclude": [
         "src/**/*.stories.tsx",
-        "src/**/*.test.tsx"
+        "src/**/*.test.tsx",
+        "src/**/*.example.tsx"
     ]
 }

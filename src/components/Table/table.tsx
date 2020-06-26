@@ -21,7 +21,7 @@ export interface SourceDataType {
 }
 
 export interface ColumnType {
-	title: string;
+	title: ReactNode;
 	/** 排序等操作用来代替这列的 */
 	dataIndex: string;
 	sorter?: {

@@ -54,9 +54,9 @@ npm run storybook
 
 ## 使用scss
 
-scss放入bigbear-ui/dist/scss文件夹下，引入即可使用函数变量或者修改样式。
+scss放入bigbear-ui/dist/esm/styles/index.scss。
 ```
-@import 'bigbear-ui/dist/scss/index.scss';
+@import "bigbear-ui/dist/esm/styles/index.scss";
 ```
 
 
