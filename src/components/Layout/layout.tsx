@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, CSSProperties } from "react";
+import React, { PropsWithChildren, CSSProperties, DOMAttributes } from "react";
 import classnames from "classnames";
 
-export interface LayoutItemProps {
+export interface LayoutItemProps extends DOMAttributes<HTMLDivElement> {
 	/** 样式*/
 	style?: CSSProperties;
 	/** 类名*/
@@ -14,22 +14,22 @@ export interface LayoutProps extends LayoutItemProps {
 }
 
 function Layout(props: PropsWithChildren<LayoutProps>) {
-	const { style, className, row } = props;
+	const { style, className, row, ...restProps } = props;
 	const classes = classnames("bigbear-layout", className, {
 		"bigbear-layout-row": row
 	});
 	return (
-		<section className={classes} style={style}>
+		<section className={classes} style={style} {...restProps}>
 			{props.children}
 		</section>
 	);
 }
 
 function Header(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className } = props;
+	const { style, className, ...restProps } = props;
 	const classes = classnames("bigbear-layout-header", className);
 	return (
-		<header className={classes} style={style}>
+		<header className={classes} style={style} {...restProps}>
 			{props.children}
 		</header>
 	);
@@ -46,20 +46,20 @@ function Content(props: PropsWithChildren<LayoutItemProps>) {
 }
 
 function Sider(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className } = props;
+	const { style, className, ...restProps } = props;
 	const classes = classnames("bigbear-layout-sider", className);
 	return (
-		<aside className={classes} style={style}>
+		<aside className={classes} style={style} {...restProps}>
 			{props.children}
 		</aside>
 	);
 }
 
 function Footer(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className } = props;
+	const { style, className, ...restProps } = props;
 	const classes = classnames("bigbear-layout-footer", className);
 	return (
-		<footer className={classes} style={style}>
+		<footer className={classes} style={style} {...restProps}>
 			{props.children}
 		</footer>
 	);

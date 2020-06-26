@@ -1,11 +1,11 @@
-import React, { FC, useState, useEffect, ReactNode } from "react";
+import React, { FC, useState, useEffect, ReactNode, CSSProperties, DOMAttributes } from "react";
 import classNames from "classnames";
 import Button from "../Button";
 import Icon from "../Icon";
 import Transition from "../Transition";
 import { AnimationName } from "../Transition/transition";
 
-export interface AlertProps {
+export interface AlertProps extends DOMAttributes<HTMLDivElement> {
 	/**  标题 */
 	title?: string;
 	/** 类型*/
@@ -22,7 +22,7 @@ export interface AlertProps {
 	/**是否有关闭按钮*/
 	close?: boolean;
 	/** 内容*/
-	description?: string | null;
+	description?: ReactNode;
 	/** 动画方向 */
 	directions?: "left" | "top" | "right" | "bottom" | "allscale";
 	/** 自动关闭延时时间，0表示不自动关闭 */
@@ -46,6 +46,9 @@ export interface AlertProps {
 	animateClassName?: string;
 	/** 动画持续时间*/
 	timeout?: number;
+	children?: ReactNode;
+	/** 外层样式*/
+	style?: CSSProperties;
 }
 
 export const Alert: FC<AlertProps> = function(props: AlertProps) {
@@ -61,7 +64,10 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 		initAnimate,
 		wrapper,
 		closeCallback,
-		initiativeCloseCallback
+		initiativeCloseCallback,
+		children,
+		style,
+		...restProps
 	} = props;
 	const classes = classNames(
 		"bigbear-alert",
@@ -90,12 +96,13 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 			timeout={timeout!}
 			wrapper={wrapper}
 		>
-			<div className={classes}>
+			<div className={classes} style={style} {...restProps}>
 				<span>
 					{props.icon && props.icon}
 					{title}
 				</span>
 				{description && <span>{description}</span>}
+				{children}
 				{props.close && (
 					<Button
 						btnType={type}

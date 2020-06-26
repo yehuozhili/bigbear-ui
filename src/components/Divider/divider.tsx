@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, CSSProperties } from "react";
+import React, { PropsWithChildren, CSSProperties, DOMAttributes } from "react";
 import classnames from "classnames";
 
-interface DividerProps {
+interface DividerProps extends DOMAttributes<HTMLDivElement> {
 	/** 是否凸起 */
 	elevate?: boolean;
 	/** 文字方位 */
@@ -13,7 +13,7 @@ interface DividerProps {
 }
 
 function Divider(props: PropsWithChildren<DividerProps>) {
-	const { className, style, direction, children, elevate } = props;
+	const { className, style, direction, children, elevate, ...restProps } = props;
 	const classes = classnames("bigbear-divider", className, {
 		[`bigbear-divider-${direction}`]: children,
 		"bigbear-divider-elevate": elevate
@@ -22,7 +22,7 @@ function Divider(props: PropsWithChildren<DividerProps>) {
 		"bigbear-divider-elevate": elevate
 	});
 	return (
-		<div className={classes} style={style}>
+		<div className={classes} style={style} {...restProps}>
 			{children && <span className={innerspan}>{children}</span>}
 			{!children && (
 				<div

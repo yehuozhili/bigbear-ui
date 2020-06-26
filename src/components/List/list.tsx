@@ -1,7 +1,15 @@
-import React, { FC, CSSProperties, MouseEvent, ReactNode, useRef, useEffect } from "react";
+import React, {
+	FC,
+	CSSProperties,
+	MouseEvent,
+	ReactNode,
+	useRef,
+	useEffect,
+	DOMAttributes
+} from "react";
 import classNames from "classnames";
 
-export interface ListProps {
+export interface ListProps extends DOMAttributes<HTMLUListElement> {
 	/** 水平或者垂直 */
 	mode?: "horizontal" | "vertical";
 	/** 是否加上hover与active */
@@ -33,7 +41,8 @@ export const List: FC<ListProps> = (props) => {
 		listyle,
 		liClassName,
 		withHoverActive,
-		refCallback
+		refCallback,
+		...restProps
 	} = props;
 	const classes = classNames("bigbear-list", className, {
 		"list-vertical": mode === "vertical",
@@ -52,7 +61,13 @@ export const List: FC<ListProps> = (props) => {
 		}
 	}, [refCallback]);
 	return (
-		<ul className={classes} style={style} onClick={(e) => handleClick(e)} ref={ulref}>
+		<ul
+			className={classes}
+			style={style}
+			onClick={(e) => handleClick(e)}
+			ref={ulref}
+			{...restProps}
+		>
 			{React.Children.map(children, (child, index) => {
 				const res = renderTemplate ? (
 					<li key={index} style={listyle} className={liclasses}>

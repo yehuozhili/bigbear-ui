@@ -1,7 +1,7 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
+import React, { CSSProperties, PropsWithChildren, DOMAttributes } from "react";
 import classnames from "classnames";
 
-interface ColProps {
+interface ColProps extends DOMAttributes<HTMLDivElement> {
 	/** 额外类名*/
 	className?: string;
 	/** 样式*/
@@ -21,7 +21,7 @@ interface ColProps {
 }
 
 function Col(props: PropsWithChildren<ColProps>) {
-	const { className, style, xxl, xs, sm, md, lg, xl } = props;
+	const { className, style, xxl, xs, sm, md, lg, xl, ...restProps } = props;
 	const classes = classnames("bigbear-grid-col", className, {
 		[`bigbear-col-xs-${xs}`]: typeof xs === "number",
 		[`bigbear-col-sm-${sm}`]: typeof sm === "number",
@@ -31,13 +31,13 @@ function Col(props: PropsWithChildren<ColProps>) {
 		[`bigbear-col-xxl-${xxl}`]: typeof xxl === "number"
 	});
 	return (
-		<div className={classes} style={style}>
+		<div className={classes} style={style} {...restProps}>
 			{props.children}
 		</div>
 	);
 }
 
-interface RowProps {
+interface RowProps extends DOMAttributes<HTMLDivElement> {
 	/** 额外类名*/
 	className?: string;
 	/** 样式*/
@@ -45,10 +45,10 @@ interface RowProps {
 }
 
 function Row(props: PropsWithChildren<RowProps>) {
-	const { className, style } = props;
+	const { className, style, ...restProps } = props;
 	const classes = classnames("bigbear-grid-row", className);
 	return (
-		<div className={classes} style={style}>
+		<div className={classes} style={style} {...restProps}>
 			{props.children}
 		</div>
 	);

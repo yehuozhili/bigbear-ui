@@ -1,7 +1,7 @@
-import React, { FC, ReactNode, useRef, useEffect } from "react";
+import React, { FC, ReactNode, useRef, useEffect, DOMAttributes } from "react";
 import classNames from "classnames";
 
-export interface BadgeProps {
+export interface BadgeProps extends DOMAttributes<HTMLDivElement> {
 	/** 颜色*/
 	type?:
 		| "primary"
@@ -26,7 +26,7 @@ export interface BadgeProps {
 }
 
 export const Badge: FC<BadgeProps> = (props) => {
-	const { refCallback, className, type, count, visible, dot } = props;
+	const { refCallback, className, type, count, visible, dot, ...restProps } = props;
 	const classes = classNames("bigbear-badge", `bigbear-type-${type}`, className);
 	const divref = useRef<HTMLDivElement>(null);
 	useEffect(() => {
@@ -35,7 +35,7 @@ export const Badge: FC<BadgeProps> = (props) => {
 		}
 	}, [refCallback]);
 	return (
-		<div className={classes} ref={divref}>
+		<div className={classes} ref={divref} {...restProps}>
 			{count || dot ? (
 				<div
 					className={`bigbear-badge-count bigbear-count-${type}

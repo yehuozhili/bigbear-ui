@@ -52,6 +52,14 @@ npm install
 npm run storybook
 ```
 
+## 使用scss
+
+scss放入bigbear-ui/dist/scss文件夹下，引入即可使用函数变量或者修改样式。
+```
+@import 'bigbear-ui/dist/scss/index.scss';
+```
+
+
 ## 制作初衷
 
 制作一个属于自己的组件库应该是每个前端人员都有的梦想，有时候自己写出某些好的组件也想记录下来。

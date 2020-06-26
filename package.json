@@ -1,6 +1,6 @@
 {
   "name": "bigbear-ui",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "Neumorphic component library for React;基于React制作的拟物风格组件库",
   "keywords": [
     "component",
@@ -41,7 +41,7 @@
     "start": "react-scripts start",
     "clean": "rimraf ./dist",
     "lint": "eslint --ext js,ts,tsx src",
-    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build": "npm run clean   && npm run build-ts && npm run build-css && npm run cpstyle",
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
@@ -54,7 +54,8 @@
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog",
-    "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx"
+    "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx",
+    "cpstyle": "echo d|xcopy src\\styles .\\dist\\scss /s"
   },
   "eslintConfig": {
     "extends": "react-app"

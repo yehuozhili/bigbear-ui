@@ -1,7 +1,6 @@
 .bigbear-carousel-wrapper{
     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
 
-    box-sizing:content-box;
     padding:10px;
     .bigbear-carousel-viewport{
         @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
