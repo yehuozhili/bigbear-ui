@@ -14,53 +14,53 @@ export interface LayoutProps extends LayoutItemProps {
 }
 
 function Layout(props: PropsWithChildren<LayoutProps>) {
-	const { style, className, row, ...restProps } = props;
+	const { style, className, row, children, ...restProps } = props;
 	const classes = classnames("bigbear-layout", className, {
 		"bigbear-layout-row": row
 	});
 	return (
 		<section className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</section>
 	);
 }
 
 function Header(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className, ...restProps } = props;
+	const { style, className, children, ...restProps } = props;
 	const classes = classnames("bigbear-layout-header", className);
 	return (
 		<header className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</header>
 	);
 }
 
 function Content(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className } = props;
+	const { style, className, children, ...restProps } = props;
 	const classes = classnames("bigbear-layout-content", className);
 	return (
-		<main className={classes} style={style}>
-			{props.children}
+		<main className={classes} style={style} {...restProps}>
+			{children}
 		</main>
 	);
 }
 
 function Sider(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className, ...restProps } = props;
+	const { style, className, children, ...restProps } = props;
 	const classes = classnames("bigbear-layout-sider", className);
 	return (
 		<aside className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</aside>
 	);
 }
 
 function Footer(props: PropsWithChildren<LayoutItemProps>) {
-	const { style, className, ...restProps } = props;
+	const { style, className, children, ...restProps } = props;
 	const classes = classnames("bigbear-layout-footer", className);
 	return (
 		<footer className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</footer>
 	);
 }

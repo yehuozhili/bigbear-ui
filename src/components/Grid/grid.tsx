@@ -21,7 +21,7 @@ interface ColProps extends DOMAttributes<HTMLDivElement> {
 }
 
 function Col(props: PropsWithChildren<ColProps>) {
-	const { className, style, xxl, xs, sm, md, lg, xl, ...restProps } = props;
+	const { className, style, xxl, xs, sm, md, lg, xl, children, ...restProps } = props;
 	const classes = classnames("bigbear-grid-col", className, {
 		[`bigbear-col-xs-${xs}`]: typeof xs === "number",
 		[`bigbear-col-sm-${sm}`]: typeof sm === "number",
@@ -32,7 +32,7 @@ function Col(props: PropsWithChildren<ColProps>) {
 	});
 	return (
 		<div className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</div>
 	);
 }
@@ -45,11 +45,11 @@ interface RowProps extends DOMAttributes<HTMLDivElement> {
 }
 
 function Row(props: PropsWithChildren<RowProps>) {
-	const { className, style, ...restProps } = props;
+	const { className, style, children, ...restProps } = props;
 	const classes = classnames("bigbear-grid-row", className);
 	return (
 		<div className={classes} style={style} {...restProps}>
-			{props.children}
+			{children}
 		</div>
 	);
 }

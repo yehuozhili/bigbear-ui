@@ -26,7 +26,7 @@ export interface BadgeProps extends DOMAttributes<HTMLDivElement> {
 }
 
 export const Badge: FC<BadgeProps> = (props) => {
-	const { refCallback, className, type, count, visible, dot, ...restProps } = props;
+	const { refCallback, className, type, count, visible, dot, children, ...restProps } = props;
 	const classes = classNames("bigbear-badge", `bigbear-type-${type}`, className);
 	const divref = useRef<HTMLDivElement>(null);
 	useEffect(() => {
@@ -39,14 +39,14 @@ export const Badge: FC<BadgeProps> = (props) => {
 			{count || dot ? (
 				<div
 					className={`bigbear-badge-count bigbear-count-${type}
-            ${props.children ? "" : "nochildren"} ${visible ? "" : "badge-hide"} ${
+            ${children ? "" : "nochildren"} ${visible ? "" : "badge-hide"} ${
 						dot ? "badge-dot" : ""
 					}`}
 				>
 					<span>{count}</span>
 				</div>
 			) : null}
-			{props.children ? props.children : null}
+			{children ? children : null}
 		</div>
 	);
 };

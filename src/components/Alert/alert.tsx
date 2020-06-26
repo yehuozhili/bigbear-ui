@@ -67,6 +67,8 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 		initiativeCloseCallback,
 		children,
 		style,
+		icon,
+		close,
 		...restProps
 	} = props;
 	const classes = classNames(
@@ -98,12 +100,12 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 		>
 			<div className={classes} style={style} {...restProps}>
 				<span>
-					{props.icon && props.icon}
+					{icon && icon}
 					{title}
 				</span>
 				{description && <span>{description}</span>}
 				{children}
-				{props.close && (
+				{close && (
 					<Button
 						btnType={type}
 						onClick={(e) => {
