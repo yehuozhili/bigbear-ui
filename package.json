@@ -1,6 +1,6 @@
 {
   "name": "bigbear-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Neumorphic component library for React;基于React制作的拟物风格组件库",
   "keywords": [
     "component",
@@ -125,5 +125,9 @@
       "!src/**/*.example.tsx"
     ]
   },
-  "sideEffects": false
+  "sideEffects": [
+    "esm/**/*.scss",
+    "cjs/**/*.scss",
+    "*.css"
+  ]
 }
