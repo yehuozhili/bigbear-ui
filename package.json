@@ -126,8 +126,8 @@
     ]
   },
   "sideEffects": [
-    "esm/**/*.scss",
-    "cjs/**/*.scss",
-    "*.css"
+    "dist/esm/**/*.scss",
+    "dist/cjs/**/*.scss",
+    "dist/*.css"
   ]
 }
