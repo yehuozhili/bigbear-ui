@@ -23,7 +23,9 @@ export interface InputProps extends InputHTMLAttributes<HTMLElement> {
 	/**默认值 */
 	defaultValue?: string;
 	/**父组件接管受控组件,父组件传value属性做state */
-	setValueCallback?: React.Dispatch<React.SetStateAction<string>>;
+	setValueCallback?: (v: string) => void;
+	/** 父组件接管状态时传递 */
+	value: string;
 }
 
 export const Input: FC<InputProps> = (props: InputProps) => {
@@ -49,6 +51,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
 	useEffect(() => {
 		if (refcallback) refcallback(ref);
 	}, [refcallback, setValueCallback]);
+
 	return (
 		<div className={cnames} style={style}>
 			{prepend && <div className="bigbear-input-group-prepend">{prepend}</div>}

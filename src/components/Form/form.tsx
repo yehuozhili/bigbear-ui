@@ -7,8 +7,8 @@ interface FormProps extends DOMAttributes<HTMLDivElement> {
 }
 
 function Form(props: PropsWithChildren<FormProps>) {
-	const { children, ...restProps } = props;
-	const classes = classnames("bigbear-form", props.className);
+	const { children, className, ...restProps } = props;
+	const classes = classnames("bigbear-form", className);
 
 	return (
 		<div className={classes} {...restProps}>

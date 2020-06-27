@@ -1,7 +1,7 @@
 module.exports = function(plop) {
 	// controller generator
 	plop.addHelper("lowerCase", function(p) {
-		return p.toLowerCase();
+		return p.toLowerCase().trim();
 	});
 	plop.setGenerator("component", {
 		description: "create component",
@@ -25,8 +25,13 @@ module.exports = function(plop) {
 			},
 			{
 				type: "add",
-				path: "src/components/{{name}}/_style.scss.tsx",
+				path: "src/components/{{name}}/_style.scss",
 				templateFile: "plop-template/componentStyle.hbs"
+			},
+			{
+				type: "add",
+				path: "src/components/{{name}}/{{lowerCase name}}.stories.mdx",
+				templateFile: "plop-template/componentStories.hbs"
 			}
 		]
 	});

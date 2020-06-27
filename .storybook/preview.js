@@ -32,6 +32,7 @@ const loaderFn = () => {
 		require("../src/components/Button/button.stories.mdx"),
 		require("../src/components/Carousel/carousel.stories.mdx"),
 		require("../src/components/Input/input.stories.mdx"),
+		require("../src/components/InputNumber/inputnumber.stories.mdx"),
 		require("../src/components/Switch/switch.stories.mdx"),
 		require("../src/components/Radio/radio.stories.mdx"),
 		require("../src/components/CheckBox/checkbox.stories.mdx"),

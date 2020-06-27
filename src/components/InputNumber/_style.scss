@@ -1,0 +1,26 @@
+.bigbear-inputnumber-wrapper{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    .bigbear-inputnumber-next{
+        display: inline-block;
+        margin-left: 5px;
+    }
+    .bigbear-inputnumber-prev{
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .bigbear-inputnumber-main{
+        display: inline-block;
+        vertical-align: middle;
+        transition:all 0.2s ease-in-out;
+        .bigbear-input-wrapper{
+            margin:0;
+            font-weight: $font-weight-bold;
+            border-radius: 5px;
+            .bigbear-input-inner{
+                text-align: center;
+            }
+        }
+    }
+}
