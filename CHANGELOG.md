@@ -1,4 +1,4 @@
-## 0.2.3 (2020-06-27)
+## 0.2.4 (2020-06-27)
 
 
 ### Bug Fixes
@@ -29,6 +29,7 @@
 * **grid:** compelete grid component ([c20436a](https://github.com/yehuozhili/bigbear-ui/commit/c20436a549e2dbe8a35a04c81035e2d6b4ab07b2))
 * **icon:** minimize icon size ; update doc; ([be254eb](https://github.com/yehuozhili/bigbear-ui/commit/be254eb199ea2519ad1a3b2bc66c9e752ec23c16))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
+* **inputnumber:** complete InputNumber ([494878b](https://github.com/yehuozhili/bigbear-ui/commit/494878b210ad221a930a30dd099a7e1261996499))
 * **layout:** complete layout component ([716ca03](https://github.com/yehuozhili/bigbear-ui/commit/716ca03ed50d5ad965835bfacb4e6609c5212b14))
 * **menu:** expose menu custom configue; ([1b80507](https://github.com/yehuozhili/bigbear-ui/commit/1b80507ef3b10c71af6136b4b1d09138a9183e29))
 * **menu:** initial implement menu component ([33a29c7](https://github.com/yehuozhili/bigbear-ui/commit/33a29c77471183a3fcb14ddf742e351576c8d3b0))
