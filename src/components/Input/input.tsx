@@ -25,7 +25,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLElement> {
 	/**父组件接管受控组件,父组件传value属性做state */
 	setValueCallback?: (v: string) => void;
 	/** 父组件接管状态时传递 */
-	value: string;
+	value?: string | undefined;
 }
 
 export const Input: FC<InputProps> = (props: InputProps) => {

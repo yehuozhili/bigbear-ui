@@ -79,7 +79,7 @@ export const AutoComplete: FC<AutoCompleteType> = (props) => {
 		...restProps
 	} = props;
 	const [dropdown, setDropDown] = useState<DataSourceType[]>([]);
-	const [state, setState] = useState(value ? value : "");
+	const [state, setState] = useState(value!);
 	const [loading, setLoading] = useState(false);
 	const [highlightIndex, setHighlightIndex] = useState(-1);
 	const debouncedValue = useDebounce(state, delay);
@@ -140,7 +140,7 @@ export const AutoComplete: FC<AutoCompleteType> = (props) => {
 	return (
 		<div className="bigbear-autocomplete" ref={autoRef}>
 			<Input
-				value={state}
+				value={state!}
 				{...restProps}
 				setValueCallback={setState}
 				onKeyDown={handlekeyDown}
@@ -167,7 +167,8 @@ export const AutoComplete: FC<AutoCompleteType> = (props) => {
 };
 
 AutoComplete.defaultProps = {
-	delay: 500
+	delay: 500,
+	value: ""
 };
 
 export default AutoComplete;
