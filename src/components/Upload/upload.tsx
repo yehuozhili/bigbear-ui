@@ -187,6 +187,9 @@ function Upload(props: UploadProps) {
 	};
 	const handleSubmit = useCallback(
 		(files: FileList | null) => {
+			if (inputRef.current) {
+				inputRef.current.setAttribute("value", "");
+			}
 			let resFiles;
 			files ? (resFiles = files) : (resFiles = file);
 			if (customSubmit) {
@@ -300,7 +303,6 @@ function Upload(props: UploadProps) {
 						onChange={handleChange}
 						multiple={multiple}
 						accept={accept}
-						value={""}
 					></input>
 					<Button onClick={buttonclick} {...uploadBtnAtr}>
 						{uploadBtn}
