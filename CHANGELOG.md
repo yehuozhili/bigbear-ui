@@ -1,8 +1,9 @@
-## 0.2.4 (2020-06-27)
+## 0.2.5 (2020-06-30)
 
 
 ### Bug Fixes
 
+* **upload:** fix upload confirm bug ([ecb7d71](https://github.com/yehuozhili/bigbear-ui/commit/ecb7d7185dba7b46ceda1cc02e6e3e0aeaf4be1d))
 * diplay components may have error attr ([0dfc316](https://github.com/yehuozhili/bigbear-ui/commit/0dfc316a0d4da2b42ba9487622cb537242c2ae4b))
 * **autocomplete:** fix autocomplete callback bug ([f4e7631](https://github.com/yehuozhili/bigbear-ui/commit/f4e76311cfb3bdf3ef012b7d0a16f5e3f6c4bc79))
 * **message:** fix message close animation bug ([5bc6a0e](https://github.com/yehuozhili/bigbear-ui/commit/5bc6a0e783aca534d1ddbc3d2b52d52377dc54f2))
