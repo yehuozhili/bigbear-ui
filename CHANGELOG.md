@@ -1,4 +1,4 @@
-## 0.2.5 (2020-06-30)
+## 0.2.6 (2020-07-01)
 
 
 ### Bug Fixes
@@ -28,6 +28,7 @@
 * **divider:** complete divider component ([c4e24f5](https://github.com/yehuozhili/bigbear-ui/commit/c4e24f586f1e5e781f48515eb7c31e8859d49466))
 * **form&useform:** complete form and useForm ,change input style ([076d913](https://github.com/yehuozhili/bigbear-ui/commit/076d9136290521fa45f40c283fe38e92f72190de))
 * **grid:** compelete grid component ([c20436a](https://github.com/yehuozhili/bigbear-ui/commit/c20436a549e2dbe8a35a04c81035e2d6b4ab07b2))
+* **i18n:** complete i18n component ([0207b7b](https://github.com/yehuozhili/bigbear-ui/commit/0207b7bc235b1b8ad5155849dfa4288464fc9d18))
 * **icon:** minimize icon size ; update doc; ([be254eb](https://github.com/yehuozhili/bigbear-ui/commit/be254eb199ea2519ad1a3b2bc66c9e752ec23c16))
 * **input:** compelet input component ([c8284cc](https://github.com/yehuozhili/bigbear-ui/commit/c8284cc6138aa882fd4873674dfb3616b6b7b791))
 * **inputnumber:** complete InputNumber ([494878b](https://github.com/yehuozhili/bigbear-ui/commit/494878b210ad221a930a30dd099a7e1261996499))
