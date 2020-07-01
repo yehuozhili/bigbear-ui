@@ -1,0 +1,85 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  I18n  from './i18n';
+import  I18nExampleApp from './i18n.example'
+
+<Meta title='REACTION |I18n 国际化' component={I18n} />
+
+<br/>
+
+# I18n 国际化
+<br/>
+
+## 基本使用
+
+传入默认语言和library即可。
+把组件放在根节点上。
+需要使用国际化地方直接useContext即可。
+类组件使用Context.Consumer拿到Context上的state。
+
+默认名需要等于combinedLibrary的key名。
+进行切换时，传入的也是combinedLibrary的键名。
+
+
+
+
+
+```jsx
+const zh = {
+	language: "语言",
+	apple: "苹果"
+};
+const en = {
+	language: "english language",
+	apple: "english apple"
+};
+const combinedLibrary = {
+	zh,
+	en
+};
+export default function I18nExampleApp() {
+	return (
+		<I18n defaultLang={"zh"} library={combinedLibrary}>
+			<Child></Child>
+		</I18n>
+	);
+}
+function Child() {
+	let { state, toggle } = useContext(Context);
+	return (
+		<div>
+			<Badge count={state.language}></Badge>
+			<Badge count={state.apple}></Badge>
+			<div>
+				<Button
+					onClick={() => {
+						toggle("zh");
+					}}
+				>
+					切换中文
+				</Button>
+			</div>
+			<Button
+				onClick={() => {
+					toggle("en");
+				}}
+			>
+				切换英文
+			</Button>
+		</div>
+	);
+}
+```
+
+
+<Preview>
+    <Story name='default'>
+        <I18nExampleApp ></I18nExampleApp>
+    </Story>
+</Preview>
+
+
+
+
+## 属性详情
+
+<Props of={I18n}/>
