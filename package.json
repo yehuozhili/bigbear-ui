@@ -134,6 +134,7 @@
   "np": {
     "yolo":true,
     "contents": "dist",
-    "preview":true
+    "preview":true,
+    "tests":false
 }
 }
