@@ -1,3 +1,7 @@
+## [0.2.7-1](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.7-0...v0.2.7-1) (2020-07-04)
+
+
+
 ## [0.2.7-0](https://github.com/yehuozhili/bigbear-ui/compare/616d66e66751d0a5a403f5ec93a377cee63fb8b2...v0.2.7-0) (2020-07-04)
 
 
