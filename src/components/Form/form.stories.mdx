@@ -18,6 +18,22 @@ Form组件就是个壳，需要结合useForm使用，useForm相比于传统封�
 
 <Button onClick={linkTo('HOOKS|useForm 表单验证器', 'FormExample')}>跳转至useForm</Button>
 
+<br/>
+
+<br/>
+
+<Button	
+    onClick={linkTo("PAGE | Login Page 登录页", "default")}
+>
+Login example
+</Button>
+
+<Button	
+    onClick={linkTo("PAGE | Register Page 注册页", "default")}
+>
+Register example
+</Button>
+
 ```jsx
 function FormExample(){
     const [handleSubmit,callbackObj,validate,blurObj]=useForm([ 

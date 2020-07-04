@@ -32,6 +32,8 @@ import { faAtom } from "@fortawesome/free-solid-svg-icons/faAtom";
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter";
 import { faFileAlt } from "@fortawesome/free-solid-svg-icons/faFileAlt";
 import { faImage } from "@fortawesome/free-solid-svg-icons/faImage";
+import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 
 library.add(
 	faCoffee,
@@ -63,7 +65,9 @@ library.add(
 	faAtom,
 	faFilter,
 	faFileAlt,
-	faImage
+	faImage,
+	faLock,
+	faEnvelope
 );
 
 export type ThemeProps =

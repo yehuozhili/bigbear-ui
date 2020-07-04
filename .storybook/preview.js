@@ -55,6 +55,8 @@ const loaderFn = () => {
 		require("../src/components/Popconfirm/popconfirm.stories.mdx"),
 		require("../src/components/Message/message.stories.mdx"),
 		require("../src/components/I18n/i18n.stories.mdx"),
+		require("../src/page/login.stories.mdx"),
+		require("../src/page/register.stories.mdx"),
 		require("../src/components/Transition/transition.stories.mdx"),
 		require("../src/hooks/useForm.stories.mdx"),
 		require("../src/hooks/useClickOutside.stories.mdx"),
