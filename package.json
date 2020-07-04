@@ -133,6 +133,8 @@
   ],
   "np": {
     "yolo": true,
-    "tests": false
+    "yarn": false,
+    "contents": "dist",
+    "preview":true
   }
 }

@@ -1,0 +1,8 @@
+.storybook
+.vscode
+coverage
+node_modules
+plop-template
+public
+src
+storybook-static

@@ -1,4 +1,4 @@
-## 0.2.6 (2020-07-01)
+## [0.2.7-0](https://github.com/yehuozhili/bigbear-ui/compare/616d66e66751d0a5a403f5ec93a377cee63fb8b2...v0.2.7-0) (2020-07-04)
 
 
 ### Bug Fixes
@@ -23,6 +23,7 @@
 * **avatar&list:** complete avatar and list ; change menu style ; fix alert bug ; ([407cc83](https://github.com/yehuozhili/bigbear-ui/commit/407cc830d62a6a710493f53d58e7ca93264faf16))
 * **badge:** complete badge component ([cd5a84e](https://github.com/yehuozhili/bigbear-ui/commit/cd5a84eb6df426e1a8cb0fd499bbccc12b25648f))
 * **button:** complete button component ([616d66e](https://github.com/yehuozhili/bigbear-ui/commit/616d66e66751d0a5a403f5ec93a377cee63fb8b2))
+* **card:** complete card component ([a318f95](https://github.com/yehuozhili/bigbear-ui/commit/a318f9562e6b2ae45f7b6bb40169549a972aadfb))
 * **carousel:** use prettier and complete carousel ([9fd3338](https://github.com/yehuozhili/bigbear-ui/commit/9fd3338d0c1b430e29c8bf0c5ace3953c28d05c3))
 * **checkbox:** complete checkbox and add animate to radio ([7a975e5](https://github.com/yehuozhili/bigbear-ui/commit/7a975e520de9b01c10ece3d967328ee3c4f76f8a))
 * **divider:** complete divider component ([c4e24f5](https://github.com/yehuozhili/bigbear-ui/commit/c4e24f586f1e5e781f48515eb7c31e8859d49466))
