@@ -1,6 +1,6 @@
 {
   "name": "bigbear-ui",
-  "version": "0.2.7-0",
+  "version": "0.2.7-1",
   "description": "Neumorphic component library for React;基于React制作的拟物风格组件库",
   "keywords": [
     "component",
@@ -55,7 +55,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog",
     "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx",
-    "pub":"npm run build && npx np"
+    "pub": "npm run build && npx np"
   },
   "eslintConfig": {
     "extends": "react-app"
