@@ -1,0 +1,85 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Card  from './card';
+import Icon from '../Icon';
+import Button from '../Button'
+
+<Meta title='DISPLAY |Card 卡片' component={ Card }/>
+
+<br/>
+
+# Card 卡片
+<br/>
+
+## 基本使用
+
+<Preview>
+    <Story name='default'>
+        <Card 
+        img={<img 
+        src='http://n.sinaimg.cn/tech/5_img/upload/598c9e2d/153/w572h381/20200622/af00-ivffpct3576810.jpg'> 
+        </img>}
+        style={{width:'300px'}}
+        bottomTitle='日偏食'
+        bottomDescription='当地时间2020年6月21日，全球多国上演“超级日环食”奇观，这次日环食是本世纪迄今为止最壮观的一次。太阳将有超过99%的面积被月球遮住，只剩下一圈金边，非常罕见，又被称为“金边日食”。'
+        ></Card>
+    </Story>
+</Preview>
+
+## color&elevate
+
+<Preview>
+    <Story name='default2'>
+        <Card 
+        img={<img 
+        src='http://n.sinaimg.cn/tech/5_img/upload/598c9e2d/153/w572h381/20200622/af00-ivffpct3576810.jpg'> 
+        </img>}
+        cardType='primary'
+        elevateCard='wrapper'
+      
+        imgType='danger'
+        bottomType='info'
+        style={{width:'300px'}}
+        bottomTitle='日偏食'
+        bottomDescription='当地时间2020年6月21日，全球多国上演“超级日环食”奇观，这次日环食是本世纪迄今为止最壮观的一次。太阳将有超过99%的面积被月球遮住，只剩下一圈金边，非常罕见，又被称为“金边日食”。'
+        ></Card>
+    </Story>
+</Preview>
+
+## id
+
+<Preview>
+    <Story name='default3'>
+        <Card 
+            avatarProps={{
+                children:<img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>,
+                round:true
+                
+                }}
+            type='id'
+            idText={<div >
+                    <div style={{fontWeight:700}}>yehuozhili</div>
+                    <div>bigbear-ui</div>
+                </div>}
+       
+        style={{width:'300px'}}
+        >
+        <div style={{display:'flex',alignItem:'center',justifyContent:'space-evenly'}}>
+            <Button>
+            <Icon icon='coffee'></Icon>
+            </Button>
+              <Button>
+            <Icon icon='user'></Icon>
+            </Button>
+              <Button>
+            <Icon icon='bookmark'></Icon>
+            </Button>
+        </div>
+        </Card>
+    </Story>
+</Preview>
+
+
+
+## 属性详情
+
+<Props of={ Card }/>

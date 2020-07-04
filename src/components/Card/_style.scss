@@ -1,0 +1,27 @@
+.bigbear-card-wrapper{
+    padding:$card-wrapper-padding;
+    .bigbear-card-img{
+        width:100%;
+        padding:$card-wrapper-padding;
+        >img{
+            width: 100%;
+        }
+    }
+    .bigbear-card-bottom{
+        padding:$card-wrapper-padding;
+        .bigbear-card-btitle{
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+
+        }
+    }
+    .bigbear-card-id{
+        display: flex;
+        justify-content:flex-start;
+        align-items: center;
+        .bigbear-card-text{
+            flex:1;
+            margin-left: $card-wrapper-padding *2 ;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React, { FC, DOMAttributes } from "react";
 import classNames from "classnames";
 
-interface AvatarProps extends DOMAttributes<HTMLDivElement> {
+export interface AvatarProps extends DOMAttributes<HTMLDivElement> {
 	/** 大小*/
 	size?: "lg" | "sm" | "default";
 	/** 圆形 */

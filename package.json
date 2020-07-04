@@ -100,6 +100,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.2.5",
     "node-sass": "^4.14.1",
+    "np": "^6.2.5",
     "plop": "^2.7.1",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
@@ -129,5 +130,10 @@
     "dist/esm/**/*.scss",
     "dist/cjs/**/*.scss",
     "dist/*.css"
-  ]
+  ],
+  "np": {
+    "yolo":true,
+    "contents": "dist",
+    "preview":true
+}
 }

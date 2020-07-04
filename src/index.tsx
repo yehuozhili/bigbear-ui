@@ -29,6 +29,8 @@ export { default as Row } from "./components/Grid";
 export { Col } from "./components/Grid";
 export { default as Upload } from "./components/Upload";
 export { default as InputNumber } from "./components/InputNumber";
+export { default as Card } from "./components/Card";
+export { default as I18n } from "./components/I18n";
 
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { default as useDebounce } from "./hooks/useDebounce";
