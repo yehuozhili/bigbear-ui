@@ -133,7 +133,6 @@
   ],
   "np": {
     "yolo":true,
-    "contents": "dist",
     "tests":false
-}
+  }
 }
