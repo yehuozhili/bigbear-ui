@@ -41,7 +41,7 @@
     "start": "react-scripts start",
     "clean": "rimraf ./dist",
     "lint": "eslint --ext js,ts,tsx src",
-    "build": "npm run clean   && npx gulp && npm run build-css ",
+    "build": "npm run clean   && npx gulp && npm run build-css  ",
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
@@ -54,7 +54,8 @@
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "prepublishOnly": "npm run test:nowatch & npm run lint & npm run build & npm run changelog",
-    "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx"
+    "prettier": "prettier --config ./.prettierrc.js --write ./src/**/*.tsx",
+    "pub":"npm run build && npx np"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -133,8 +134,6 @@
   ],
   "np": {
     "yolo": true,
-    "yarn": false,
-    "contents": "dist",
-    "preview":true
+    "yarn": false
   }
 }
