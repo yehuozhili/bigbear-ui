@@ -1,3 +1,17 @@
+## [0.2.7](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.7-1...v0.2.7) (2020-07-06)
+
+
+### Bug Fixes
+
+* **virtuallist:** virtuallist event havnt remove when resize ([8bf623b](https://github.com/yehuozhili/bigbear-ui/commit/8bf623bc1cb00814ec40357a13d837c12650abc8))
+
+
+### Features
+
+* **inputnumber:** inputnumber can change state to parents now ([2d21405](https://github.com/yehuozhili/bigbear-ui/commit/2d214054b3c72a73d034a27c79fcdbe47b55ddf0))
+
+
+
 ## [0.2.7-1](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.7-0...v0.2.7-1) (2020-07-04)
 
 
