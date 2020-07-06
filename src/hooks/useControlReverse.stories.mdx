@@ -1,0 +1,13 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title='HOOKS | useControlReverse  父组件接管受控组件状态hook'  />
+
+# useControlReverse  父组件接管受控组件状态hook
+
+<br/>
+
+第一个参数为原state，第二个参数为父组件state，第三个参数为原setState，最后个参数为父组件setState
+
+```jsx
+function useControlReverse<T, F>(value: T, replaceValue: T | undefined, setState: F, replaceSetState: F | undefined): [T, F]
+```

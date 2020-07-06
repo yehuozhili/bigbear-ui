@@ -3,6 +3,7 @@ import Icon from "../Icon";
 import Button from "../Button";
 import Input, { InputProps } from "../Input/input";
 import { ButtonProps } from "../Button/button";
+import useControlReverse from "../../hooks/useControlReverse";
 
 function betterparseInt(value: string) {
 	let res = parseInt(value);
@@ -57,6 +58,10 @@ export interface InputNumberProps extends Omit<InputProps, "defaultValue"> {
 	className?: string;
 	/** 两边按钮配置属性*/
 	btnProps?: ButtonProps;
+	/** 父组件接管的input值，注意！传的是string */
+	parentValue?: string;
+	/** 父组件接管的setstate值，注意！dispatch的是string */
+	parentSetState?: React.Dispatch<React.SetStateAction<string>>;
 	/** input的高*/
 	height: string;
 	/** 不使用内部验证器，自定义验证器*/
@@ -82,10 +87,20 @@ function InputNumber(props: InputNumberProps) {
 		className,
 		btnProps,
 		height,
+		parentSetState,
+		parentValue,
 		...restProps
 	} = props;
-	const [state, setState] = useState(defaultValue! + "");
+	const [innerState, setInnerState] = useState(defaultValue! + "");
 	const [visible, setVisible] = useState(initialVisible!);
+
+	const [state, setState] = useControlReverse(
+		innerState,
+		parentValue,
+		setInnerState,
+		parentSetState
+	);
+
 	const handleOnchange = (e: string) => {
 		if (customValidate) {
 			const res = customValidate(e, setState);

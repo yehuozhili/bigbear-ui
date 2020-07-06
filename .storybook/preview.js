@@ -61,7 +61,8 @@ const loaderFn = () => {
 		require("../src/hooks/useForm.stories.mdx"),
 		require("../src/hooks/useClickOutside.stories.mdx"),
 		require("../src/hooks/useDebounce.stories.mdx"),
-		require("../src/hooks/useStopScroll.stories.mdx")
+		require("../src/hooks/useStopScroll.stories.mdx"),
+		require("../src/hooks/useControlReverse.stories.mdx")
 	];
 };
 configure(loaderFn, module);
