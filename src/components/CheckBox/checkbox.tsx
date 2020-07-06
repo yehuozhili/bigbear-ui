@@ -1,4 +1,4 @@
-import React, { useState, PropsWithChildren, useMemo } from "react";
+import React, { useState, PropsWithChildren, useMemo, CSSProperties } from "react";
 import classnames from "classnames";
 
 interface CheckBoxProps {
@@ -18,6 +18,8 @@ interface CheckBoxProps {
 	parentState?: Array<boolean>;
 	/** 是否显示文字 */
 	text?: boolean;
+	/** 外层容器样式，有时可能需要把box-shadow设置none*/
+	style?: CSSProperties;
 }
 
 function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
@@ -29,6 +31,7 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 		disableIndex,
 		parentSetStateCallback,
 		parentState,
+		style,
 		text
 	} = props;
 	const classes = classnames("bigbear-checkbox-wrapper", className);
@@ -49,7 +52,7 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 	}, [data.length, defaultIndexArr]);
 	const [state, setState] = useState<Array<boolean>>(initArr);
 	return (
-		<div className={classes}>
+		<div className={classes} style={style}>
 			{data.map((value, index) => {
 				const judgeStateIndex = parentState ? parentState[index] : state[index];
 				return (

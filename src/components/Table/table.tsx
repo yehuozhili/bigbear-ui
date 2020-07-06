@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, ReactNode } from "react";
+import React, { useState, useMemo, useEffect, ReactNode, CSSProperties } from "react";
 import Icon from "../Icon";
 import Pagination from "../Pagination";
 
@@ -13,6 +13,10 @@ export interface TableProps {
 	pagination?: boolean;
 	/** 开启页码时才有效，设置每页显示几个*/
 	pageSize?: number;
+	/** 外层容器类名*/
+	className?: string;
+	/** 外层容器样式*/
+	style?: CSSProperties;
 }
 
 export interface SourceDataType {
@@ -51,7 +55,7 @@ const MapData = (data: SourceDataType[], columnData: ColumnType[]) => {
 };
 
 function Table(props: TableProps) {
-	const { data, columns, sorted, pagination, pageSize } = props;
+	const { data, columns, sorted, pagination, pageSize, className, style } = props;
 	const [sourceData, setSourceData] = useState<SourceDataType[]>([]);
 	const [columnData, setColumnData] = useState<ColumnType[]>([]);
 	const [sortedData, setSortedData] = useState<SourceDataType[]>([]);
@@ -100,7 +104,7 @@ function Table(props: TableProps) {
 		}
 	}, [originPagination, sortedData]);
 	return (
-		<div className="bigbear-table-container">
+		<div className={`bigbear-table-container ${className ? className : ""}`} style={style}>
 			<div className="bigbear-table-wrapper">
 				<table className="bigbear-table-table">
 					<thead className="bigbear-table-head">

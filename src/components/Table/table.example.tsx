@@ -1,6 +1,10 @@
-import React from "react";
-import { SourceDataType } from "./table";
+import React, { useState } from "react";
+import Table, { SourceDataType } from "./table";
 import Button from "../Button";
+import CheckBox from "../CheckBox";
+import InputNumber from "../InputNumber";
+import Popconfirm from "../Popconfirm";
+import { stat } from "fs";
 
 export const columns = [
 	{
@@ -132,3 +136,98 @@ export const columnsRender = [
 		render: (data: number) => <Button>{data}</Button>
 	}
 ];
+
+function TableCheckbox() {
+	const data = [
+		{
+			key: "1",
+			lesson: "react",
+			checked: true
+		},
+		{
+			key: "2",
+			lesson: "vue",
+			checked: false
+		},
+		{
+			key: "3",
+			lesson: "math",
+			checked: false
+		},
+		{
+			key: "4",
+			lesson: "english",
+			checked: false
+		}
+	];
+	const [state, setState] = useState<SourceDataType[]>(data);
+	const columns = [
+		{
+			title: (
+				<div>
+					<div>全选</div>
+					<CheckBox
+						data={[""]}
+						parentState={
+							state.filter((v) => v.checked === true).length === data.length
+								? [true]
+								: [false]
+						}
+						style={{ boxShadow: "none", background: "none" }}
+						text={false}
+						parentSetStateCallback={(e: boolean[], i: number) => {
+							let tmp = state.map((v) => {
+								v.checked = !e[0];
+								return v;
+							});
+							setState([...tmp]);
+						}}
+					/>
+				</div>
+			),
+			dataIndex: "count",
+			render: (_val: number, row: SourceDataType) => (
+				<CheckBox
+					data={[""]}
+					parentState={[state.find((v) => v.key === row.key)!.checked]}
+					style={{ boxShadow: "none", background: "none" }}
+					text={false}
+					parentSetStateCallback={(e: boolean[]) => {
+						let tmp = state;
+						tmp.find((v) => v.key === row.key)!.checked = !e[0];
+						setState([...tmp]);
+					}}
+				/>
+			)
+		},
+		{
+			title: "商品",
+			dataIndex: "lesson",
+			render: (val: string) => (
+				<>
+					<p>{val}</p>
+				</>
+			)
+		},
+		{
+			title: "操作",
+			dataIndex: "option",
+			render: () => (
+				<Popconfirm
+					title="是否要删除商品?"
+					directions="LEFT"
+					callback={(v: boolean) => {}}
+					okText="是"
+					cancelText="否"
+					wrapperNode={
+						<Button size="sm" btnType="danger">
+							删除
+						</Button>
+					}
+				></Popconfirm>
+			)
+		}
+	];
+	return <Table columns={columns} data={data}></Table>;
+}
+export { TableCheckbox };
