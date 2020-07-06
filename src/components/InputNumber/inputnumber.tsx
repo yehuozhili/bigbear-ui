@@ -2,29 +2,39 @@ import React, { useState } from "react";
 import Icon from "../Icon";
 import Button from "../Button";
 import Input, { InputProps } from "../Input/input";
+import { ButtonProps } from "../Button/button";
+
+function betterparseInt(value: string) {
+	let res = parseInt(value);
+	if (isNaN(res)) {
+		return 0;
+	} else {
+		return res;
+	}
+}
 
 function transformCalc(value: string, add: boolean, tmp: number) {
 	if (add) {
-		return parseInt(value) + tmp + "";
+		return betterparseInt(value) + tmp + "";
 	} else {
-		return parseInt(value) - tmp + "";
+		return betterparseInt(value) - tmp + "";
 	}
 }
 function transformString(v: string, maxNumber: number | undefined, minNumber: number | undefined) {
 	if (v === "") {
 		return "";
 	} else {
-		if (maxNumber && parseInt(v) > maxNumber) {
+		if (maxNumber && betterparseInt(v) > maxNumber) {
 			return maxNumber + "";
 		}
-		if (minNumber && parseInt(v) < minNumber) {
+		if (minNumber && betterparseInt(v) < minNumber) {
 			return minNumber + "";
 		}
-		return parseInt(v) + "";
+		return betterparseInt(v) + "";
 	}
 }
 
-export interface InputNumberProps extends Omit<InputProps, "value"> {
+export interface InputNumberProps extends Omit<InputProps, "defaultValue"> {
 	/** 容器宽度*/
 	width?: number;
 	/**输入框宽度 */
@@ -40,11 +50,15 @@ export interface InputNumberProps extends Omit<InputProps, "value"> {
 	/** 最小下限 */
 	minNumber?: number;
 	/** 初始值*/
-	defaultValue?: string;
+	defaultValue?: number;
 	/** 控制2个按钮初始状态 */
 	initialVisible?: boolean;
 	/** 外层容器类名 */
 	className?: string;
+	/** 两边按钮配置属性*/
+	btnProps?: ButtonProps;
+	/** input的高*/
+	height: string;
 	/** 不使用内部验证器，自定义验证器*/
 	customValidate?: (e: string, setState: React.Dispatch<React.SetStateAction<string>>) => string;
 }
@@ -66,9 +80,11 @@ function InputNumber(props: InputNumberProps) {
 		defaultValue,
 		initialVisible,
 		className,
+		btnProps,
+		height,
 		...restProps
 	} = props;
-	const [state, setState] = useState(defaultValue!);
+	const [state, setState] = useState(defaultValue! + "");
 	const [visible, setVisible] = useState(initialVisible!);
 	const handleOnchange = (e: string) => {
 		if (customValidate) {
@@ -88,7 +104,10 @@ function InputNumber(props: InputNumberProps) {
 		}
 	};
 	return (
-		<div className={`bigbear-inputnumber-wrapper ${className}`} style={{ width }}>
+		<div
+			className={`bigbear-inputnumber-wrapper ${className ? className : ""}`}
+			style={{ width }}
+		>
 			<div
 				className={`bigbear-inputnumber-prev`}
 				style={{ display: visible ? "inline-block" : "none" }}
@@ -105,6 +124,7 @@ function InputNumber(props: InputNumberProps) {
 							return res;
 						})
 					}
+					{...btnProps}
 				>
 					<Icon icon="angle-left"></Icon>
 				</Button>
@@ -117,7 +137,12 @@ function InputNumber(props: InputNumberProps) {
 					setVisible(!visible);
 				}}
 			>
-				<Input value={state} setValueCallback={handleOnchange} {...restProps}></Input>
+				<Input
+					value={state}
+					setValueCallback={handleOnchange}
+					{...{ height: height }}
+					{...restProps}
+				></Input>
 			</div>
 			<div
 				className="bigbear-inputnumber-next"
@@ -135,6 +160,7 @@ function InputNumber(props: InputNumberProps) {
 							return res;
 						})
 					}
+					{...btnProps}
 				>
 					<Icon icon="angle-right"></Icon>
 				</Button>
@@ -148,8 +174,9 @@ InputNumber.defaultProps = {
 	inputWidth: 50,
 	extraWidth: 20,
 	step: 1,
-	defaultValue: "0",
-	initialVisible: false
+	defaultValue: 0,
+	initialVisible: false,
+	height: "32px"
 };
 
 export default InputNumber;

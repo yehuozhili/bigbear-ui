@@ -26,6 +26,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLElement> {
 	setValueCallback?: (v: string) => void;
 	/** 父组件接管状态时传递 */
 	value?: string | undefined;
+	/** 组件高度*/
+	height?: string;
 }
 
 export const Input: FC<InputProps> = (props: InputProps) => {
@@ -39,6 +41,7 @@ export const Input: FC<InputProps> = (props: InputProps) => {
 		refcallback,
 		setValueCallback,
 		value,
+		height,
 		...restProps
 	} = props;
 	const cnames = classNames("bigbear-input-wrapper", {
@@ -54,9 +57,14 @@ export const Input: FC<InputProps> = (props: InputProps) => {
 
 	return (
 		<div className={cnames} style={style}>
-			{prepend && <div className="bigbear-input-group-prepend">{prepend}</div>}
+			{prepend && (
+				<div className="bigbear-input-group-prepend" style={{ height }}>
+					{prepend}
+				</div>
+			)}
 			<input
 				ref={ref}
+				style={{ height }}
 				className="bigbear-input-inner"
 				disabled={disabled}
 				value={setValueCallback ? value : inputvalue}
@@ -66,7 +74,11 @@ export const Input: FC<InputProps> = (props: InputProps) => {
 				}}
 				{...restProps}
 			/>
-			{append && <div className="bigbear-input-group-append">{append}</div>}
+			{append && (
+				<div className="bigbear-input-group-append" style={{ height }}>
+					{append}
+				</div>
+			)}
 		</div>
 	);
 };

@@ -107,13 +107,13 @@ function VirtualList(props: Props) {
 				});
 			});
 		};
+		const combinedFunc = throttle(scrollFunc, props.delay!);
 		if (props.scrollDom) {
-			props.scrollDom.addEventListener("scroll", throttle(scrollFunc, props.delay!));
+			props.scrollDom.addEventListener("scroll", combinedFunc);
 		}
 		if (props.onloadFunc) props.onloadFunc();
 		return () => {
-			if (props.scrollDom)
-				props.scrollDom.removeEventListener("scroll", throttle(scrollFunc, props.delay!));
+			if (props.scrollDom) props.scrollDom.removeEventListener("scroll", combinedFunc);
 		};
 	}, [props]);
 	return (

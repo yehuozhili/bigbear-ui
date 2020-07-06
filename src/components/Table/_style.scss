@@ -16,6 +16,7 @@
 
                 padding:10px;
                 position: relative;
+                text-align: center;
                 .bigbear-table-icon{
                     cursor: pointer;
                     position: absolute;
@@ -36,8 +37,9 @@
                 }
                 .bigbear-table-data-item{
                     @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
-
-                    padding: 10px;
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                 }
             }
         }

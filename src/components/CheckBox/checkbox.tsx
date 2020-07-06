@@ -16,6 +16,8 @@ interface CheckBoxProps {
 	parentSetStateCallback?: (e: boolean[], index: number) => void;
 	/**控制转移的state */
 	parentState?: Array<boolean>;
+	/** 是否显示文字 */
+	text?: boolean;
 }
 
 function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
@@ -26,7 +28,8 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 		className,
 		disableIndex,
 		parentSetStateCallback,
-		parentState
+		parentState,
+		text
 	} = props;
 	const classes = classnames("bigbear-checkbox-wrapper", className);
 
@@ -79,7 +82,7 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 								judgeStateIndex ? "checkbox-active" : ""
 							}`}
 						></span>
-						<span className={"bigbear-checkbox-value"}>{value}</span>
+						{text ? <span className={"bigbear-checkbox-value"}>{value}</span> : null}
 					</label>
 				);
 			})}
@@ -88,7 +91,8 @@ function CheckBox(props: PropsWithChildren<CheckBoxProps>) {
 }
 
 CheckBox.defaultProps = {
-	data: []
+	data: [],
+	text: true
 };
 
 export default CheckBox;
