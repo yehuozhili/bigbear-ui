@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Table, { SourceDataType } from "./table";
 import Button from "../Button";
 import CheckBox from "../CheckBox";
-import InputNumber from "../InputNumber";
 import Popconfirm from "../Popconfirm";
-import { stat } from "fs";
 
 export const columns = [
 	{
@@ -165,7 +163,6 @@ function TableCheckbox() {
 		{
 			title: (
 				<div>
-					<div>全选</div>
 					<CheckBox
 						data={[""]}
 						parentState={
