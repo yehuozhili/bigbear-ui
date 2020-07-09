@@ -60,10 +60,26 @@ scss放入bigbear-ui/dist/esm/styles/index.scss。
 ```
 
 
+
+## 使用bigbear-ui-cli
+
+目前暂时只制作了一个模板供下载。如果需要react-router+redux+thunk以及mock数据可以使用此模板快速开发。
+
+https://www.npmjs.com/package/bigbear-ui-cli
+
+```
+npm i bigbear-ui-cli -g
+```
+
+## 项目demo 
+
+http://94.191.80.37:6698/#/
+
+<br/>
+
 ## 制作初衷
 
 制作一个属于自己的组件库应该是每个前端人员都有的梦想，有时候自己写出某些好的组件也想记录下来。
-
 
 <br/>
 
@@ -75,10 +91,3 @@ scss放入bigbear-ui/dist/esm/styles/index.scss。
 
 这种风格最适合做小工具，同时组件库体积又小，避免占太多空间。
 
-
-
-<br/>
-
-## 仍在开发中
-
-组件库仍不完善，处于初级阶段。
