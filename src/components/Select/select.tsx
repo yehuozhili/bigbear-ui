@@ -51,6 +51,7 @@ function Select(props: PropsWithChildren<SelectProps>) {
 	const [state, setState] = useState<string>(defaultValue!);
 	const [open, setOpen] = useState(false);
 	const ref = useRef(null);
+	const nodeRef = useRef(null);
 	useClickOutside(ref, () => setOpen(false));
 	useEffect(() => {
 		if (callback) callback(state);
@@ -68,8 +69,8 @@ function Select(props: PropsWithChildren<SelectProps>) {
 				</div>
 				{icon ? <div className="bigbear-select-icon">{icon}</div> : null}
 			</div>
-			<Transition in={open} animation="zoom-in-top" timeout={timeout!}>
-				<div className="bigbear-select-options">
+			<Transition nodeRef={nodeRef} in={open} animation="zoom-in-top" timeout={timeout!}>
+				<div ref={nodeRef} className="bigbear-select-options">
 					{data.map((item, index) => {
 						let renderRes = renderTemplate ? (
 							renderTemplate(item, index, setState, setOpen)

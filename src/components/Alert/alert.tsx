@@ -1,4 +1,12 @@
-import React, { FC, useState, useEffect, ReactNode, CSSProperties, DOMAttributes } from "react";
+import React, {
+	FC,
+	useState,
+	useEffect,
+	ReactNode,
+	CSSProperties,
+	DOMAttributes,
+	useRef
+} from "react";
 import classNames from "classnames";
 import Button from "../Button";
 import Icon from "../Icon";
@@ -76,6 +84,7 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 		`bigbear-alert-${type}`,
 		className ? className : ""
 	);
+	const nodeRef = useRef(null);
 	const [state, setState] = useState(!initAnimate);
 	useEffect(() => {
 		if (initAnimate) {
@@ -97,8 +106,9 @@ export const Alert: FC<AlertProps> = function(props: AlertProps) {
 			classNames={animateClassName ? animateClassName : ""}
 			timeout={timeout!}
 			wrapper={wrapper}
+			nodeRef={nodeRef}
 		>
-			<div className={classes} style={style} {...restProps}>
+			<div ref={nodeRef} className={classes} style={style} {...restProps}>
 				<span>
 					{icon && icon}
 					{title}

@@ -139,14 +139,19 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 		}
 		return () => clearTimeout(timer);
 	}, [autoplay, autoplayDelay, indexMap, totalLen]);
-
+	const nodeRef = useRef(null);
 	return (
 		<div className="bigbear-carousel-wrapper" ref={ref} style={{ width: `100%` }}>
 			<div
 				className="bigbear-carousel-viewport"
 				style={{ width: `100%`, height: `${height!}px` }}
 			>
-				<Transition in={animation.in} timeout={delay!} classNames={"bigbear-carousel"}>
+				<Transition
+					nodeRef={nodeRef}
+					in={animation.in}
+					timeout={delay!}
+					classNames={"bigbear-carousel"}
+				>
 					<div
 						style={{
 							display: "flex",
@@ -155,6 +160,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 							left: `${-bound?.width!}px`
 						}}
 						className={animation.direction}
+						ref={nodeRef}
 					>
 						{state.map((v, i) => (
 							<div

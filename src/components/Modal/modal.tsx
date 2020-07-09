@@ -84,7 +84,12 @@ function Modal(props: PropsWithChildren<ModalType>) {
 	const ref = useRef<HTMLDivElement>(null);
 	const render = useMemo(() => {
 		return createPortal(
-			<Transition in={visible} timeout={delay!} classNames={`bigbear-modal-animation`}>
+			<Transition
+				nodeRef={ref}
+				in={visible}
+				timeout={delay!}
+				classNames={`bigbear-modal-animation`}
+			>
 				<div
 					className={`bigbear-modal-potral ${visible ? "open" : ""} ${
 						className ? className : ""

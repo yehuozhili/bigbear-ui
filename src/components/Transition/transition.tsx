@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { CSSTransition } from "react-transition-group";
-import { CSSTransitionClassNames } from "react-transition-group/CSSTransition";
 import { TransitionProps } from "react-transition-group/Transition";
 
 export type AnimationName =
@@ -12,7 +11,7 @@ export type AnimationName =
 
 type InnerProps = TransitionProps & {
 	/** 需要自行添加css，动画名-enter，-enter-active,exit，-exit-active，原理就是改变类名产生动画效果 */
-	classNames?: string | CSSTransitionClassNames;
+	classNames?: string;
 };
 
 export type TransitionProp = InnerProps & {

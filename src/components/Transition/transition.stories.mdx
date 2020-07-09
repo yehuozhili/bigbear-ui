@@ -9,17 +9,31 @@ import  Transition  from './transition';
 
 
 ```jsx
- <Transition 
- in={state} //开启关闭状态
- animation={`zoom-in-top`}
+<Transition 
+in={state} //开启关闭状态
+animation={`zoom-in-top`}
 timeout={300} //动画持续时间
 wrapper={wrapper} > 
 {...your code}
 </Transition>
 ```
 
+## 注意，严格模式警告需要传递nodeRef消除
+
+```jsx
+const MyComponent = () => {
+  const nodeRef = React.useRef(null)
+  return (
+    <Transition nodeRef={nodeRef} in timeout={200} classNames="fade">
+      <div ref={nodeRef}>Fade</div>
+    </Transition>
+  )
+}
+```
+
+
 ## 属性详情
 
-unmountOnExit boolean 表示是否退出时卸载组件。
+unmountOnExit boolean 退出时卸载组件
 
 <Props of={Transition}   />

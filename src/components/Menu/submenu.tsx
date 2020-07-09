@@ -44,7 +44,8 @@ const renderChildren = (
 	index: string | undefined,
 	mode: "horizontal" | "vertical" | undefined,
 	setMenuopen: React.Dispatch<React.SetStateAction<boolean>>,
-	delay: number
+	delay: number,
+	nodeRef: React.RefObject<HTMLUListElement>
 ) => {
 	const classes = classNames("bigbear-submenu-children", {
 		"bigbear-menuopen": menuopen
@@ -60,13 +61,17 @@ const renderChildren = (
 			console.error("submenu must in menuItem");
 		}
 	});
+
 	return (
 		<Transition
+			nodeRef={nodeRef}
 			in={menuopen}
 			timeout={delay}
 			classNames={mode === "horizontal" ? "menu-zoom-in-top" : "menu-zoom-in-top-vertical"}
 		>
-			<ul className={classes}>{childrenComponent}</ul>
+			<ul ref={nodeRef} className={classes}>
+				{childrenComponent}
+			</ul>
 		</Transition>
 	);
 };
@@ -131,6 +136,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 			setMenuopen(true);
 		}
 	}, [isopen]);
+	const nodeRef = useRef<HTMLUListElement>(null);
 	return (
 		<li
 			key={index}
@@ -148,7 +154,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
 				{title ? title : null}
 				{icon && <Icon icon="angle-down" className="bigbear-submenu-icon"></Icon>}
 			</div>
-			{renderChildren(children, menuopen, index, context.mode, setMenuopen, delay!)}
+			{renderChildren(children, menuopen, index, context.mode, setMenuopen, delay!, nodeRef)}
 		</li>
 	);
 };
