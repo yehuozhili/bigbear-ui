@@ -1,4 +1,13 @@
-## [0.2.7](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.7-1...v0.2.7) (2020-07-06)
+## [0.2.9-0](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.8...v0.2.9-0) (2020-07-09)
+
+
+### Bug Fixes
+
+* **transition:** may cause wranning in strict mode ([5572029](https://github.com/yehuozhili/bigbear-ui/commit/5572029a750c4a7a5a593b82b2ca8b76443f71bf))
+
+
+
+## [0.2.8](https://github.com/yehuozhili/bigbear-ui/compare/v0.2.7-1...v0.2.8) (2020-07-06)
 
 
 ### Bug Fixes
