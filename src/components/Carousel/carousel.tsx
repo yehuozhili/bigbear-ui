@@ -78,6 +78,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 
 	useEffect(() => {
 		let child = props.children as ReactElement[];
+		let timer: number;
 		if (child) {
 			let tmp = indexMap.map((v) => {
 				return v !== -1 ? child[v] : null;
@@ -95,7 +96,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 				sign = false;
 				setAnimation({ in: false, direction: "left" });
 			}
-			setTimeout(() => {
+			timer = window.setTimeout(() => {
 				if (sign) {
 					setAnimation({ in: true, direction: "right" });
 				} else {
@@ -103,6 +104,7 @@ function Carousel(props: PropsWithChildren<CarouselType>) {
 				}
 			}, delay!);
 		}
+		return () => window.clearTimeout(timer);
 	}, [delay, indexMap, props.children]);
 
 	const ref = useRef<HTMLDivElement>(null);
